@@ -42,6 +42,15 @@ namespace project.View
         protected global::System.Web.UI.WebControls.RequiredFieldValidator reqName;
 
         /// <summary>
+        /// customValidatorName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator customValidatorName;
+
+        /// <summary>
         /// lblUsername control.
         /// </summary>
         /// <remarks>
@@ -67,6 +76,15 @@ namespace project.View
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator reqUsername;
+
+        /// <summary>
+        /// customValidatorUsername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator customValidatorUsername;
 
         /// <summary>
         /// lblPassword control.
@@ -96,6 +114,15 @@ namespace project.View
         protected global::System.Web.UI.WebControls.RequiredFieldValidator reqPassword;
 
         /// <summary>
+        /// customValidatorPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator customValidatorPassword;
+
+        /// <summary>
         /// lblConfirmPass control.
         /// </summary>
         /// <remarks>
@@ -121,6 +148,15 @@ namespace project.View
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqConfirmPass;
+
+        /// <summary>
+        /// customValidatorConfirmPass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator customValidatorConfirmPass;
 
         /// <summary>
         /// ddlRole control.
