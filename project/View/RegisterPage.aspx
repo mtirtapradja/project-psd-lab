@@ -6,18 +6,22 @@
         <div>
             <asp:Label ID="lblName" Text="Name" runat="server" />
             <asp:TextBox ID="txtName" runat="server" />
+            <asp:RequiredFieldValidator ControlToValidate="txtName" ID="reqName" runat="server" ErrorMessage="Name must be filled"></asp:RequiredFieldValidator>
         </div>
         <div>
             <asp:Label ID="lblUsername" Text="Username" runat="server" />
             <asp:TextBox ID="txtUsername" runat="server" />
+            <asp:RequiredFieldValidator ControlToValidate="txtUsername" ID="reqUsername" runat="server" ErrorMessage="Username must be filled"></asp:RequiredFieldValidator>
         </div>
         <div>
             <asp:Label ID="lblPassword" Text="Password" runat="server" />
             <asp:TextBox ID="txtPassword" placeholder="Password" TextMode="Password" runat="server" />
+            <asp:RequiredFieldValidator ControlToValidate="txtPassword" ID="reqPassword" runat="server" ErrorMessage="Password must be filled"></asp:RequiredFieldValidator>
         </div>
         <div>
             <asp:Label ID="lblConfirmPass" Text="Confirmation Password" runat="server" />
             <asp:TextBox ID="txtConfirmPass" placeholder="Confirm Password" TextMode="Password" runat="server" />
+            <asp:RequiredFieldValidator ControlToValidate="txtConfirmPass" ID="ReqConfirmPass" runat="server" ErrorMessage="Confirm Password must be filled"></asp:RequiredFieldValidator>
         </div>
         <div>
             <asp:DropDownList ID="ddlRole" runat="server">
