@@ -33,6 +33,15 @@ namespace project.View
         protected global::System.Web.UI.WebControls.TextBox txtName;
 
         /// <summary>
+        /// reqName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqName;
+
+        /// <summary>
         /// lblUsername control.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace project.View
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtUsername;
+
+        /// <summary>
+        /// reqUsername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqUsername;
 
         /// <summary>
         /// lblPassword control.
@@ -69,6 +87,15 @@ namespace project.View
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
 
         /// <summary>
+        /// reqPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqPassword;
+
+        /// <summary>
         /// lblConfirmPass control.
         /// </summary>
         /// <remarks>
@@ -85,6 +112,15 @@ namespace project.View
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtConfirmPass;
+
+        /// <summary>
+        /// ReqConfirmPass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqConfirmPass;
 
         /// <summary>
         /// ddlRole control.
