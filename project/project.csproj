@@ -67,13 +67,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="View\HomePage\SellerHomePage.aspx" />
     <Content Include="View\Login\LoginPage.aspx" />
     <Content Include="View\Login\style.css" />
+    <Content Include="View\Main.css" />
     <Content Include="View\Register\RegisterPage.aspx" />
     <Content Include="View\Register\style.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="View\HomePage\SellerHomePage.aspx.cs">
+      <DependentUpon>SellerHomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\HomePage\SellerHomePage.aspx.designer.cs">
+      <DependentUpon>SellerHomePage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\Main.Master.cs">
       <DependentUpon>Main.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
