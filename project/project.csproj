@@ -68,7 +68,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="View\Login\LoginPage.aspx" />
-    <Content Include="View\Main.css" />
     <Content Include="View\Register\RegisterPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
