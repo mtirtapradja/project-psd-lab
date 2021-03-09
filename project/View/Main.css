@@ -15,6 +15,7 @@ h1 {
     font-size: 25px;
     font-weight: bold;
     cursor: pointer;
+    align-content:center;
 }
 
 .login-btn .btn {
