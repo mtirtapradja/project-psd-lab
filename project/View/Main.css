@@ -1,8 +1,19 @@
 ﻿body {
+    
+    background-color: #937cf2;
 }
-h1{
-    margin-left:50%;
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    
 }
-.login{
-    margin-left:98%;
+.login {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #250a95;
+    color: #fff;
+    text-decoration: none;
+    padding: 20px 30px;
+    border-radius: 5px;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
 }

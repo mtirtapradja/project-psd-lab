@@ -14,7 +14,7 @@
         <h1>TAxAidi</h1>
         <hr />
         <div class="login">
-            <asp:Button ID="btnLogin" OnClick="btnLogin_Click1" Text="text" runat="server" />
+            <asp:Button ID="btnLogin" OnClick="btnLogin_Click" Text="Login" runat="server" />
         </div>
         <hr />
         <div>
