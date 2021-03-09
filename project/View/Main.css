@@ -6,8 +6,8 @@ h1 {
     font-family: Arial, Helvetica, sans-serif;
     
 }
-.login {
-    font-family: Arial, Helvetica, sans-serif;
+.btn {
+    align-items:end;
     background-color: #250a95;
     color: #fff;
     text-decoration: none;
@@ -16,4 +16,14 @@ h1 {
     font-size: 25px;
     font-weight: bold;
     cursor: pointer;
+}
+
+.login-btn .btn {
+    display: block;
+    border: none;
+    width: 10%;
+    background-color: #fff;
+    color: #250a95;
+    text-align: center;
+    padding: 10px 30px;
 }

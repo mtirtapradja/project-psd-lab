@@ -13,8 +13,8 @@
     <form id="form1" runat="server">
         <h1>TAxAidi</h1>
         <hr />
-        <div class="login">
-            <asp:Button ID="btnLogin" OnClick="btnLogin_Click" Text="Login" runat="server" />
+        <div class="login-btn">
+            <asp:Button CssClass="btn" ID="btnLogin" OnClick="btnLogin_Click" Text="Login" runat="server" />
         </div>
         <hr />
         <div>
