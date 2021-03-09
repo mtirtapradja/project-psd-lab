@@ -7,6 +7,7 @@ h1 {
     
 }
 .btn {
+    align-items:end;
     background-color: #250a95;
     color: #fff;
     text-decoration: none;
@@ -18,11 +19,11 @@ h1 {
 }
 
 .login-btn .btn {
-    align-items:flex-end;
+    display: block;
     border: none;
     width: 10%;
     background-color: #fff;
     color: #250a95;
-    text-align: end;
+    text-align: center;
     padding: 10px 30px;
 }
