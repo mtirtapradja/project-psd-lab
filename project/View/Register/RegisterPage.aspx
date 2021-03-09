@@ -6,7 +6,8 @@
         <div>
             <asp:Label ID="lblName" Text="Name" runat="server" />
             <asp:TextBox ID="txtName" runat="server" />
-            <asp:RequiredFieldValidator ControlToValidate="txtName" ID="reqName" runat="server" ErrorMessage="Name must be filled"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ControlToValidate="txtName" ID="reqName" runat="server" ErrorMessage="Name must be filled "></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ControlToValidate="txtName" ID="regName" runat="server" ErrorMessage="Alphabet only"></asp:RegularExpressionValidator>
         </div>
         <div>
             <asp:Label ID="lblUsername" Text="Username" runat="server" />
