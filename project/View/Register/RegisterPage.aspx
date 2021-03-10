@@ -2,14 +2,14 @@
 AutoEventWireup="true" CodeBehind="RegisterPage.aspx.cs"
 Inherits="project.View.RegisterPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-  <link rel="stylesheet" href="style.css" />
+  <%--<link rel="stylesheet" href="style.css" />--%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
+
   <div class="outer-container">
     <div class="inner-containter">
       <div class="modal">
         <h4>Register Page</h4>
-
         <div>
           <asp:Label ID="lblName" Text="Name" runat="server" />
           <asp:TextBox ID="txtName" runat="server" />
