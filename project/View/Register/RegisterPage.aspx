@@ -5,7 +5,6 @@ Inherits="project.View.RegisterPage" %>
   <%--<link rel="stylesheet" href="style.css" />--%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-
   <div class="outer-container">
     <div class="inner-containter">
       <div class="modal">
@@ -19,13 +18,13 @@ Inherits="project.View.RegisterPage" %>
             runat="server"
             ErrorMessage="Name must be filled "
           ></asp:RequiredFieldValidator>
-          <asp:CustomValidator 
-              ControlToValidate="txtName" 
-              ID="customValidatorName" 
-              runat="server" 
-              ErrorMessage="Length Between 1 and 30" 
-              OnServerValidate="customValidatorName_ServerValidate"
-           ></asp:CustomValidator>
+          <asp:CustomValidator
+            ControlToValidate="txtName"
+            ID="customValidatorName"
+            runat="server"
+            ErrorMessage="Length Between 1 and 30"
+            OnServerValidate="customValidatorName_ServerValidate"
+          ></asp:CustomValidator>
         </div>
 
         <div>
@@ -37,13 +36,13 @@ Inherits="project.View.RegisterPage" %>
             runat="server"
             ErrorMessage="Username must be filled "
           ></asp:RequiredFieldValidator>
-          <asp:CustomValidator 
-              ControlToValidate="txtUsername" 
-              ID="customValidatorUsername" 
-              runat="server" 
-              ErrorMessage="Length Between 6 and 20" 
-              OnServerValidate="customValidatorUsername_ServerValidate"
-           ></asp:CustomValidator>
+          <asp:CustomValidator
+            ControlToValidate="txtUsername"
+            ID="customValidatorUsername"
+            runat="server"
+            ErrorMessage="Length Between 6 and 20"
+            OnServerValidate="customValidatorUsername_ServerValidate"
+          ></asp:CustomValidator>
         </div>
 
         <div>
@@ -60,13 +59,13 @@ Inherits="project.View.RegisterPage" %>
             runat="server"
             ErrorMessage="Password must be filled "
           ></asp:RequiredFieldValidator>
-          <asp:CustomValidator 
-              ControlToValidate="txtPassword" 
-              ID="customValidatorPassword" 
-              runat="server" 
-              ErrorMessage="Length Atleast 6" 
-              OnServerValidate="customValidatorPassword_ServerValidate"
-           ></asp:CustomValidator>
+          <asp:CustomValidator
+            ControlToValidate="txtPassword"
+            ID="customValidatorPassword"
+            runat="server"
+            ErrorMessage="Length Atleast 6"
+            OnServerValidate="customValidatorPassword_ServerValidate"
+          ></asp:CustomValidator>
         </div>
 
         <div>
@@ -77,7 +76,7 @@ Inherits="project.View.RegisterPage" %>
           />
           <asp:TextBox
             ID="txtConfirmPass"
-            placeholder="Confirm Password"
+            placeholder="ConfirmPassword"
             TextMode="Password"
             runat="server"
           />
@@ -87,13 +86,13 @@ Inherits="project.View.RegisterPage" %>
             runat="server"
             ErrorMessage="Confirm Password must be filled "
           ></asp:RequiredFieldValidator>
-          <asp:CustomValidator 
-              ControlToValidate="txtConfirmPass" 
-              ID="customValidatorConfirmPass" 
-              runat="server" 
-              ErrorMessage="Must be same with Password" 
-              OnServerValidate="customValidatorConfirmPass_ServerValidate"
-           ></asp:CustomValidator>
+          <asp:CustomValidator
+            ControlToValidate="txtConfirmPass"
+            ID="customValidatorConfirmPass"
+            runat="server"
+            ErrorMessage="Must be same with Password"
+            OnServerValidate="customValidatorConfirmPass_ServerValidate"
+          ></asp:CustomValidator>
         </div>
 
         <div>
@@ -103,7 +102,7 @@ Inherits="project.View.RegisterPage" %>
           </asp:DropDownList>
         </div>
         <div>
-          <asp:Button ID="btnRegist" Text="Register" runat="server" />
+          <asp:Button ID="btnRegist" OnClick="btnRegist_Click" Text="Register" runat="server" />
         </div>
       </div>
     </div>

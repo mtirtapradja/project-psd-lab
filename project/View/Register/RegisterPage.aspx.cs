@@ -9,6 +9,8 @@ namespace project.View
 {
     public partial class RegisterPage : System.Web.UI.Page
     {
+        bool allIsValid = false;
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -16,13 +18,15 @@ namespace project.View
 
         protected void customValidatorName_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            if(Convert.ToString(args.Value).Length < 0 || Convert.ToString(args.Value).Length > 30)
+            if (Convert.ToString(args.Value).Length < 0 || Convert.ToString(args.Value).Length > 30)
             {
                 args.IsValid = false;
+                allIsValid = false;
             }
             else
             {
                 args.IsValid = true;
+                allIsValid = true;
             }
         }
 
@@ -31,10 +35,12 @@ namespace project.View
             if (Convert.ToString(args.Value).Length < 6 || Convert.ToString(args.Value).Length > 30)
             {
                 args.IsValid = false;
+                allIsValid = false;
             }
             else
             {
                 args.IsValid = true;
+                allIsValid = true;
             }
         }
 
@@ -43,16 +49,35 @@ namespace project.View
             if (Convert.ToString(args.Value).Length < 6)
             {
                 args.IsValid = false;
+                allIsValid = false;
             }
             else
             {
                 args.IsValid = true;
+                allIsValid = true;
             }
         }
 
         protected void customValidatorConfirmPass_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            args.IsValid = false;
+            if (txtConfirmPass.Text.Equals(txtPassword.Text))
+            {
+                args.IsValid = true;
+                allIsValid = true;
+            }
+            else
+            {
+                args.IsValid = false;
+                allIsValid = false;
+            }
+        }
+
+        protected void btnRegist_Click(object sender, EventArgs e)
+        {
+            if (allIsValid)
+            {
+                Response.Redirect("../Login/LoginPage.aspx");
+            }
         }
     }
 }
