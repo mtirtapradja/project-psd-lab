@@ -10,6 +10,16 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <h1>TAxAidi</h1>
+            <hr />
+            <div>
+                    <asp:Button ID="btnHome" Text="Home" OnClick="btnHome_Click" runat="server" />
+                    <asp:Button ID="btnTrans" Text="Transaction" OnClick="btnTrans_Click" runat="server" />
+                    <asp:Button ID="btnAcc" Text="Account" OnClick="btnAcc_Click" runat="server" />
+                    <asp:Button ID="btnRedeem" Text="Redeem" OnClick="btnRedeem_Click" runat="server" />
+                    <asp:Button ID="btnLogout" Text="Logout" OnClick="btnLogout_Click" runat="server" />
+            </div>
+            <hr />
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>

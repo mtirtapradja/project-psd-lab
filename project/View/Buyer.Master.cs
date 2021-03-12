@@ -13,5 +13,30 @@ namespace project
         {
 
         }
+
+        protected void btnHome_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnTrans_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnAcc_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnRedeem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
