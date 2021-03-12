@@ -74,6 +74,23 @@ namespace project.View
 
         protected void btnRegist_Click(object sender, EventArgs e)
         {
+            string name = txtName.Text;
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
+            if (ddlRole.SelectedValue.Equals("Buyer"))
+            {
+                string userType = ddlRole.SelectedValue;
+
+                Console.WriteLine("ddl" + ddlRole.SelectedValue);
+            }
+            else
+            {
+                string userType = ddlRole.SelectedValue;
+                Console.WriteLine("ddl" + ddlRole.SelectedValue);
+            }
+
+           
+
             if (allIsValid)
             {
                 Response.Redirect("../Login/LoginPage.aspx");
