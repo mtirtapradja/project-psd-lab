@@ -74,6 +74,10 @@
     <Content Include="View\Login\style.css" />
     <Content Include="View\Register\RegisterPage.aspx" />
     <Content Include="View\Register\style.css" />
+    <Content Include="View\Show\AddShowPage.aspx" />
+    <Content Include="View\Show\ShowDetailPage\ShowDetailBuyer.aspx" />
+    <Content Include="View\Show\ShowDetailPage\ShowDetailSeller.aspx" />
+    <Content Include="View\Show\UpdateShowPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -134,6 +138,34 @@
     <Compile Include="View\Seller.Master.designer.cs">
       <DependentUpon>Seller.Master</DependentUpon>
     </Compile>
+    <Compile Include="View\Show\AddShowPage.aspx.cs">
+      <DependentUpon>AddShowPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Show\AddShowPage.aspx.designer.cs">
+      <DependentUpon>AddShowPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Show\ShowDetailPage\ShowDetailBuyer.aspx.cs">
+      <DependentUpon>ShowDetailBuyer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Show\ShowDetailPage\ShowDetailBuyer.aspx.designer.cs">
+      <DependentUpon>ShowDetailBuyer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Show\ShowDetailPage\ShowDetailSeller.aspx.cs">
+      <DependentUpon>ShowDetailSeller.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Show\ShowDetailPage\ShowDetailSeller.aspx.designer.cs">
+      <DependentUpon>ShowDetailSeller.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Show\UpdateShowPage.aspx.cs">
+      <DependentUpon>UpdateShowPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Show\UpdateShowPage.aspx.designer.cs">
+      <DependentUpon>UpdateShowPage.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="View\NoUser.Master" />
@@ -147,6 +179,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
