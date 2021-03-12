@@ -67,15 +67,37 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="View\HomePage\BuyerHomePage.aspx" />
+    <Content Include="View\HomePage\NoUserHomePage.aspx" />
     <Content Include="View\HomePage\SellerHomePage.aspx" />
     <Content Include="View\Login\LoginPage.aspx" />
     <Content Include="View\Login\style.css" />
-    <Content Include="View\Main.css" />
     <Content Include="View\Register\RegisterPage.aspx" />
     <Content Include="View\Register\style.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="View\Buyer.Master.cs">
+      <DependentUpon>Buyer.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Buyer.Master.designer.cs">
+      <DependentUpon>Buyer.Master</DependentUpon>
+    </Compile>
+    <Compile Include="View\HomePage\BuyerHomePage.aspx.cs">
+      <DependentUpon>BuyerHomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\HomePage\BuyerHomePage.aspx.designer.cs">
+      <DependentUpon>BuyerHomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\HomePage\NoUserHomePage.aspx.cs">
+      <DependentUpon>NoUserHomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\HomePage\NoUserHomePage.aspx.designer.cs">
+      <DependentUpon>NoUserHomePage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\HomePage\SellerHomePage.aspx.cs">
       <DependentUpon>SellerHomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -83,12 +105,12 @@
     <Compile Include="View\HomePage\SellerHomePage.aspx.designer.cs">
       <DependentUpon>SellerHomePage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\Main.Master.cs">
-      <DependentUpon>Main.Master</DependentUpon>
+    <Compile Include="View\NoUser.Master.cs">
+      <DependentUpon>NoUser.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\Main.Master.designer.cs">
-      <DependentUpon>Main.Master</DependentUpon>
+    <Compile Include="View\NoUser.Master.designer.cs">
+      <DependentUpon>NoUser.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\Login\LoginPage.aspx.cs">
@@ -105,10 +127,19 @@
     <Compile Include="View\Register\RegisterPage.aspx.designer.cs">
       <DependentUpon>RegisterPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\Seller.Master.cs">
+      <DependentUpon>Seller.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Seller.Master.designer.cs">
+      <DependentUpon>Seller.Master</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="View\Main.Master" />
+    <Content Include="View\NoUser.Master" />
+    <Content Include="View\Buyer.Master" />
     <None Include="packages.config" />
+    <Content Include="View\Seller.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
