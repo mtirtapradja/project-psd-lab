@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="182f3cac016641d08ae71d5b44e2f2fb" Name="Diagram1">
+        <EntityTypeShape EntityType="Project_DatabaseModel.Review" Width="1.5" PointX="12" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_DatabaseModel.Role" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_DatabaseModel.Show" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_DatabaseModel.Status" Width="1.5" PointX="7.5" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_DatabaseModel.TransactionDetail" Width="1.5" PointX="9.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_DatabaseModel.TransactionHeader" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_DatabaseModel.User" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="Project_DatabaseModel.FK__Reviews__Transac__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_DatabaseModel.FK__Users__RoleId__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_DatabaseModel.FK__Shows__SellerId__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_DatabaseModel.FK__Transacti__ShowI__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_DatabaseModel.FK__Transacti__Statu__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_DatabaseModel.FK__Transacti__Trans__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_DatabaseModel.FK__Transacti__Buyer__30F848ED" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

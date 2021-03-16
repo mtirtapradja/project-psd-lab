@@ -1,0 +1,491 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Project_DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Reviews">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TransactionDetailId" Type="int" />
+          <Property Name="Rating" Type="int" />
+          <Property Name="Description" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Shows">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SellerId" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="255" />
+          <Property Name="Price" Type="int" />
+          <Property Name="Description" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Statuses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="TransactionDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TransactionHeaderId" Type="int" />
+          <Property Name="StatusId" Type="int" />
+          <Property Name="Token" Type="char" MaxLength="6" />
+        </EntityType>
+        <EntityType Name="TransactionHeaders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BuyerId" Type="int" />
+          <Property Name="ShowId" Type="int" />
+          <Property Name="ShowTime" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="CreatedAt" Type="date" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar(max)" />
+          <Property Name="Password" Type="varchar(max)" />
+          <Property Name="Name" Type="varchar(max)" />
+          <Property Name="RoleId" Type="int" />
+        </EntityType>
+        <Association Name="FK__Reviews__Transac__38996AB5">
+          <End Role="TransactionDetails" Type="Self.TransactionDetails" Multiplicity="0..1" />
+          <End Role="Reviews" Type="Self.Reviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TransactionDetails">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reviews">
+              <PropertyRef Name="TransactionDetailId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Shows__SellerId__2A4B4B5E">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Shows" Type="Self.Shows" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Shows">
+              <PropertyRef Name="SellerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacti__Buyer__30F848ED">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="TransactionHeaders" Type="Self.TransactionHeaders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TransactionHeaders">
+              <PropertyRef Name="BuyerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacti__ShowI__31EC6D26">
+          <End Role="Shows" Type="Self.Shows" Multiplicity="0..1" />
+          <End Role="TransactionHeaders" Type="Self.TransactionHeaders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shows">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TransactionHeaders">
+              <PropertyRef Name="ShowId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacti__Statu__35BCFE0A">
+          <End Role="Statuses" Type="Self.Statuses" Multiplicity="0..1" />
+          <End Role="TransactionDetails" Type="Self.TransactionDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statuses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TransactionDetails">
+              <PropertyRef Name="StatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacti__Trans__34C8D9D1">
+          <End Role="TransactionHeaders" Type="Self.TransactionHeaders" Multiplicity="0..1" />
+          <End Role="TransactionDetails" Type="Self.TransactionDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TransactionHeaders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TransactionDetails">
+              <PropertyRef Name="TransactionHeaderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__RoleId__276EDEB3">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Project_DatabaseModelStoreContainer">
+          <EntitySet Name="Reviews" EntityType="Self.Reviews" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Shows" EntityType="Self.Shows" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Statuses" EntityType="Self.Statuses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransactionDetails" EntityType="Self.TransactionDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransactionHeaders" EntityType="Self.TransactionHeaders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Reviews__Transac__38996AB5" Association="Self.FK__Reviews__Transac__38996AB5">
+            <End Role="TransactionDetails" EntitySet="TransactionDetails" />
+            <End Role="Reviews" EntitySet="Reviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Shows__SellerId__2A4B4B5E" Association="Self.FK__Shows__SellerId__2A4B4B5E">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Shows" EntitySet="Shows" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacti__Buyer__30F848ED" Association="Self.FK__Transacti__Buyer__30F848ED">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="TransactionHeaders" EntitySet="TransactionHeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacti__ShowI__31EC6D26" Association="Self.FK__Transacti__ShowI__31EC6D26">
+            <End Role="Shows" EntitySet="Shows" />
+            <End Role="TransactionHeaders" EntitySet="TransactionHeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacti__Statu__35BCFE0A" Association="Self.FK__Transacti__Statu__35BCFE0A">
+            <End Role="Statuses" EntitySet="Statuses" />
+            <End Role="TransactionDetails" EntitySet="TransactionDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacti__Trans__34C8D9D1" Association="Self.FK__Transacti__Trans__34C8D9D1">
+            <End Role="TransactionHeaders" EntitySet="TransactionHeaders" />
+            <End Role="TransactionDetails" EntitySet="TransactionDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__RoleId__276EDEB3" Association="Self.FK__Users__RoleId__276EDEB3">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Project_DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Review">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TransactionDetailId" Type="Int32" />
+          <Property Name="Rating" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TransactionDetail" Relationship="Self.FK__Reviews__Transac__38996AB5" FromRole="Reviews" ToRole="TransactionDetails" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__RoleId__276EDEB3" FromRole="Roles" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Show">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SellerId" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Shows__SellerId__2A4B4B5E" FromRole="Shows" ToRole="Users" />
+          <NavigationProperty Name="TransactionHeaders" Relationship="Self.FK__Transacti__ShowI__31EC6D26" FromRole="Shows" ToRole="TransactionHeaders" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TransactionDetails" Relationship="Self.FK__Transacti__Statu__35BCFE0A" FromRole="Statuses" ToRole="TransactionDetails" />
+        </EntityType>
+        <EntityType Name="TransactionDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TransactionHeaderId" Type="Int32" />
+          <Property Name="StatusId" Type="Int32" />
+          <Property Name="Token" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Reviews" Relationship="Self.FK__Reviews__Transac__38996AB5" FromRole="TransactionDetails" ToRole="Reviews" />
+          <NavigationProperty Name="Status" Relationship="Self.FK__Transacti__Statu__35BCFE0A" FromRole="TransactionDetails" ToRole="Statuses" />
+          <NavigationProperty Name="TransactionHeader" Relationship="Self.FK__Transacti__Trans__34C8D9D1" FromRole="TransactionDetails" ToRole="TransactionHeaders" />
+        </EntityType>
+        <EntityType Name="TransactionHeader">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BuyerId" Type="Int32" />
+          <Property Name="ShowId" Type="Int32" />
+          <Property Name="ShowTime" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Show" Relationship="Self.FK__Transacti__ShowI__31EC6D26" FromRole="TransactionHeaders" ToRole="Shows" />
+          <NavigationProperty Name="TransactionDetails" Relationship="Self.FK__Transacti__Trans__34C8D9D1" FromRole="TransactionHeaders" ToRole="TransactionDetails" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Transacti__Buyer__30F848ED" FromRole="TransactionHeaders" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="RoleId" Type="Int32" />
+          <NavigationProperty Name="Role" Relationship="Self.FK__Users__RoleId__276EDEB3" FromRole="Users" ToRole="Roles" />
+          <NavigationProperty Name="Shows" Relationship="Self.FK__Shows__SellerId__2A4B4B5E" FromRole="Users" ToRole="Shows" />
+          <NavigationProperty Name="TransactionHeaders" Relationship="Self.FK__Transacti__Buyer__30F848ED" FromRole="Users" ToRole="TransactionHeaders" />
+        </EntityType>
+        <Association Name="FK__Reviews__Transac__38996AB5">
+          <End Role="TransactionDetails" Type="Self.TransactionDetail" Multiplicity="0..1" />
+          <End Role="Reviews" Type="Self.Review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TransactionDetails">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reviews">
+              <PropertyRef Name="TransactionDetailId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__RoleId__276EDEB3">
+          <End Role="Roles" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Shows__SellerId__2A4B4B5E">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Shows" Type="Self.Show" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Shows">
+              <PropertyRef Name="SellerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacti__ShowI__31EC6D26">
+          <End Role="Shows" Type="Self.Show" Multiplicity="0..1" />
+          <End Role="TransactionHeaders" Type="Self.TransactionHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shows">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TransactionHeaders">
+              <PropertyRef Name="ShowId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacti__Statu__35BCFE0A">
+          <End Role="Statuses" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="TransactionDetails" Type="Self.TransactionDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statuses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TransactionDetails">
+              <PropertyRef Name="StatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacti__Trans__34C8D9D1">
+          <End Role="TransactionHeaders" Type="Self.TransactionHeader" Multiplicity="0..1" />
+          <End Role="TransactionDetails" Type="Self.TransactionDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TransactionHeaders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TransactionDetails">
+              <PropertyRef Name="TransactionHeaderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacti__Buyer__30F848ED">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="TransactionHeaders" Type="Self.TransactionHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TransactionHeaders">
+              <PropertyRef Name="BuyerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Project_DatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Reviews" EntityType="Self.Review" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="Shows" EntityType="Self.Show" />
+          <EntitySet Name="Statuses" EntityType="Self.Status" />
+          <EntitySet Name="TransactionDetails" EntityType="Self.TransactionDetail" />
+          <EntitySet Name="TransactionHeaders" EntityType="Self.TransactionHeader" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK__Reviews__Transac__38996AB5" Association="Self.FK__Reviews__Transac__38996AB5">
+            <End Role="TransactionDetails" EntitySet="TransactionDetails" />
+            <End Role="Reviews" EntitySet="Reviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__RoleId__276EDEB3" Association="Self.FK__Users__RoleId__276EDEB3">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Shows__SellerId__2A4B4B5E" Association="Self.FK__Shows__SellerId__2A4B4B5E">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Shows" EntitySet="Shows" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacti__ShowI__31EC6D26" Association="Self.FK__Transacti__ShowI__31EC6D26">
+            <End Role="Shows" EntitySet="Shows" />
+            <End Role="TransactionHeaders" EntitySet="TransactionHeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacti__Statu__35BCFE0A" Association="Self.FK__Transacti__Statu__35BCFE0A">
+            <End Role="Statuses" EntitySet="Statuses" />
+            <End Role="TransactionDetails" EntitySet="TransactionDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacti__Trans__34C8D9D1" Association="Self.FK__Transacti__Trans__34C8D9D1">
+            <End Role="TransactionHeaders" EntitySet="TransactionHeaders" />
+            <End Role="TransactionDetails" EntitySet="TransactionDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacti__Buyer__30F848ED" Association="Self.FK__Transacti__Buyer__30F848ED">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="TransactionHeaders" EntitySet="TransactionHeaders" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Project_DatabaseModelStoreContainer" CdmEntityContainer="Project_DatabaseEntities">
+          <EntitySetMapping Name="Reviews">
+            <EntityTypeMapping TypeName="Project_DatabaseModel.Review">
+              <MappingFragment StoreEntitySet="Reviews">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TransactionDetailId" ColumnName="TransactionDetailId" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="Project_DatabaseModel.Role">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shows">
+            <EntityTypeMapping TypeName="Project_DatabaseModel.Show">
+              <MappingFragment StoreEntitySet="Shows">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SellerId" ColumnName="SellerId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Statuses">
+            <EntityTypeMapping TypeName="Project_DatabaseModel.Status">
+              <MappingFragment StoreEntitySet="Statuses">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransactionDetails">
+            <EntityTypeMapping TypeName="Project_DatabaseModel.TransactionDetail">
+              <MappingFragment StoreEntitySet="TransactionDetails">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TransactionHeaderId" ColumnName="TransactionHeaderId" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransactionHeaders">
+            <EntityTypeMapping TypeName="Project_DatabaseModel.TransactionHeader">
+              <MappingFragment StoreEntitySet="TransactionHeaders">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
+                <ScalarProperty Name="ShowId" ColumnName="ShowId" />
+                <ScalarProperty Name="ShowTime" ColumnName="ShowTime" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Project_DatabaseModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
