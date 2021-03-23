@@ -1,4 +1,5 @@
-﻿using System;
+﻿using project.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -77,14 +78,24 @@ namespace project.View
             string name = txtName.Text;
             string username = txtUsername.Text;
             string password = txtPassword.Text;
-            string userType = "Seller";
+            int userType = 2;  // Seller
 
+            Project_DatabaseEntities db = new Project_DatabaseEntities();
+            
             if (ddlRole.SelectedValue.Equals("Buyer"))
             {
-                userType = "Buyer";
-            }
+                userType = 1; // Buyer
+            } 
 
-            /* Tinggal masukin ke databse */
+            User currentUser = new User();
+            currentUser.Name = name;
+            currentUser.Username = username;
+            currentUser.Password = password;
+            currentUser.RoleId = userType;
+
+            /* Masukin ke databse */
+            db.Users.Add(currentUser);
+            db.SaveChanges();
 
             if (allIsValid)
             {
