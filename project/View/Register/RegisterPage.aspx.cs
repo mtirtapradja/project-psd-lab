@@ -81,10 +81,12 @@ namespace project.View
             string password = txtPassword.Text;
             string userRole = "Seller";
 
+            Project_DatabaseEntities db = new Project_DatabaseEntities();
+            
             if (ddlRole.SelectedValue.Equals("Buyer"))
             {
-                userRole = "Buyer";
-            }
+                userType = 1; // Buyer
+            } 
 
             User currentUser = new User();
             currentUser.Name = name;
