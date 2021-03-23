@@ -14,7 +14,6 @@ namespace project.View
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void customValidatorName_ServerValidate(object source, ServerValidateEventArgs args)
@@ -75,27 +74,26 @@ namespace project.View
 
         protected void btnRegist_Click(object sender, EventArgs e)
         {
+            Project_DatabaseEntities db = new Project_DatabaseEntities();
+
             string name = txtName.Text;
             string username = txtUsername.Text;
             string password = txtPassword.Text;
-            int userType = 2;  // Seller
-
-            Project_DatabaseEntities db = new Project_DatabaseEntities();
+            string userRole = "Seller";
 
             if (ddlRole.SelectedValue.Equals("Buyer"))
             {
-                userType = 1; // Buyer
+                userRole = "Buyer";
             }
 
             User currentUser = new User();
             currentUser.Name = name;
-            currentUser.Username = username;
             currentUser.Password = password;
-            currentUser.RoleId = userType;
+            //currentUser.Role = userRole;
 
-            /* Masukin ke databse */
-            db.Users.Add(currentUser);
-            db.SaveChanges();
+
+
+            /* Tinggal masukin ke databse */
 
             if (allIsValid)
             {
