@@ -21,7 +21,8 @@ namespace project.View
             string username = txtEmail.Text;
             string password = txtPassword.Text;
 
-            User currentUser = (from x in db.Users where x.Username.Equals(username) && x.Password.Equals(password) select x).FirstOrDefault();
+            User currentUser = (from x in db.Users where x.Username.Equals(username) && x.Password.Equals(password) select x)
+                                .FirstOrDefault();
 
             if (currentUser != null)
             {
@@ -35,11 +36,11 @@ namespace project.View
 
                 if(currentUser.RoleId == 1)
                 {
-                    Response.Redirect("BuyerHomePage.aspx");
+                    Response.Redirect("../HomePage/BuyerHomePage.aspx");
                 }
                 else
                 {
-                    Response.Redirect("SellerrHomePage.aspx");
+                    Response.Redirect("../HomePage/SellerHomePage.aspx");
                 }
                 
             }
