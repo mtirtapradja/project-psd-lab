@@ -14,7 +14,7 @@ namespace project.Factory
             u.Username = username;
             u.Password = password;
             u.Name = name;
-            u.Role = role;
+            u.RoleId = role;
             return u;
         }
     }
