@@ -1,4 +1,5 @@
-﻿using System;
+﻿using project.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,7 +14,6 @@ namespace project.View
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void customValidatorName_ServerValidate(object source, ServerValidateEventArgs args)
@@ -74,15 +74,24 @@ namespace project.View
 
         protected void btnRegist_Click(object sender, EventArgs e)
         {
+            Project_DatabaseEntities db = new Project_DatabaseEntities();
+
             string name = txtName.Text;
             string username = txtUsername.Text;
             string password = txtPassword.Text;
-            string userType = "Seller";
+            string userRole = "Seller";
 
             if (ddlRole.SelectedValue.Equals("Buyer"))
             {
-                userType = "Buyer";
+                userRole = "Buyer";
             }
+
+            User currentUser = new User();
+            currentUser.Name = name;
+            currentUser.Password = password;
+            //currentUser.Role = userRole;
+
+
 
             /* Tinggal masukin ke databse */
 
