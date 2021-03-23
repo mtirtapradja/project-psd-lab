@@ -141,6 +141,8 @@
     <Compile Include="Model\User.cs">
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Repository\ShowsRepository.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="View\Buyer.Master.cs">
       <DependentUpon>Buyer.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -249,9 +251,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Repository\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
