@@ -9,25 +9,32 @@ Inherits="project.View.LoginPage" %>
     <div class="inner-container">
       <div class="modal">
         <h4>Login Page</h4>
+
         <div class="email-input">
           <asp:Label CssClass="email-input-label" runat="server"
-            >Email :
+            >Username :
           </asp:Label>
-          <asp:TextBox runat="server"></asp:TextBox>
+          <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
         </div>
+
         <div class="password-input">
           <asp:Label CssClass="password-input-label" runat="server"
             >Password :
           </asp:Label>
-          <asp:TextBox
+          <asp:TextBox 
+            ID="txtPassword"
             TextMode="Password"
             runat="server"
             MaxLength="50"
           ></asp:TextBox>
-        </div>
+          </div>
+
+          <div>
+              <asp:CheckBox ID="cbRemember" Text="Remember me" runat="server" />
+          </div>
 
         <div class="login-btn">
-          <asp:Button CssClass="btn" ID="login" runat="server" Text="Login" />
+          <asp:Button CssClass="btn" ID="login" runat="server" Text="Login" OnClick="login_Click" />
         </div>
       </div>
     </div>
