@@ -13,5 +13,15 @@ namespace project.View.Show
         {
 
         }
+
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void CVPrice_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+
+        }
     }
 }
