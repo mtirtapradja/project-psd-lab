@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using project.Factory;
+﻿using project.Factory;
 using project.Model;
 
 namespace project.Repository

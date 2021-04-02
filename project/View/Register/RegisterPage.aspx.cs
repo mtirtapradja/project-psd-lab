@@ -14,7 +14,8 @@ namespace project.View
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Button button = this.Master.FindControl("btnRegisterOnNav") as Button;
+            button.Visible = false;
         }
 
         protected void customValidatorName_ServerValidate(object source, ServerValidateEventArgs args)
@@ -73,7 +74,7 @@ namespace project.View
             }
         }
 
-        protected void btnRegist_Click(object sender, EventArgs e)
+        protected void btnRegister_Click(object sender, EventArgs e)
         {
             string name = txtName.Text;
             string username = txtUsername.Text;

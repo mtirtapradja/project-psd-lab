@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
 namespace project.View.Show.ShowDetail
 {
     public partial class ShowDetailBuyer : System.Web.UI.Page
