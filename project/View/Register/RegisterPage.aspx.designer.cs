@@ -168,12 +168,12 @@ namespace project.View
         protected global::System.Web.UI.WebControls.DropDownList ddlRole;
 
         /// <summary>
-        /// btnRegist control.
+        /// btnRegister control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRegist;
+        protected global::System.Web.UI.WebControls.Button btnRegister;
     }
 }

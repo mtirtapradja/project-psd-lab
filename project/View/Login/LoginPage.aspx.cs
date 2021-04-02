@@ -22,19 +22,11 @@ namespace project.View
                 User currentUser = (from x in db.Users where x.Id.Equals(currentUserID) select x)
                                 .FirstOrDefault();
 
-                // Kalo user == Buyer redirect ke BuyerHomePage
-                if (currentUser.RoleId == 1)
-                {
-                    Response.Redirect("../HomePage/BuyerHomePage.aspx");
-                }
-                else
-                {
-                    Response.Redirect("../HomePage/SellerHomePage.aspx");
-                }
+                Response.Redirect("../Home/HomePage.aspx?id=" + currentUser.RoleId);
             }
         }
 
-        protected void login_Click(object sender, EventArgs e)
+        protected void btnLogin_Click(object sender, EventArgs e)
         {
             string username = txtEmail.Text;
             string password = txtPassword.Text;
@@ -52,18 +44,9 @@ namespace project.View
                     Response.Cookies.Add(cookie);
                 }
 
-                if(currentUser.RoleId == 1)
-                {
-                    Response.Redirect("../HomePage/BuyerHomePage.aspx");
-                }
-                else
-                {
-                    Response.Redirect("../HomePage/SellerHomePage.aspx");
-                }
-                
+                Response.Redirect("../Home/HomePage.aspx?id=" + currentUser.RoleId);
+
             }
-
-
         }
     }
 }
