@@ -9,16 +9,18 @@
         <div class="modal">
           <h2>LOGIN PAGE</h2>
 
-          <div class="email-input">
+          <div class="email-input-label">
             <asp:Label CssClass="email-input-label" runat="server">Username :
             </asp:Label>
-            <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtEmail" runat="server" />
+            <asp:Label ID="lblEmailError" Text="" runat="server" />
           </div>
 
           <div class="password-input">
-            <asp:Label CssClass="password-input-label" runat="server">Password :
+            <asp:Label CssClass="password-input-label" runat="server">Password : 
             </asp:Label>
-            <asp:TextBox ID="txtPassword" TextMode="Password" runat="server" MaxLength="50"></asp:TextBox>
+            <asp:TextBox ID="txtPassword" TextMode="Password" runat="server" MaxLength="50" />
+            <asp:Label ID="lblPasswordError" Text="" runat="server" />
           </div>
 
           <div>

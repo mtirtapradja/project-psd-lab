@@ -16,6 +16,7 @@ namespace project.View
 
         protected void btnHomeOnNav_Click(object sender, EventArgs e)
         {
+
             Response.Redirect("../Home/HomePage.aspx");
         }
 

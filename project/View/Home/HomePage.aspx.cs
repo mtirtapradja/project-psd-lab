@@ -38,9 +38,8 @@ namespace project.View.HomePage
                 button.Visible = true;
             }
             // Kalo Seller
-            else
+            else if (RoleID == "2")
             {
-
                 Button button = this.Master.FindControl("btnAddShowOnNav") as Button;
                 button.Visible = true;
 
