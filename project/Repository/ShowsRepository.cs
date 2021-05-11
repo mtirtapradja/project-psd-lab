@@ -1,5 +1,5 @@
-﻿using project.Factory;
-using project.Model;
+﻿using project.Factories;
+using project.Models;
 
 namespace project.Repository
 {

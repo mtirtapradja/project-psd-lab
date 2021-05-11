@@ -1,5 +1,5 @@
-﻿using project.Factory;
-using project.Model;
+﻿using project.Factories;
+using project.Models;
 
 namespace project.Repository
 {
@@ -7,18 +7,17 @@ namespace project.Repository
     {
         private static Project_DatabaseEntities db = new Project_DatabaseEntities();
 
-        public static bool insertUser(string username, string password, string name, int role)
+        public static bool insertUser(User user)
         {
-            User user = UserFactory.Create(username, password, name, role);
-
             if (user != null)
             {
                 db.Users.Add(user);
                 db.SaveChanges();
+
                 return true;
             }
+            
             return false;
-
         }
 
     }

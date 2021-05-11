@@ -79,136 +79,139 @@
     <Content Include="App_data\Project_Database_log.ldf">
       <DependentUpon>Project_Database.mdf</DependentUpon>
     </Content>
-    <Content Include="Model\DatabaseModel.Context.tt">
+    <Content Include="Models\DatabaseModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DatabaseModel.Context.cs</LastGenOutput>
       <DependentUpon>DatabaseModel.edmx</DependentUpon>
     </Content>
-    <Content Include="Model\DatabaseModel.tt">
+    <Content Include="Models\DatabaseModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DatabaseModel.edmx</DependentUpon>
       <LastGenOutput>DatabaseModel.cs</LastGenOutput>
     </Content>
-    <Content Include="View\Home\HomePage.aspx" />
-    <Content Include="View\Login\LoginPage.aspx" />
-    <Content Include="View\Login\style.css" />
-    <Content Include="View\Register\RegisterPage.aspx" />
-    <Content Include="View\Register\style.css" />
-    <Content Include="View\Show\AddShowPage.aspx" />
-    <Content Include="View\Show\ShowDetailPage\ShowDetailBuyer.aspx" />
-    <Content Include="View\Show\ShowDetailPage\ShowDetailSeller.aspx" />
-    <Content Include="View\Show\UpdateShowPage.aspx" />
+    <Content Include="Views\Home\HomePage.aspx" />
+    <Content Include="Views\Login\LoginPage.aspx" />
+    <Content Include="Views\Login\style.css" />
+    <Content Include="Views\Register\RegisterPage.aspx" />
+    <Content Include="Views\Register\style.css" />
+    <Content Include="Views\Show\AddShowPage.aspx" />
+    <Content Include="Views\Show\ShowDetailPage\ShowDetailBuyer.aspx" />
+    <Content Include="Views\Show\ShowDetailPage\ShowDetailSeller.aspx" />
+    <Content Include="Views\Show\UpdateShowPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Factory\ShowFactory.cs" />
-    <Compile Include="Factory\UserFactory.cs" />
-    <Compile Include="Model\DatabaseModel.Context.cs">
+    <Compile Include="Controllers\ShowController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Factories\ShowFactory.cs" />
+    <Compile Include="Factories\UserFactory.cs" />
+    <Compile Include="Handlers\UserHandler.cs" />
+    <Compile Include="Models\DatabaseModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DatabaseModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\DatabaseModel.cs">
+    <Compile Include="Models\DatabaseModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\DatabaseModel.Designer.cs">
+    <Compile Include="Models\DatabaseModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DatabaseModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Model\Review.cs">
+    <Compile Include="Models\Review.cs">
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Role.cs">
+    <Compile Include="Models\Role.cs">
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Show.cs">
+    <Compile Include="Models\Show.cs">
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Status.cs">
+    <Compile Include="Models\Status.cs">
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\TransactionDetail.cs">
+    <Compile Include="Models\TransactionDetail.cs">
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\TransactionHeader.cs">
+    <Compile Include="Models\TransactionHeader.cs">
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\User.cs">
+    <Compile Include="Models\User.cs">
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Repository\ShowsRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
-    <Compile Include="View\Home\HomePage.aspx.cs">
+    <Compile Include="Views\Home\HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\Home\HomePage.aspx.designer.cs">
+    <Compile Include="Views\Home\HomePage.aspx.designer.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\Login\LoginPage.aspx.cs">
+    <Compile Include="Views\Login\LoginPage.aspx.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\Login\LoginPage.aspx.designer.cs">
+    <Compile Include="Views\Login\LoginPage.aspx.designer.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\Main.Master.cs">
+    <Compile Include="Views\Main.Master.cs">
       <DependentUpon>Main.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\Main.Master.designer.cs">
+    <Compile Include="Views\Main.Master.designer.cs">
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
-    <Compile Include="View\Register\RegisterPage.aspx.cs">
+    <Compile Include="Views\Register\RegisterPage.aspx.cs">
       <DependentUpon>RegisterPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\Register\RegisterPage.aspx.designer.cs">
+    <Compile Include="Views\Register\RegisterPage.aspx.designer.cs">
       <DependentUpon>RegisterPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\Show\AddShowPage.aspx.cs">
+    <Compile Include="Views\Show\AddShowPage.aspx.cs">
       <DependentUpon>AddShowPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\Show\AddShowPage.aspx.designer.cs">
+    <Compile Include="Views\Show\AddShowPage.aspx.designer.cs">
       <DependentUpon>AddShowPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\Show\ShowDetailPage\ShowDetailBuyer.aspx.cs">
+    <Compile Include="Views\Show\ShowDetailPage\ShowDetailBuyer.aspx.cs">
       <DependentUpon>ShowDetailBuyer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\Show\ShowDetailPage\ShowDetailBuyer.aspx.designer.cs">
+    <Compile Include="Views\Show\ShowDetailPage\ShowDetailBuyer.aspx.designer.cs">
       <DependentUpon>ShowDetailBuyer.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\Show\ShowDetailPage\ShowDetailSeller.aspx.cs">
+    <Compile Include="Views\Show\ShowDetailPage\ShowDetailSeller.aspx.cs">
       <DependentUpon>ShowDetailSeller.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\Show\ShowDetailPage\ShowDetailSeller.aspx.designer.cs">
+    <Compile Include="Views\Show\ShowDetailPage\ShowDetailSeller.aspx.designer.cs">
       <DependentUpon>ShowDetailSeller.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\Show\UpdateShowPage.aspx.cs">
+    <Compile Include="Views\Show\UpdateShowPage.aspx.cs">
       <DependentUpon>UpdateShowPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\Show\UpdateShowPage.aspx.designer.cs">
+    <Compile Include="Views\Show\UpdateShowPage.aspx.designer.cs">
       <DependentUpon>UpdateShowPage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Model\DatabaseModel.edmx">
+    <EntityDeploy Include="Models\DatabaseModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DatabaseModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Model\DatabaseModel.edmx.diagram">
+    <Content Include="Models\DatabaseModel.edmx.diagram">
       <DependentUpon>DatabaseModel.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
-    <Content Include="View\Main.Master" />
+    <Content Include="Views\Main.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
