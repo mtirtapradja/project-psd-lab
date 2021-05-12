@@ -95,6 +95,7 @@
     <Content Include="Views\Register\RegisterPage.aspx" />
     <Content Include="Views\Register\style.css" />
     <Content Include="Views\Show\AddShowPage.aspx" />
+    <Content Include="Views\Show\OrderShowPage.aspx" />
     <Content Include="Views\Show\ShowDetailPage.aspx" />
     <Content Include="Views\Show\UpdateShowPage.aspx" />
     <Content Include="Web.config" />
@@ -179,6 +180,13 @@
     </Compile>
     <Compile Include="Views\Show\AddShowPage.aspx.designer.cs">
       <DependentUpon>AddShowPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Show\OrderShowPage.aspx.cs">
+      <DependentUpon>OrderShowPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Show\OrderShowPage.aspx.designer.cs">
+      <DependentUpon>OrderShowPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Show\ShowDetailPage.aspx.cs">
       <DependentUpon>ShowDetailPage.aspx</DependentUpon>
