@@ -24,16 +24,10 @@ namespace project.Repository
             return false;
         }
 
-        public static bool UpdateShow(int id, int sellerid, string name, int price, string description)
+        public static bool UpdateShow(Show show)
         {
-            Show show = db.Shows.Find(id);
-
             if (show != null)
             {
-                show.SellerId = sellerid;
-                show.Name = name;
-                show.Price = price;
-                show.Description = description;
                 db.SaveChanges();
                 return true;
             }
@@ -56,6 +50,11 @@ namespace project.Repository
         public static List<Show> GetShow()
         {
             return (from x in db.Shows select x).ToList();
+        }
+
+        public static Show GetShowById(int id)
+        {
+            return (from x in db.Shows where x.Id.Equals(id) select x).FirstOrDefault();
         }
     }
 }
