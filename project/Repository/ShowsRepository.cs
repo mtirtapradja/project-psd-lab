@@ -7,9 +7,9 @@ namespace project.Repository
     {
         private static Project_DatabaseEntities db = new Project_DatabaseEntities();
 
-        public static bool InsertShow(int sellerid, string name, int price, string description)
+        public static bool InsertShow(Show show)
         {
-            Show show = ShowFactory.Create(sellerid, name, price, description);
+            //Show show = ShowFactory.Create(sellerid, name, price, description);
 
             if (show != null)
             {

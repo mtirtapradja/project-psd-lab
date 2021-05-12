@@ -1,4 +1,5 @@
-﻿using System;
+﻿using project.Handlers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -8,7 +9,7 @@ namespace project.Controllers
 {
     public class ShowController
     {
-        public static string CheckAddShow(string name, string URL, string description, string price)
+        public static string CheckAddShow(int SellerId, string name, string URL, string description, string s_price)
         {
             string response = "";
             Regex expression = new Regex(@"[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)");
@@ -33,13 +34,18 @@ namespace project.Controllers
             {
                 response = "Description must be filled";
             }
-            else if (price == "")
+            else if (s_price == "")
             {
                 response = "Price must be filled";
             }
-            else if (int.Parse(price) < 1000)
+            else if (int.Parse(s_price) < 1000)
             {
                 response = "Price must be at least 1000";
+            }
+            else
+            {
+                int price = int.Parse(s_price);
+                ShowHandler.InsertNewShow(SellerId, name, price, description);
             }
 
             return response;
