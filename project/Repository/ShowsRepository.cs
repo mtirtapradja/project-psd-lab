@@ -1,5 +1,9 @@
 ﻿using project.Factories;
 using project.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 
 namespace project.Repository
 {
@@ -7,9 +11,9 @@ namespace project.Repository
     {
         private static Project_DatabaseEntities db = new Project_DatabaseEntities();
 
-        public static bool InsertShow(int sellerid, string name, int price, string description)
+        public static bool InsertShow(Show show)
         {
-            Show show = ShowFactory.Create(sellerid, name, price, description);
+            //Show show = ShowFactory.Create(sellerid, name, price, description);
 
             if (show != null)
             {
@@ -36,7 +40,6 @@ namespace project.Repository
             return false;
         }
 
-
         public static bool DeleteShow(int id)
         {
             Show show = db.Shows.Find(id);
@@ -48,6 +51,11 @@ namespace project.Repository
                 return true;
             }
             return false;
+        }
+
+        public static List<Show> GetShow()
+        {
+            return (from x in db.Shows select x).ToList();
         }
     }
 }

@@ -8,18 +8,18 @@ using System.Web.UI.WebControls;
 
 namespace project.View.HomePage
 {
-    public partial class BuyerHomePage : System.Web.UI.Page
+    public partial class HomePage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             string RoleID = Request.QueryString["id"];
-
             ShowAdditionalNavBar(RoleID);
         }
 
         protected void FillGrid()
         {
-            gvShows.DataSource = ShowController.
+            gvShows.DataSource = ShowController.GetAllShow();
+            gvShows.DataBind();
         }
 
 

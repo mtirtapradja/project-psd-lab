@@ -11,7 +11,7 @@ namespace project.View.HomePage
 {
 
 
-    public partial class BuyerHomePage
+    public partial class HomePage
     {
 
         /// <summary>
