@@ -95,8 +95,7 @@
     <Content Include="Views\Register\RegisterPage.aspx" />
     <Content Include="Views\Register\style.css" />
     <Content Include="Views\Show\AddShowPage.aspx" />
-    <Content Include="Views\Show\ShowDetailPage\ShowDetailBuyer.aspx" />
-    <Content Include="Views\Show\ShowDetailPage\ShowDetailSeller.aspx" />
+    <Content Include="Views\Show\ShowDetailPage.aspx" />
     <Content Include="Views\Show\UpdateShowPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -180,19 +179,12 @@
     <Compile Include="Views\Show\AddShowPage.aspx.designer.cs">
       <DependentUpon>AddShowPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Show\ShowDetailPage\ShowDetailBuyer.aspx.cs">
-      <DependentUpon>ShowDetailBuyer.aspx</DependentUpon>
+    <Compile Include="Views\Show\ShowDetailPage.aspx.cs">
+      <DependentUpon>ShowDetailPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Show\ShowDetailPage\ShowDetailBuyer.aspx.designer.cs">
-      <DependentUpon>ShowDetailBuyer.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Show\ShowDetailPage\ShowDetailSeller.aspx.cs">
-      <DependentUpon>ShowDetailSeller.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Show\ShowDetailPage\ShowDetailSeller.aspx.designer.cs">
-      <DependentUpon>ShowDetailSeller.aspx</DependentUpon>
+    <Compile Include="Views\Show\ShowDetailPage.aspx.designer.cs">
+      <DependentUpon>ShowDetailPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Show\UpdateShowPage.aspx.cs">
       <DependentUpon>UpdateShowPage.aspx</DependentUpon>
