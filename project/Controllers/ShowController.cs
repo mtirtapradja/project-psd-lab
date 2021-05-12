@@ -1,4 +1,5 @@
 ﻿using project.Handlers;
+using project.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,6 +50,11 @@ namespace project.Controllers
             }
 
             return response;
+        }
+
+        public static List<Show> GetAllShow()
+        {
+            return ShowHandler.GetAllShow();
         }
     }
 }

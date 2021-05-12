@@ -1,5 +1,9 @@
 ﻿using project.Factories;
 using project.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 
 namespace project.Repository
 {
@@ -36,7 +40,6 @@ namespace project.Repository
             return false;
         }
 
-
         public static bool DeleteShow(int id)
         {
             Show show = db.Shows.Find(id);
@@ -48,6 +51,11 @@ namespace project.Repository
                 return true;
             }
             return false;
+        }
+
+        public static List<Show> GetShow()
+        {
+            return (from x in db.Shows select x).ToList();
         }
     }
 }

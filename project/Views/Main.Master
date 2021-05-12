@@ -11,18 +11,18 @@
 <body>
     <form id="form1" runat="server">
         <h1>TAxAidi</h1>
-        <hr />
         <div>
             <asp:Button ID="btnHomeOnNav" Text="Home" OnClick="btnHomeOnNav_Click" runat="server" />
+            <asp:Button ID="btnAddShowOnNav" Text="Add Show" OnClick="btnAddShowOnNav_Click" runat="server" />
             <asp:Button ID="btnLoginOnNav" Text="Login" OnClick="btnLoginOnNav_Click" runat="server" />
             <asp:Button ID="btnRegisterOnNav" Text="Register" OnClick="btnRegisterOnNav_Click" runat="server" />
-            <asp:Button ID="btnAddShowOnNav" Text="Add Show" OnClick="btnAddShowOnNav_Click" Visible="false" runat="server" />
             <asp:Button ID="btnTransactionOnNav" Text="Transaction" OnClick="btnTransactionOnNav_Click" Visible="false" runat="server" />
             <asp:Button ID="btnReportsOnNav" Text="Reports" OnClick="btnReportsOnNav_Click" Visible="false" runat="server" />
             <asp:Button ID="btnAccountOnNav" Text="Account" OnClick="btnAccountOnNav_Click" Visible="false" runat="server" />
             <asp:Button ID="btnRedeemOnNav" Text="Redeem" OnClick="btnRedeemOnNav_Click" runat="server" />
             <asp:Button ID="btnLogoutOnNav" Text="Logout" OnClick="btnLogoutOnNav_Click" Visible="false" runat="server" />
         </div>
+        <hr />
         <div>
             <asp:ContentPlaceHolder ID="body" runat="server">
             </asp:ContentPlaceHolder>

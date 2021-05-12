@@ -10,12 +10,15 @@ namespace project.Handlers
 {
     public class ShowHandler
     {
-
         public static bool InsertNewShow (int sellerid, string name, int price, string description)
         {
             Show newShow = ShowFactory.Create(sellerid, name, price, description);
-
             return ShowsRepository.InsertShow(newShow);
+        }
+
+        public static List<Show> GetAllShow()
+        {
+            return ShowsRepository.GetShow();
         }
     }
 }
