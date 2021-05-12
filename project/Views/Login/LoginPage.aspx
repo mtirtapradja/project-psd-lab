@@ -8,7 +8,7 @@
       <div class="inner-container">
         <div class="modal">
           <h2>LOGIN PAGE</h2>
-
+          <asp:Label ID="lblError" Text="" runat="server" />
           <div class="email-input">
             <asp:Label CssClass="email-input-label" runat="server">Username :
             </asp:Label>

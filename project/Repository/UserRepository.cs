@@ -16,9 +16,21 @@ namespace project.Repository
 
                 return true;
             }
-            
             return false;
         }
 
+        public static User loginUser(string username, string password)
+        {
+            User user = (from x in db.Users where x.Username == username && x.Password == password select x).FirstOrDefault();
+
+            if (user != null)
+            {
+                return user;
+            }
+            else
+            {
+                return null;
+            }  
+        }
     }
 }
