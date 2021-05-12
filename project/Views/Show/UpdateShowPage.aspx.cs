@@ -13,5 +13,10 @@ namespace project.View.Show
         {
 
         }
+
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

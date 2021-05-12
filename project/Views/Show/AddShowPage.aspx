@@ -3,6 +3,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <h2>Add Show</h2>
+
+    <div>
+        <asp:GridView ID="gvShow" runat="server"></asp:GridView>
+    </div>
+
     <div>
         <asp:Label ID="lblName" Text="Name" runat="server" />
         <asp:TextBox ID="txtName" runat="server" />
