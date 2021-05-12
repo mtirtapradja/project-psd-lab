@@ -53,5 +53,40 @@ namespace project.Controllers
         {
             return UserHandler.AddNewUser(name, username, password, roleId);
         }
+
+        public static string CheckLogin(string username, string password)
+        {
+            string response = "";
+
+            if (username == "")
+            {
+                response = "Username must be filled";
+            }
+            else if (username.Length < 6 || username.Length > 30)
+            {
+                response = "Username must be between 6 and 30 characters";
+            }
+            else if (password == "")
+            {
+                response = "Password must be filled";
+            }
+            return response;
+        }
+
+        public static User Login(string username, string password)
+        {
+            User user = UserHandler.LoginUser(username, password);
+
+            if (user != null)
+            {
+                return user;
+            }
+            else
+            {
+                return null;
+            }
+
+        }
+
     }
 }

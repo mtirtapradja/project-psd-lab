@@ -25,8 +25,6 @@ namespace project.View
             string confirmPassword = txtConfirmPass.Text;
             int userType = 2;  // Seller
 
-            Project_DatabaseEntities db = new Project_DatabaseEntities();
-
             if (ddlRole.SelectedValue.Equals("Buyer"))
             {
                 userType = 1; // Buyer

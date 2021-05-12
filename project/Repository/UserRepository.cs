@@ -1,5 +1,9 @@
 ﻿using project.Factories;
 using project.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 
 namespace project.Repository
 {
@@ -16,9 +20,24 @@ namespace project.Repository
 
                 return true;
             }
-            
             return false;
         }
 
+        public static User loginUser(string username, string password)
+        {
+            User user = (from x in db.Users
+                                where x.Username.Equals(username) &&
+             x.Password.Equals(password)
+                                select x)
+                                .FirstOrDefault();
+            if (user != null)
+            {
+                return user;
+            }
+            else
+            {
+                return null;
+            }  
+        }
     }
 }

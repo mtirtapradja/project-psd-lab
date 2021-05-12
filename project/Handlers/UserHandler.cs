@@ -15,5 +15,20 @@ namespace project.Handlers
             User newUser =  UserFactory.Create(name, username, password, roleId);
             return UserRepository.insertUser(newUser);
         }
+
+        public static User LoginUser(string username, string password)
+        {
+            User user = UserRepository.loginUser(username, password);
+            if (user != null)
+            {
+                return user;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+
     }
 }

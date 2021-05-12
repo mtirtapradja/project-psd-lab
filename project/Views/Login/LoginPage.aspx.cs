@@ -1,4 +1,5 @@
 ﻿using project.Models;
+using project.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,21 +32,33 @@ namespace project.View
             string username = txtEmail.Text;
             string password = txtPassword.Text;
 
-            User currentUser = (from x in db.Users where x.Username.Equals(username) && x.Password.Equals(password) select x)
-                                .FirstOrDefault();
+            string response = UserController.CheckLogin(username,password);
 
-            if (currentUser != null)
+            if (response == "")
             {
-                if (cbRemember.Checked)
+                lblError.Text = response;
+            }
+            else
+            {
+                User currentUser = UserController.Login(username, password);
+
+                if (currentUser != null)
                 {
-                    HttpCookie cookie = new HttpCookie("remember");
-                    cookie.Value = currentUser.RoleId.ToString();
-                    cookie.Expires = DateTime.Now.AddHours(1);
-                    Response.Cookies.Add(cookie);
+                    lblError.Text = "";
+                    if (cbRemember.Checked)
+                    {
+                        HttpCookie cookie = new HttpCookie("remember");
+                        cookie.Value = currentUser.RoleId.ToString();
+                        cookie.Expires = DateTime.Now.AddHours(1);
+                        Response.Cookies.Add(cookie);
+                    }
+
+                    Response.Redirect("../Home/HomePage.aspx?id=" + currentUser.RoleId);
                 }
-
-                Response.Redirect("../Home/HomePage.aspx?id=" + currentUser.RoleId);
-
+                else
+                {
+                    lblError.Text = response;
+                }
             }
         }
     }
