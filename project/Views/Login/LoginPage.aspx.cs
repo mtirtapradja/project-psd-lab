@@ -15,6 +15,18 @@ namespace project.View
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Button button = this.Master.FindControl("btnRegisterOnNav") as Button;
+            button.Visible = true;
+            
+            button = this.Master.FindControl("btnLoginOnNav") as Button;
+            button.Visible = true;
+
+            button = this.Master.FindControl("btnAddShowOnNav") as Button;
+            button.Visible = false;
+
+            button = this.Master.FindControl("btnRedeemOnNav") as Button;
+            button.Visible = false;
+
             // Kalo udah ada cookie, berarti langsung redirect ke HomePage
             if (Request.Cookies["remember"] != null)
             {

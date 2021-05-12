@@ -15,6 +15,12 @@ namespace project.View
         {
             Button button = this.Master.FindControl("btnRegisterOnNav") as Button;
             button.Visible = false;
+
+            button = this.Master.FindControl("btnAddShowOnNav") as Button;
+            button.Visible = false;
+
+            button = this.Master.FindControl("btnRedeemOnNav") as Button;
+            button.Visible = false;
         }
 
         protected void btnRegister_Click(object sender, EventArgs e)

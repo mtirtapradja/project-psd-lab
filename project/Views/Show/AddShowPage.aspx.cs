@@ -17,12 +17,13 @@ namespace project.View.Show
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
+            int SellerId = int.Parse(Request.Cookies["remember"].Value);
             string name = txtName.Text;
             string URL = txtURL.Text;
             string description = txtDesc.Text;
             string price = txtPrice.Text;
 
-            string response = ShowController.CheckAddShow(name, URL, description, price);
+            string response = ShowController.CheckAddShow(SellerId, name, URL, description, price);
 
             if (response == "")
             {

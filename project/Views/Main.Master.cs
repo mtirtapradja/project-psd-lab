@@ -19,22 +19,37 @@ namespace project.View
             Response.Redirect("../Home/HomePage.aspx");
         }
 
+        protected void btnAddShowOnNav_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../Show/AddShowPage.aspx");
+        }
+
+        protected void btnReportsOnNav_Click(object sender, EventArgs e)
+        {
+
+        }
+
         protected void btnLoginOnNav_Click(object sender, EventArgs e)
         {
             Response.Redirect("../Login/LoginPage.aspx");
         }
 
-        protected void btnRedeemOnNav_Click(object sender, EventArgs e)
+        protected void btnRegisterOnNav_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("../Register/RegisterPage.aspx");
         }
 
         protected void btnTransactionOnNav_Click(object sender, EventArgs e)
         {
 
         }
-
+        
         protected void btnAccountOnNav_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnRedeemOnNav_Click(object sender, EventArgs e)
         {
 
         }
@@ -46,21 +61,6 @@ namespace project.View
                 Response.Cookies["remember"].Expires = DateTime.Now.AddDays(-1);
                 Response.Redirect("../Login/LoginPage.aspx");
             }
-        }
-
-        protected void btnAddShowOnNav_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("../Show/AddShowPage.aspx");
-        }
-
-        protected void btnReportsOnNav_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void btnRegisterOnNav_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("../Register/RegisterPage.aspx");
         }
     }
 }
