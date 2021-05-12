@@ -1,4 +1,6 @@
-﻿using System;
+﻿using project.Handlers;
+using project.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -43,6 +45,11 @@ namespace project.Controllers
             }
 
             return response;
+        }
+
+        public static List<Show> GetAllShow()
+        {
+            return ShowHanler;
         }
     }
 }
