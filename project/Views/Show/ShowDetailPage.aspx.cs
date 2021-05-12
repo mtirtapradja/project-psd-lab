@@ -7,16 +7,15 @@ using System.Web.UI.WebControls;
 using System.Text.RegularExpressions;
 using System.Globalization;
 using project.Models;
-using project.Models;
 
 namespace project.Views.Show
 {
     public partial class ShowDetailPage : System.Web.UI.Page
     {
-        string name;
-        string s_price;
-        string seller;
-        string desciption;
+        private string name;
+        private string s_price;
+        private string seller;
+        private string desciption;
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -35,10 +34,6 @@ namespace project.Views.Show
             lblPriceContent.Text = String.Format(CultureInfo.CreateSpecificCulture("id-id"),"Rp. {0:N}",price);
             lblSellerContent.Text = seller;
             lblDescriptionContent.Text = desciption;
-
-
-
-
         }
 
         private void showButton(string RoleId)
