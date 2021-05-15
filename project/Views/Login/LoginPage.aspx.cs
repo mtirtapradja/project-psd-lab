@@ -19,7 +19,7 @@ namespace project.View
             button.Visible = true;
             
             button = this.Master.FindControl("btnLoginOnNav") as Button;
-            button.Visible = true;
+            button.Visible = false;
 
             button = this.Master.FindControl("btnAddShowOnNav") as Button;
             button.Visible = false;
@@ -46,7 +46,7 @@ namespace project.View
 
             string response = UserController.CheckLogin(username,password);
 
-            if (response == "")
+            if (response != "")
             {
                 lblError.Text = response;
             }
