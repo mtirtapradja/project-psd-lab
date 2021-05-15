@@ -18,11 +18,11 @@ namespace project.Factories
             return trHeader;
         }
 
-        public static TransactionDetail CreateTransactionDetail(int trHeaderId, int status, string token)
+        public static TransactionDetail CreateTransactionDetail(int trHeaderId, int statusId, string token)
         {
             TransactionDetail trDetail = new TransactionDetail();
             trDetail.TransactionHeaderId = trHeaderId;
-            trDetail.StatusId = status;
+            trDetail.StatusId = statusId;
             trDetail.Token = token;
             return trDetail;
         }
