@@ -12,7 +12,7 @@ namespace project.Handlers
     {
         public static bool InsertTransactionHeader(int buyerId, int showId, DateTime showTime, DateTime createdAt)
         {
-            TransactionHandler trHeader = TransactionFactory.CreateTransactionHeader(buyerId, showId, showTime, createdAt);
+            TransactionHeader trHeader = TransactionFactory.CreateTransactionHeader(buyerId, showId, showTime, createdAt);
 
             if (trHeader != null)
             {
@@ -24,9 +24,9 @@ namespace project.Handlers
             }
         }
 
-        public static Boolean InsertTransactionDetail(int trHeaderId, int status, string token)
+        public static bool InsertTransactionDetail(int trHeaderId, int status, string token)
         {
-            InsertTransactionDetail trDetail = TransactionFactory.CreateTransactionDetail(trHeaderId, status, token);
+            TransactionDetail trDetail = TransactionFactory.CreateTransactionDetail(trHeaderId, status, token);
 
             if (trDetail != null)
             {
@@ -39,6 +39,10 @@ namespace project.Handlers
 
         }
 
+        public static List<TransactionHeader> GetAllTransactionHeaders() 
+        {
+            return 
+        }
 
     }
 }
