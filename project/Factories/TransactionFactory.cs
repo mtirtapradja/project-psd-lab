@@ -22,7 +22,7 @@ namespace project.Factories
         {
             TransactionDetail trDetail = new TransactionDetail();
             trDetail.TransactionHeaderId = trHeaderId;
-            trDetail.Status = status;
+            trDetail.StatusId = status;
             trDetail.Token = token;
             return trDetail;
         }
