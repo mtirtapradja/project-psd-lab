@@ -92,6 +92,7 @@
     <Content Include="Views\Home\HomePage.aspx" />
     <Content Include="Views\Login\LoginPage.aspx" />
     <Content Include="Views\Login\style.css" />
+    <Content Include="Views\RedeemToken\RedeemTokenPage.aspx" />
     <Content Include="Views\Register\RegisterPage.aspx" />
     <Content Include="Views\Register\style.css" />
     <Content Include="Views\Shows\AddShowPage.aspx" />
@@ -171,6 +172,13 @@
     <Compile Include="Views\Main.Master.designer.cs">
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
+    <Compile Include="Views\RedeemToken\RedeemTokenPage.aspx.cs">
+      <DependentUpon>RedeemTokenPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\RedeemToken\RedeemTokenPage.aspx.designer.cs">
+      <DependentUpon>RedeemTokenPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Register\RegisterPage.aspx.cs">
       <DependentUpon>RegisterPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -227,7 +235,9 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Report\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
