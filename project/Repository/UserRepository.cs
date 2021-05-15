@@ -9,7 +9,7 @@ namespace project.Repository
 {
     public class UserRepository
     {
-        private static Project_DatabaseEntities db = new Project_DatabaseEntities();
+        private static Project_DatabaseEntities2 db = new Project_DatabaseEntities2();
 
         public static bool insertUser(User user)
         {

@@ -11,7 +11,7 @@ namespace project.View
 {
     public partial class LoginPage : System.Web.UI.Page
     {
-        private static Project_DatabaseEntities db = new Project_DatabaseEntities();
+        private static Project_DatabaseEntities2 db = new Project_DatabaseEntities2();
 
         protected void Page_Load(object sender, EventArgs e)
         {

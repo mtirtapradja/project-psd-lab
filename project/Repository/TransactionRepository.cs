@@ -8,7 +8,7 @@ namespace project.Repository
 {
     public class TransactionRepository
     {
-        private static Project_DatabaseEntities db = new Project_DatabaseEntities();
+        private static Project_DatabaseEntities2 db = new Project_DatabaseEntities2();
 
         public static bool InsertTransactionHeader(TransactionHeader trHeader)
         {

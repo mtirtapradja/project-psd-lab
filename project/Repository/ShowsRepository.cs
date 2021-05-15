@@ -9,7 +9,7 @@ namespace project.Repository
 {
     public class ShowsRepository
     {
-        private static Project_DatabaseEntities db = new Project_DatabaseEntities();
+        private static Project_DatabaseEntities2 db = new Project_DatabaseEntities2();
 
         public static bool InsertShow(Show show)
         {
