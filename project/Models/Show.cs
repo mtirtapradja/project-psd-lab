@@ -21,9 +21,9 @@ namespace project.Models
         }
     
         public int Id { get; set; }
-        public Nullable<int> SellerId { get; set; }
+        public int SellerId { get; set; }
         public string Name { get; set; }
-        public Nullable<int> Price { get; set; }
+        public int Price { get; set; }
         public string Description { get; set; }
     
         public virtual User User { get; set; }

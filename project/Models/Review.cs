@@ -15,8 +15,8 @@ namespace project.Models
     public partial class Review
     {
         public int Id { get; set; }
-        public Nullable<int> TransactionDetailId { get; set; }
-        public Nullable<int> Rating { get; set; }
+        public int TransactionDetailId { get; set; }
+        public int Rating { get; set; }
         public string Description { get; set; }
     
         public virtual TransactionDetail TransactionDetail { get; set; }

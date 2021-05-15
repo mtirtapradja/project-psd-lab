@@ -21,10 +21,10 @@ namespace project.Models
         }
     
         public int Id { get; set; }
-        public Nullable<int> BuyerId { get; set; }
-        public Nullable<int> ShowId { get; set; }
+        public int BuyerId { get; set; }
+        public int ShowId { get; set; }
         public System.DateTime ShowTime { get; set; }
-        public Nullable<System.DateTime> CreatedAt { get; set; }
+        public System.DateTime CreatedAt { get; set; }
     
         public virtual Show Show { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
