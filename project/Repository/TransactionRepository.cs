@@ -40,50 +40,54 @@ namespace project.Repository
 
         public static List<Transaction> GetAllTransaction()
         {
-            return (from x in db.TransactionHeaders
-                    join y in db.Shows on x.ShowId equals y.Id
+            return (from header in db.TransactionHeaders
+                    join show in db.Shows on header.ShowId equals show.Id
                     select new Transaction
                     {
-                        Payment_Date = x.CreatedAt,
-                        Show_Name = y.Name,
-                        Show_Time = x.ShowTime,
-                        Quantity = GetTransactionDetails(x.Id).Count(),
-                        Total_Price = y.Price*(GetTransactionDetails(x.Id).Count())
+                        Payment_Date = header.CreatedAt,
+                        Show_Name = show.Name,
+                        Show_Time = header.ShowTime,
+                        Quantity = GetTransactionDetails(header.Id).Count(),
+                        Total_Price = show.Price * (GetTransactionDetails(header.Id).Count())
                     }).ToList();
         }
 
         public static List<JoinedTransactionDetail> GetTransactionDetailById(int trHeaderId)
         {
-            return (from x in db.TransactionDetails
-                    join y in db.Reviews on x.Id equals y.TransactionDetailId
-                    join z in db.TransactionHeaders on x.TransactionHeaderId equals z.Id
-                    join v in db.Shows on z.ShowId equals v.Id
-                    where z.Id == trHeaderId
+            return (from detail in db.TransactionDetails
+                    join review in db.Reviews on detail.Id equals review.TransactionDetailId
+                    join header in db.TransactionHeaders on detail.TransactionHeaderId equals header.Id
+                    join show in db.Shows on header.ShowId equals show.Id
+                    where header.Id == trHeaderId
                     select new JoinedTransactionDetail
                     {
-                        Show_Name = v.Name,
-                        Average_Rating = GetTotalRatingByReview(x.Id),
-                        Description = v.Description,
-                        Token = x.Token
+                        Show_Name = show.Name,
+                        Average_Rating = GetTotalRatingByReview(show.Id),
+                        Description = show.Description,
+                        Token = detail.Token
                     }).ToList();
         }
 
         private static List<TransactionDetail> GetTransactionDetails(int trHeaderId)
         {
-            return (from x in db.TransactionDetails where x.TransactionHeaderId == trHeaderId select x).ToList();
+            return (from detail in db.TransactionDetails where detail.TransactionHeaderId == trHeaderId select detail).ToList();
         }
 
-        private static int GetTotalRatingByReview(int trDetailId)
+        private static int GetTotalRatingByReview(int showId)
         {
-            return Convert.ToInt32((from x in db.Reviews where x.TransactionDetailId == trDetailId select x.Rating).Average());
+            return Convert.ToInt32((from review in db.Reviews
+                                    join detail in db.TransactionDetails on review.TransactionDetailId equals detail.Id
+                                    join header in db.TransactionHeaders on detail.TransactionHeaderId equals header.Id
+                                    join show in db.Shows on header.ShowId equals show.Id
+                                    where show.Id == showId
+                                    select review.Rating).Average());
         }
-
-        public static List<Review> GetReviewById(int trDetailId)
+        private static List<Review> GetReviewById(int showId)
         {
-            return (from x in db.Reviews where x.TransactionDetailId == trDetailId select x).ToList();
+            return (from review in db.Reviews where review.TransactionDetailId == showId select review).ToList();
         }
 
-        
+
 
     }
 }

@@ -41,5 +41,11 @@ namespace project.Handlers
         {
             return ShowsRepository.GetShowById(id);
         }
+
+        public static ShowDetail GetShowDetailById(int showId)
+        {
+            return ShowsRepository.GetShowDetailById(showId);
+        }
+
     }
 }

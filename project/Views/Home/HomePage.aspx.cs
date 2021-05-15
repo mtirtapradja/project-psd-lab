@@ -14,6 +14,7 @@ namespace project.View.HomePage
         {
             string RoleID = Request.QueryString["id"];
             ShowAdditionalNavBar(RoleID);
+            FillGrid();
         }
 
         protected void FillGrid()

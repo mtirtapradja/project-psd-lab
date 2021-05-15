@@ -59,8 +59,8 @@ namespace project.View
             if (Request.Cookies["remember"] != null)
             {
                 Response.Cookies["remember"].Expires = DateTime.Now.AddDays(-1);
-                Response.Redirect("../Login/LoginPage.aspx");
             }
+            Response.Redirect("../Login/LoginPage.aspx");
         }
     }
 }

@@ -138,6 +138,7 @@
     <Compile Include="Models\Show.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ShowDetail.cs" />
     <Compile Include="Models\Status.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

@@ -15,7 +15,7 @@ namespace project.Views.Shows
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string RoleId = Request.QueryString["RoleId"];
+            String RoleId = Request.Cookies["remember"].Value;
             showButton(RoleId);
             string s_ShowId = Request.QueryString["ShowId"];
             int ShowId = int.Parse(s_ShowId);
@@ -40,21 +40,24 @@ namespace project.Views.Shows
 
         private void showButton(string RoleId)
         {
-            Button btnOrder = this.FindControl("btnOrder") as Button;
-            btnOrder.Visible = true;
-            Button btnUpdate = this.FindControl("btnUpdate") as Button;
-            btnUpdate.Visible = false;
+            this.btnOrder.Visible = true;
+            this.btnUpdate.Visible = true;
 
             //kalau buyer
             if (RoleId.Equals("1"))
             {
                 btnUpdate.Visible = false;
             }
-            //kalau seller
-            else
-            {
-                btnOrder.Visible = false;
-            }
+        }
+
+        protected void btnOrder_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
