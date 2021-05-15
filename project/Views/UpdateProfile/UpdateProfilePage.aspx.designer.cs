@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace project.Views.Shows
+namespace project.Views.UpdateProfile
 {
 
 
