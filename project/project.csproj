@@ -97,7 +97,9 @@
     <Content Include="Views\Register\style.css" />
     <Content Include="Views\Shows\AddShowPage.aspx" />
     <Content Include="Views\Shows\OrderShowPage.aspx" />
+    <Content Include="Views\Shows\ReviewPage.aspx" />
     <Content Include="Views\Shows\ShowDetailPage.aspx" />
+    <Content Include="Views\Shows\UpdateProfilePage.aspx" />
     <Content Include="Views\Shows\UpdateShowPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -200,12 +202,26 @@
     <Compile Include="Views\Shows\OrderShowPage.aspx.designer.cs">
       <DependentUpon>OrderShowPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Shows\ReviewPage.aspx.cs">
+      <DependentUpon>ReviewPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Shows\ReviewPage.aspx.designer.cs">
+      <DependentUpon>ReviewPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Shows\ShowDetailPage.aspx.cs">
       <DependentUpon>ShowDetailPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\Shows\ShowDetailPage.aspx.designer.cs">
       <DependentUpon>ShowDetailPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shows\UpdateProfilePage.aspx.cs">
+      <DependentUpon>UpdateProfilePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Shows\UpdateProfilePage.aspx.designer.cs">
+      <DependentUpon>UpdateProfilePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Shows\UpdateShowPage.aspx.cs">
       <DependentUpon>UpdateShowPage.aspx</DependentUpon>
