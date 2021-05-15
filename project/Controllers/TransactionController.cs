@@ -19,14 +19,14 @@ namespace project.Controllers
             return TransactionHandler.InsertTransactionDetail(trHeaderId, status, token);
         }
 
-        public static List<TransactionHeader> GetTransactionHeaders()
+        public static List<Transaction> GetAllTransaction()
         {
-            
+            return TransactionHandler.GetAllTransaction();
         }
 
-        public static TransactionHeader GetTransactionHeader(int trHeaderId, int buyerId)
+        public static List<JoinedTransactionDetail> GetTransactionDetailById(int trHeaderId)
         {
-            
+            return TransactionHandler.GetTransactionDetailById(trHeaderId);
         }
     }
 }
