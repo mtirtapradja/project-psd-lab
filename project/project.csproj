@@ -94,10 +94,10 @@
     <Content Include="Views\Login\style.css" />
     <Content Include="Views\Register\RegisterPage.aspx" />
     <Content Include="Views\Register\style.css" />
-    <Content Include="Views\Show\AddShowPage.aspx" />
-    <Content Include="Views\Show\OrderShowPage.aspx" />
-    <Content Include="Views\Show\ShowDetailPage.aspx" />
-    <Content Include="Views\Show\UpdateShowPage.aspx" />
+    <Content Include="Views\Shows\AddShowPage.aspx" />
+    <Content Include="Views\Shows\OrderShowPage.aspx" />
+    <Content Include="Views\Shows\ShowDetailPage.aspx" />
+    <Content Include="Views\Shows\UpdateShowPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -177,32 +177,32 @@
     <Compile Include="Views\Register\RegisterPage.aspx.designer.cs">
       <DependentUpon>RegisterPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Show\AddShowPage.aspx.cs">
+    <Compile Include="Views\Shows\AddShowPage.aspx.cs">
       <DependentUpon>AddShowPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Show\AddShowPage.aspx.designer.cs">
+    <Compile Include="Views\Shows\AddShowPage.aspx.designer.cs">
       <DependentUpon>AddShowPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Show\OrderShowPage.aspx.cs">
+    <Compile Include="Views\Shows\OrderShowPage.aspx.cs">
       <DependentUpon>OrderShowPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Show\OrderShowPage.aspx.designer.cs">
+    <Compile Include="Views\Shows\OrderShowPage.aspx.designer.cs">
       <DependentUpon>OrderShowPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Show\ShowDetailPage.aspx.cs">
+    <Compile Include="Views\Shows\ShowDetailPage.aspx.cs">
       <DependentUpon>ShowDetailPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Show\ShowDetailPage.aspx.designer.cs">
+    <Compile Include="Views\Shows\ShowDetailPage.aspx.designer.cs">
       <DependentUpon>ShowDetailPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Show\UpdateShowPage.aspx.cs">
+    <Compile Include="Views\Shows\UpdateShowPage.aspx.cs">
       <DependentUpon>UpdateShowPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Show\UpdateShowPage.aspx.designer.cs">
+    <Compile Include="Views\Shows\UpdateShowPage.aspx.designer.cs">
       <DependentUpon>UpdateShowPage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>

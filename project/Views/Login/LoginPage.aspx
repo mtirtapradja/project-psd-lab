@@ -8,7 +8,7 @@
       <div class="inner-container">
         <div class="modal">
           <h2>LOGIN PAGE</h2>
-          <asp:Label ID="lblError" Text="" runat="server" />
+          
           <div class="email-input">
             <asp:Label CssClass="email-input-label" runat="server">Username :
             </asp:Label>
@@ -25,6 +25,7 @@
             <asp:CheckBox ID="cbRemember" Text="Remember me" runat="server" />
           </div>
 
+            <asp:Label ID="lblError" Text="" runat="server" />
           <div class="login-btn">
             <asp:Button CssClass="btn" ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" />
           </div>

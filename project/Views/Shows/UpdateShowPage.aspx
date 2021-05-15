@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Main.Master" AutoEventWireup="true" CodeBehind="AddShowPage.aspx.cs" Inherits="project.View.Show.AddShowPage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Main.Master" AutoEventWireup="true" CodeBehind="UpdateShowPage.aspx.cs" Inherits="project.View.Shows.UpdateShowPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <h2>Add Show</h2>
+    <h2>Update Show Page</h2>
 
     <div>
         <asp:GridView ID="gvShow" runat="server"></asp:GridView>
@@ -26,6 +26,6 @@
     </div>
     <div>
         <asp:Label ID="lblError" Text="" runat="server" />
-        <asp:Button ID="btnAdd" Text="Add" runat="server" OnClick="btnAdd_Click"/>
+        <asp:Button ID="btnUpdate" Text="Update" OnClick="btnUpdate_Click" runat="server"/>
     </div>
 </asp:Content>
