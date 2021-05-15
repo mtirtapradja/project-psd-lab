@@ -15,7 +15,7 @@ namespace project.Views.Shows
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string RoleId = Request.QueryString["RoleId"];
+            String RoleId = Request.Cookies["remember"].Value;
             showButton(RoleId);
             string s_ShowId = Request.QueryString["ShowId"];
             int ShowId = int.Parse(s_ShowId);
