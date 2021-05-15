@@ -23,7 +23,7 @@ namespace project.Models
         public int Id { get; set; }
         public Nullable<int> BuyerId { get; set; }
         public Nullable<int> ShowId { get; set; }
-        public byte[] ShowTime { get; set; }
+        public System.DateTime ShowTime { get; set; }
         public Nullable<System.DateTime> CreatedAt { get; set; }
     
         public virtual Show Show { get; set; }
