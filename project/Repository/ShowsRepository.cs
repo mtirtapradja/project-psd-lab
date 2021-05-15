@@ -57,9 +57,5 @@ namespace project.Repository
             return (from x in db.Shows where x.Id.Equals(id) select x).FirstOrDefault();
         }
 
-        public static List<Review> GetReviewById(int id)
-        {
-            return (from x in db.Reviews where x.TransactionDetailId == id select x).ToList();
-        }
     }
 }

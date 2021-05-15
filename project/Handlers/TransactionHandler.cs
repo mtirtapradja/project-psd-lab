@@ -39,9 +39,14 @@ namespace project.Handlers
 
         }
 
-        public static List<TransactionHeader> GetAllTransactionHeaders() 
+        public static List<Transaction> GetAllTransaction() 
         {
-            return 
+            return TransactionRepository.GetAllTransaction();
+        }
+
+        public static List<JoinedTransactionDetail> GetTransactionDetailById(int trHeaderId)
+        {
+            return TransactionRepository.GetTransactionDetailById(trHeaderId);
         }
 
     }
