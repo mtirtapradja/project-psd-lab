@@ -104,8 +104,10 @@
     <Compile Include="Controllers\ShowController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Factories\ShowFactory.cs" />
+    <Compile Include="Factories\TransactionFactory.cs" />
     <Compile Include="Factories\UserFactory.cs" />
     <Compile Include="Handlers\ShowHandler.cs" />
+    <Compile Include="Handlers\TransactionHandler.cs" />
     <Compile Include="Handlers\UserHandler.cs" />
     <Compile Include="Models\DatabaseModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -144,6 +146,7 @@
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Repository\ShowsRepository.cs" />
+    <Compile Include="Repository\TransactionRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Views\Home\HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
