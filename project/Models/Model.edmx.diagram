@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="182f3cac016641d08ae71d5b44e2f2fb" Name="Diagram1">
+      <Diagram DiagramId="87087727db8a4bd3aa96b382f4efbfbd" Name="Diagram1">
         <EntityTypeShape EntityType="Project_DatabaseModel.Review" Width="1.5" PointX="12" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Project_DatabaseModel.Role" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Project_DatabaseModel.Show" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
@@ -15,10 +15,10 @@
         <AssociationConnector Association="Project_DatabaseModel.FK__Reviews__Transac__38996AB5" ManuallyRouted="false" />
         <AssociationConnector Association="Project_DatabaseModel.FK__Users__RoleId__276EDEB3" ManuallyRouted="false" />
         <AssociationConnector Association="Project_DatabaseModel.FK__Shows__SellerId__2A4B4B5E" ManuallyRouted="false" />
-        <AssociationConnector Association="Project_DatabaseModel.FK__Transacti__ShowI__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_DatabaseModel.FK__Transacti__ShowI__5DCAEF64" ManuallyRouted="false" />
         <AssociationConnector Association="Project_DatabaseModel.FK__Transacti__Statu__35BCFE0A" ManuallyRouted="false" />
-        <AssociationConnector Association="Project_DatabaseModel.FK__Transacti__Trans__34C8D9D1" ManuallyRouted="false" />
-        <AssociationConnector Association="Project_DatabaseModel.FK__Transacti__Buyer__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_DatabaseModel.FK__Transacti__Trans__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_DatabaseModel.FK__Transacti__Buyer__5CD6CB2B" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
