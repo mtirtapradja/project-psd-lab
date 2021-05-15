@@ -105,13 +105,13 @@ namespace project.Views.Show
         protected global::System.Web.UI.WebControls.Label lblAverageContent;
 
         /// <summary>
-        /// GvReview control.
+        /// gvReview control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GvReview;
+        protected global::System.Web.UI.WebControls.GridView gvReview;
 
         /// <summary>
         /// btnOrder control.

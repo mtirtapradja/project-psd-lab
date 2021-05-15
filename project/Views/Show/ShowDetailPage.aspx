@@ -9,7 +9,7 @@
         <asp:Label ID="lblSeller" Text="Seller Name" runat="server" /> <asp:Label ID="lblSellerContent" Text="" runat="server" /> <br />
         <asp:Label ID="lblDescription" Text="Description" runat="server" /> <asp:Label ID="lblDescriptionContent" Text="" runat="server" /> <br />
         <asp:Label ID="lblAverage" Text="Average Rating" runat="server" /> <asp:Label ID="lblAverageContent" Text="" runat="server" /> <br />
-        <asp:GridView ID="GvReview" runat="server"></asp:GridView>
+        <asp:GridView ID="gvReview" runat="server"></asp:GridView>
     </div>
     <div>
         <asp:Button ID="btnOrder" Text="Order" runat="server" /> <asp:Button ID="btnUpdate" Text="Update" runat="server" />

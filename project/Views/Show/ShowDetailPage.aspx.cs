@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Text.RegularExpressions;
 using System.Globalization;
 using project.Models;
+using project.Controllers;
 
 namespace project.Views.Show
 {
@@ -22,18 +23,34 @@ namespace project.Views.Show
         {
             string RoleId = Request.QueryString["RoleId"];
             showButton(RoleId);
-            string ShowId = Request.QueryString["ShowId"];
+            string s_ShowId = Request.QueryString["ShowId"];
+            int ShowId = int.Parse(s_ShowId);
 
-            name = Request.QueryString["name"];
-            s_price = Request.QueryString["price"];
-            seller = Request.QueryString["seller"];
-            desciption = Request.QueryString["description"];
+            Show show = ShowController.GetShowById(ShowId);
 
-            lblNameContent.Text = name;
-            int price = int.Parse(s_price);
-            lblPriceContent.Text = String.Format(CultureInfo.CreateSpecificCulture("id-id"),"Rp. {0:N}",price);
-            lblSellerContent.Text = seller;
-            lblDescriptionContent.Text = desciption;
+            if(show != null)
+            {
+                name = Request.QueryString["name"];
+                s_price = Request.QueryString["price"];
+                seller = Request.QueryString["seller"];
+                desciption = Request.QueryString["description"];
+
+                lblNameContent.Text = name;
+                int price = int.Parse(s_price);
+                lblPriceContent.Text = String.Format(CultureInfo.CreateSpecificCulture("id-id"), "Rp. {0:N}", price);
+                lblSellerContent.Text = seller;
+                lblDescriptionContent.Text = desciption;
+                FillGrid(ShowId);
+
+            }
+
+        }
+
+
+        private void FillGrid(int id)
+        {
+            gvReview.DataSource = ShowController.GetReviewsById(id);
+            gvReview.DataBind();
         }
 
         private void showButton(string RoleId)
@@ -54,9 +71,5 @@ namespace project.Views.Show
                 btnOrder.Visible = false;
             }
         }
-
-        
-
-
     }
 }
