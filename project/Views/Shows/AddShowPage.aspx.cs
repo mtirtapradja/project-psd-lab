@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace project.View.Show
+namespace project.View.Shows
 {
     public partial class AddShowPage : System.Web.UI.Page
     {

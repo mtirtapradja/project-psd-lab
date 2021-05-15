@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace project.Views.Show
+namespace project.Views.Shows
 {
     public partial class OrderShowPage : System.Web.UI.Page
     {

@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace project.View.Show
+namespace project.View.Shows
 {
     public partial class UpdateShowPage : System.Web.UI.Page
     {
@@ -16,7 +16,7 @@ namespace project.View.Show
 
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

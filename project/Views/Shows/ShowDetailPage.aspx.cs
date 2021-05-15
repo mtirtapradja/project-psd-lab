@@ -9,16 +9,10 @@ using System.Globalization;
 using project.Models;
 using project.Controllers;
 
-namespace project.Views.Show
+namespace project.Views.Shows
 {
     public partial class ShowDetailPage : System.Web.UI.Page
     {
-        private string name;
-        private string s_price;
-        private string seller;
-        private string desciption;
-
-
         protected void Page_Load(object sender, EventArgs e)
         {
             string RoleId = Request.QueryString["RoleId"];
@@ -26,26 +20,17 @@ namespace project.Views.Show
             string s_ShowId = Request.QueryString["ShowId"];
             int ShowId = int.Parse(s_ShowId);
 
-            Show show = ShowController.GetShowById(ShowId);
+            Models.Show show = ShowController.GetShowById(ShowId);
 
             if(show != null)
             {
-                name = Request.QueryString["name"];
-                s_price = Request.QueryString["price"];
-                seller = Request.QueryString["seller"];
-                desciption = Request.QueryString["description"];
-
-                lblNameContent.Text = name;
-                int price = int.Parse(s_price);
-                lblPriceContent.Text = String.Format(CultureInfo.CreateSpecificCulture("id-id"), "Rp. {0:N}", price);
-                lblSellerContent.Text = seller;
-                lblDescriptionContent.Text = desciption;
+                lblNameContent.Text = show.Name;
+                lblPriceContent.Text = String.Format(CultureInfo.CreateSpecificCulture("id-id"), "Rp. {0:N}", show.Price);
+                lblSellerContent.Text = (show.SellerId).ToString();
+                lblDescriptionContent.Text = show.Description;
                 FillGrid(ShowId);
-
             }
-
         }
-
 
         private void FillGrid(int id)
         {
