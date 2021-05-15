@@ -41,10 +41,5 @@ namespace project.Handlers
         {
             return ShowsRepository.GetShowById(id);
         }
-
-        public static List<Review> GetReviewsById(int id)
-        {
-            return ShowsRepository.GetReviewById(id);
-        }
     }
 }

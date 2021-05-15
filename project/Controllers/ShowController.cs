@@ -103,10 +103,5 @@ namespace project.Controllers
         {
             return ShowHandler.GetShowById(Id);
         }
-
-        public static List<Review> GetReviewsById(int id)
-        {
-            return ShowHandler.GetReviewsById(id);
-        }
     }
 }

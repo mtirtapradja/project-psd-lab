@@ -110,6 +110,7 @@
     <Compile Include="Handlers\ShowHandler.cs" />
     <Compile Include="Handlers\TransactionHandler.cs" />
     <Compile Include="Handlers\UserHandler.cs" />
+    <Compile Include="Models\JoinedTransactionDetail.cs" />
     <Compile Include="Models\Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -137,6 +138,7 @@
     <Compile Include="Models\Status.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Transaction.cs" />
     <Compile Include="Models\TransactionDetail.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
