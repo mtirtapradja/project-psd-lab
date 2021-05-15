@@ -21,8 +21,8 @@ namespace project.Models
         }
     
         public int Id { get; set; }
-        public Nullable<int> TransactionHeaderId { get; set; }
-        public Nullable<int> StatusId { get; set; }
+        public int TransactionHeaderId { get; set; }
+        public int StatusId { get; set; }
         public string Token { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
