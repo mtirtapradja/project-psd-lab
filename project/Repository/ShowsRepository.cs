@@ -75,6 +75,17 @@ namespace project.Repository
                     }).FirstOrDefault();
         }
 
+        public static List<Review> GetShowReviewById(int showId)
+        {
+            return (from review in db.Reviews
+                    join detail in db.TransactionDetails on review.TransactionDetailId equals detail.Id
+                    join header in db.TransactionHeaders on detail.TransactionHeaderId equals header.Id
+                    join show in db.Shows on header.Id equals show.Id
+                    where show.Id == showId
+                    select review).ToList();
+        }
+
+
         private static int GetTotalRatingByReview(int showId)
         {
             return Convert.ToInt32((from review in db.Reviews
