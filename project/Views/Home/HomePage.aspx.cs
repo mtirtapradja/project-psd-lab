@@ -14,15 +14,7 @@ namespace project.View.HomePage
         {
             string RoleID = Request.QueryString["id"];
             ShowAdditionalNavBar(RoleID);
-            FillGrid();
         }
-
-        protected void FillGrid()
-        {
-            gvShows.DataSource = ShowController.GetAllShow();
-            gvShows.DataBind();
-        }
-
 
         private void ShowAdditionalNavBar(string RoleID)
         {
@@ -116,6 +108,13 @@ namespace project.View.HomePage
                 button = this.Master.FindControl("btnLogoutOnNav") as Button;
                 button.Visible = false;
             }
+        }
+
+        protected void btnShowDetail_Click(object sender, EventArgs e)
+        {
+            string RoleId = Request.QueryString["id"];
+            string showId = "1";
+            Response.Redirect("../Shows/ShowDetailPage.aspx?id=" + RoleId + "+ShowId=" + showId);
         }
     }
 }

@@ -15,7 +15,7 @@ namespace project.Views.Shows
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string RoleId = Request.QueryString["RoleId"];
+            string RoleId = Request.QueryString["Id"];
             showButton(RoleId);
             string s_ShowId = Request.QueryString["ShowId"];
             int ShowId = int.Parse(s_ShowId);
