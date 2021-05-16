@@ -13,7 +13,7 @@
                 <asp:BoundField HeaderText="Description" DataField="Description" SortExpression="Description" />
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <asp:Button ID="btnShowDetail" Text="Show Detail" OnClick="btnShowDetail_Click" runat="server" />
+                        <asp:Button ID="btnShowDetail" Text="Show Detail" OnCommand="btnShowDetail_Command" CommandName="Redirect" CommandArgument="<%# Container.DataItemIndex %>" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>

@@ -65,7 +65,7 @@ namespace project.View
                         Response.Cookies.Add(cookie);
                     }
 
-                    Response.Redirect("../Home/HomePage.aspx?id=" + currentUser.RoleId);
+                    Response.Redirect("../Home/HomePage.aspx?RoleId=" + currentUser.RoleId);
                 }
                 else
                 {

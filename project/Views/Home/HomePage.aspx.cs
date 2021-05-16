@@ -1,5 +1,6 @@
 ﻿using project.Controllers;
 using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,7 +13,7 @@ namespace project.View.HomePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string RoleID = Request.QueryString["id"];
+            string RoleID = Request.QueryString["RoleId"];
             ShowAdditionalNavBar(RoleID);
         }
 
@@ -110,11 +111,21 @@ namespace project.View.HomePage
             }
         }
 
-        protected void btnShowDetail_Click(object sender, EventArgs e)
+        protected void btnShowDetail_Command(object sender, CommandEventArgs e)
         {
-            string RoleId = Request.QueryString["id"];
-            string showId = "1";
-            Response.Redirect("../Shows/ShowDetailPage.aspx?RoleId=" + RoleId + "+ShowId=" + showId);
+            string RoleId = Request.QueryString["RoleId"];
+            string ShowId = "";
+
+            if (e.CommandName == "Redirect")
+            {
+                // Cari Row ke berapa nya
+                int rowIndex = Convert.ToInt32(e.CommandArgument);
+
+                // Reference ke Row dari si GridView
+                ShowId = gvShows.Rows[rowIndex].Cells[0].Text;
+            }
+
+            Response.Redirect("../Shows/ShowDetailPage.aspx?RoleId=" + RoleId + "&ShowId=" + ShowId);
         }
     }
 }
