@@ -77,7 +77,7 @@ namespace project.Views.Shows
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Ordering...\\nTime: " + date + "');", true);
 
                 int showId = int.Parse(Request.QueryString["ShowId"]);
-                int buyerId = int.Parse(Request.QueryString["UserId"]);
+                int buyerId = int.Parse(Session["UserId"].ToString());
 
                 TransactionController.CheckTransactionHeader(buyerId, showId, date, DateTime.Now);
 
