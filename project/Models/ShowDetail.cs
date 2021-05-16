@@ -9,8 +9,8 @@ namespace project.Models
     {
         public string Show_Name { get; set; }
         public string Seller_Name { get; set; }
+        public int Show_Price { get; set; }
         public string Description { get; set; }
         public int Average_Rating { get; set; }
-        public List<Review> All_Review { get; set; }
     }
 }
