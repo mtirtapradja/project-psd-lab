@@ -16,6 +16,24 @@ namespace project.Handlers
             return UserRepository.insertUser(newUser);
         }
 
+        public static bool UpdateCurrentUser(int userId,string name, string newPassword)
+        {
+            User currentUser = UserRepository.GetUserById(userId);
+
+            if (currentUser != null)
+            {
+                currentUser.Name = name;
+                currentUser.Password = newPassword;
+                return UserRepository.updateUser(currentUser);
+            }
+            return false;
+        }
+
+        public static User GetUserById(int userId)
+        {
+            return UserRepository.GetUserById(userId);
+        }
+
         public static User LoginUser(string username, string password)
         {
             User user = UserRepository.loginUser(username, password);
