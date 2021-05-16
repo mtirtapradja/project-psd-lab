@@ -50,8 +50,8 @@ namespace project.Controllers
             }
 
             return response;
-        } 
-        
+        }
+
         public static string CheckUpdateShow(int SellerId, string name, string URL, string description, string s_price)
         {
             string response = "";
@@ -103,10 +103,15 @@ namespace project.Controllers
         {
             return ShowHandler.GetShowById(Id);
         }
-        
+
         public static Show GetReviewsById(int Id)
         {
             return ShowHandler.GetShowById(Id);
+        }
+
+        public static ShowDetail GetShowDetailById(int showId)
+        {
+            return ShowHandler.GetShowDetailById(showId);
         }
     }
 }

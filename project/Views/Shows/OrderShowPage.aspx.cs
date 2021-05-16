@@ -16,5 +16,15 @@ namespace project.Views.Shows
 
 
         }
+
+        protected void btnOrderShow_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnUnavailable_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

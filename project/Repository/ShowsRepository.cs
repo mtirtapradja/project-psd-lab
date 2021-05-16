@@ -57,5 +57,37 @@ namespace project.Repository
             return (from x in db.Shows where x.Id.Equals(id) select x).FirstOrDefault();
         }
 
+        public static ShowDetail GetShowDetailById(int showId)
+        {
+            return (from detail in db.TransactionDetails
+                    join review in db.Reviews on detail.Id equals review.TransactionDetailId
+                    join header in db.TransactionHeaders on detail.TransactionHeaderId equals header.Id
+                    join show in db.Shows on header.ShowId equals show.Id
+                    join seller in db.Users on show.SellerId equals seller.Id
+                    where show.Id == showId
+                    select new ShowDetail
+                    {
+                        Show_Name = show.Name,
+                        Seller_Name = seller.Name,
+                        Description = show.Description,
+                        Average_Rating = GetTotalRatingByReview(show.Id),
+                        All_Review = GetReviewById(show.Id)
+                    }).FirstOrDefault();
+        }
+
+        private static int GetTotalRatingByReview(int showId)
+        {
+            return Convert.ToInt32((from review in db.Reviews
+                                    join detail in db.TransactionDetails on review.TransactionDetailId equals detail.Id
+                                    join header in db.TransactionHeaders on detail.TransactionHeaderId equals header.Id
+                                    join show in db.Shows on header.ShowId equals show.Id
+                                    where show.Id == showId
+                                    select review.Rating).Average());
+        }
+        private static List<Review> GetReviewById(int showId)
+        {
+            return (from review in db.Reviews where review.TransactionDetailId == showId select review).ToList();
+        }
+
     }
 }
