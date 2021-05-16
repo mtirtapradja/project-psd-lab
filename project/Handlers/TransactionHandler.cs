@@ -10,7 +10,7 @@ namespace project.Handlers
 {
     public class TransactionHandler
     {
-        public static bool InsertTransactionHeader(int buyerId, int showId, DateTime showTime, DateTime createdAt)
+        public static int InsertTransactionHeader(int buyerId, int showId, DateTime showTime, DateTime createdAt)
         {
             TransactionHeader trHeader = TransactionFactory.CreateTransactionHeader(buyerId, showId, showTime, createdAt);
 

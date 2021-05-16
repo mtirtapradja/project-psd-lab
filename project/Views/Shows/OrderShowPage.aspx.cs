@@ -55,11 +55,7 @@ namespace project.Views.Shows
                     Label label = this.gvOrder.Rows[i].FindControl("lblUnavailable") as Label;
                     label.Text = "Unavailable";
                 }
-                
-
-                
             }
-
         }
 
         protected void gvOrder_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -68,19 +64,21 @@ namespace project.Views.Shows
             {
                 int rowIndex = Convert.ToInt32(e.CommandArgument);
 
-                //Reference the GridView Row.
-                GridViewRow row = gvOrder.Rows[rowIndex];
-
                 string time = DateTime.Today.ToString("d") + " " + rowIndex + ":00:00";
                 DateTime date = Convert.ToDateTime(time);
 
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Ordering...\\nTime: " + date + "');", true);
 
                 int showId = int.Parse(Request.QueryString["ShowId"]);
                 int buyerId = int.Parse(Session["UserId"].ToString());
 
-                TransactionController.CheckTransactionHeader(buyerId, showId, date, DateTime.Now);
 
+                // Dari sini kebawah masih kacau balau, besok check lagi karena banyak smell
+                int headerId = TransactionController.CheckTransactionHeader(buyerId, showId, date, DateTime.Now);
+
+                for (int i  = 0; i < Convert.ToInt32(txtQuantity.Text); i++)
+                {
+                    TransactionController.CheckTransactionDetail(headerId, 1, )
+                }
             }
         }
     }

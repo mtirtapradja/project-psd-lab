@@ -10,17 +10,17 @@ namespace project.Repository
     {
         private static Project_DatabaseEntities2 db = new Project_DatabaseEntities2();
 
-        public static bool InsertTransactionHeader(TransactionHeader trHeader)
+        public static int InsertTransactionHeader(TransactionHeader trHeader)
         {
             if (trHeader != null)
             {
                 db.TransactionHeaders.Add(trHeader);
                 db.SaveChanges();
-                return true;
+                return trHeader.Id;
             }
             else
             {
-                return false;
+                return -1;
             }
         }
 

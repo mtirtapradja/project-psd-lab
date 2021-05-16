@@ -9,7 +9,7 @@ namespace project.Controllers
 {
     public class TransactionController
     {
-        public static bool CheckTransactionHeader(int buyerId, int showId, DateTime showTime, DateTime createAt)
+        public static int CheckTransactionHeader(int buyerId, int showId, DateTime showTime, DateTime createAt)
         {
             return TransactionHandler.InsertTransactionHeader(buyerId, showId, showTime, createAt);
         }
