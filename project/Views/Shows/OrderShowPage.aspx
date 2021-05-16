@@ -5,7 +5,8 @@
 
     <%-- Untuk SHOW NAME --%>
     <div>
-        <asp:Label ID="lblShowName" Text="" runat="server" />
+        <asp:Label ID="lblShowName" Text="Show Name: " runat="server" />
+        <asp:Label ID="lblShowNameValue" Text="" runat="server" />
     </div>
     
     <%-- Untuk SHOW PRICE --%>
@@ -16,12 +17,15 @@
 
     <%-- Untuk SELLER NAME --%>
     <div>
-        <asp:Label ID="lblSellerName" Text="" runat="server" />
+
+        <asp:Label ID="lblSellerName" Text="Seller Name: " runat="server" />
+        <asp:Label ID="lblSellerNameValue" Text="" runat="server" />
     </div>
 
     <%-- Untuk DESCRIPTION --%>
     <div>
-        <asp:Label ID="lblDescription" Text="" runat="server" />
+        <asp:Label ID="lblDescription" Text="Description: " runat="server" />
+        <asp:Label ID="lblDescriptionValue" Text="" runat="server" />
     </div>
 
     <%-- Untuk AVERAGE RATING --%>
@@ -32,40 +36,25 @@
 
     <%-- Untuk QUANTITY ORDER --%>
     <div>
-        <asp:Label Text="Quantity" runat="server" />
+        <asp:Label Text="Quantity " runat="server" />
         <asp:TextBox ID="txtQuantity" runat="server" />
     </div>
 
     <%-- Untik GridView ORDER --%>
     <div>
-        <asp:GridView ID="gvOrder" AutoGenerateColumns="False" runat="server">
+        <asp:GridView ID="gvOrder" AutoGenerateColumns="False" runat="server" OnRowCommand="gvOrder_RowCommand">
             <Columns>
-                <asp:BoundField HeaderText="Time"/>
+                <asp:BoundField HeaderText="Id" DataField="Id" Visible="false" />
+                <asp:BoundField HeaderText="Time" DataField="Time"/>
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <asp:Button ID="btnOrderShow" Text="Order" OnClick="btnOrderShow_Click" runat="server" />
-                        <asp:Label ID="lblUnavailable" Text="Unavailable" runat="server" />
+                        <asp:Button ID="btnOrderShow" Text="Order" CommandName="Order" CommandArgument="<%# Container.DataItemIndex %>" runat="server" />
+                        <asp:Label ID="lblUnavailable" Text="" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
-    </div>
-    <div>
-<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" OnRowCommand="GridView1_RowCommand">
-    <Columns>
-        <asp:TemplateField HeaderText="Name" ItemStyle-Width="150">
-            <ItemTemplate>
-                <asp:TextBox ID="txtName" runat="server" Text='<%# Eval("Name") %>' />
-            </ItemTemplate>
-        </asp:TemplateField>
-        <asp:BoundField DataField="Country" HeaderText="Country" ItemStyle-Width="150px" />
-        <asp:TemplateField>
-            <ItemTemplate>
-                <asp:Button Text="Select" runat="server" CommandName="Select" CommandArgument="<%# Container.DataItemIndex %>" />
-            </ItemTemplate>
-        </asp:TemplateField>
-    </Columns>
-</asp:GridView>
+
     </div>
 
 

@@ -16,60 +16,69 @@ namespace project.Views.Shows
             {
                 DataTable dt = new DataTable();
                 dt.Columns.AddRange(new DataColumn[2] { new DataColumn("Id"), new DataColumn("Time")});
-                dt.Rows.Add(1, "01:00");
-                dt.Rows.Add(2, "02:00");
-                dt.Rows.Add(3, "03:00");
-                dt.Rows.Add(4, "04:00");
-                dt.Rows.Add(5, "05:00");
-                dt.Rows.Add(6, "06:00");
-                dt.Rows.Add(7, "07:00");
-                dt.Rows.Add(8, "08:00");
-                dt.Rows.Add(9, "09:00");
-                dt.Rows.Add(10, "10:00");
-                dt.Rows.Add(11, "11:00");
-                dt.Rows.Add(12, "12:00");
-                dt.Rows.Add(13, "13:00");
-                dt.Rows.Add(14, "14:00");
-                dt.Rows.Add(15, "15:00");
-                dt.Rows.Add(16, "16:00");
-                dt.Rows.Add(17, "17:00");
-                dt.Rows.Add(18, "18:00");
-                dt.Rows.Add(19, "19:00");
-                dt.Rows.Add(20, "20:00");
-                dt.Rows.Add(21, "21:00");
-                dt.Rows.Add(22, "22:00");
-                dt.Rows.Add(23, "23:00");
-                dt.Rows.Add(24, "24:00");
-                GridView1.DataSource = dt;
-                GridView1.DataBind();
-            }
+                dt.Rows.Add(1, "00:00 - 00:59");
+                dt.Rows.Add(2, "01:00 - 01:59");
+                dt.Rows.Add(3, "02:00 - 02:59");
+                dt.Rows.Add(4, "03:00 - 03:59");
+                dt.Rows.Add(5, "04:00 - 04:59");
+                dt.Rows.Add(6, "05:00 - 05:59");
+                dt.Rows.Add(7, "06:00 - 06:59");
+                dt.Rows.Add(8, "07:00 - 07:59");
+                dt.Rows.Add(9, "08:00 - 08:59");
+                dt.Rows.Add(10, "09:00 - 09:59");
+                dt.Rows.Add(11, "10:00 - 10:59");
+                dt.Rows.Add(12, "11:00 - 11:59");
+                dt.Rows.Add(13, "12:00 - 12:59");
+                dt.Rows.Add(14, "13:00 - 13:59");
+                dt.Rows.Add(15, "14:00 - 14:59");
+                dt.Rows.Add(16, "15:00 - 15:59");
+                dt.Rows.Add(17, "16:00 - 16:59");
+                dt.Rows.Add(18, "17:00 - 17:59");
+                dt.Rows.Add(19, "18:00 - 18:59");
+                dt.Rows.Add(20, "19:00 - 19:59");
+                dt.Rows.Add(21, "20:00 - 20:59");
+                dt.Rows.Add(22, "21:00 - 21:59");
+                dt.Rows.Add(23, "22:00 - 22:59");
+                dt.Rows.Add(24, "23:00 - 23:59");
+                
+                gvOrder.DataSource = dt;
+                gvOrder.DataBind();
 
+                int n = int.Parse(DateTime.Now.ToString("HH")) % 23;
+                
+                for(int i = 0; i <= n; i++)
+                {
+                    Button button = this.gvOrder.Rows[i].FindControl("btnOrderShow") as Button;
+                    button.Visible = false;
+
+                    Label label = this.gvOrder.Rows[i].FindControl("lblUnavailable") as Label;
+                    label.Text = "Unavailable";
+                }
+                
+
+                
+            }
 
         }
 
-        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        protected void gvOrder_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName == "Select")
-            {
-                //Determine the RowIndex of the Row whose Button was clicked.
-                int rowIndex = Convert.ToInt32(e.CommandArgument);
+            //if (e.CommandName == "Order")
+            //{
+            //    //Determine the RowIndex of the Row whose Button was clicked.
+            //    int rowIndex = Convert.ToInt32(e.CommandArgument);
 
-                //Reference the GridView Row.
-                GridViewRow row = GridView1.Rows[rowIndex];
+            //    //Reference the GridView Row.
+            //    GridViewRow row = gvOrder.Rows[rowIndex];
 
-                //Fetch value of Name.
-                string name = (row.FindControl("txtName") as TextBox).Text;
+            //    //Fetch value of Name.
+            //    string id = row.Cells[0].Text;
 
-                //Fetch value of Country
-                string country = row.Cells[1].Text;
+            //    //Fetch value of Country
+            //    string time = row.Cells[1].Text;
 
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Name: " + name + "\\nCountry: " + country + "');", true);
-            }
-        }
-
-        protected void btnOrderShow_Click(object sender, EventArgs e)
-        {
-
+            //    ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Id: " + id + "\\nTime: " + time + "');", true);
+            //}
         }
     }
 }
