@@ -64,6 +64,10 @@ namespace project.View
                         cookie.Expires = DateTime.Now.AddHours(1);
                         Response.Cookies.Add(cookie);
                     }
+                    else
+                    {
+                        Session["UserId"] = currentUser.Id;
+                    }
 
                     Response.Redirect("../Home/HomePage.aspx?RoleId=" + currentUser.RoleId);
                 }
