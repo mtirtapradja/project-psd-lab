@@ -23,6 +23,22 @@ namespace project.Repository
             return false;
         }
 
+        public static bool updateUser(User user)
+        {
+            if(user != null)
+            {
+                db.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+
+        public static User GetUserById(int userId)
+        {
+            return (from x in db.Users where x.Id == userId select x).FirstOrDefault();
+        }
+
+
         public static User loginUser(string username, string password)
         {
             User user = (from x in db.Users
@@ -39,5 +55,6 @@ namespace project.Repository
                 return null;
             }  
         }
+
     }
 }
