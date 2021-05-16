@@ -33,7 +33,7 @@ namespace project.Views.Shows
 
         private void FillGrid(int id)
         {
-            gvReview.DataSource = ShowController.GetReviewsById(id);
+            gvReview.DataSource = ShowController.GetShowReviewsById(id);
             gvReview.DataBind();
         }
 
