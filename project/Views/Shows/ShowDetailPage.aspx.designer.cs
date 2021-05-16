@@ -87,22 +87,22 @@ namespace project.Views.Shows
         protected global::System.Web.UI.WebControls.Label lblDescriptionContent;
 
         /// <summary>
-        /// lblAverage control.
+        /// lblAverageRating control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAverage;
+        protected global::System.Web.UI.WebControls.Label lblAverageRating;
 
         /// <summary>
-        /// lblAverageContent control.
+        /// lblAverageRatingContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAverageContent;
+        protected global::System.Web.UI.WebControls.Label lblAverageRatingContent;
 
         /// <summary>
         /// gvReview control.

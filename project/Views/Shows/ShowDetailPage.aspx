@@ -8,7 +8,7 @@
         <asp:Label ID="lblPrice" Text="Price:" runat="server" /> <asp:Label ID="lblPriceContent" Text="" runat="server" /><br />
         <asp:Label ID="lblSeller" Text="Seller Name" runat="server" /> <asp:Label ID="lblSellerContent" Text="" runat="server" /> <br />
         <asp:Label ID="lblDescription" Text="Description" runat="server" /> <asp:Label ID="lblDescriptionContent" Text="" runat="server" /> <br />
-        <asp:Label ID="lblAverage" Text="Average Rating" runat="server" /> <asp:Label ID="lblAverageContent" Text="" runat="server" /> <br />
+        <asp:Label ID="lblAverageRating" Text="Average Rating" runat="server" /> <asp:Label ID="lblAverageRatingContent" Text="" runat="server" /> <br />
         <asp:GridView ID="gvReview" runat="server"></asp:GridView>
     </div>
     <div>
