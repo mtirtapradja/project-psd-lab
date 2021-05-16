@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using project.Controllers;
 
 namespace project.Views.Shows
 {
@@ -63,22 +64,24 @@ namespace project.Views.Shows
 
         protected void gvOrder_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            //if (e.CommandName == "Order")
-            //{
-            //    //Determine the RowIndex of the Row whose Button was clicked.
-            //    int rowIndex = Convert.ToInt32(e.CommandArgument);
+            if (e.CommandName == "Order")
+            {
+                int rowIndex = Convert.ToInt32(e.CommandArgument);
 
-            //    //Reference the GridView Row.
-            //    GridViewRow row = gvOrder.Rows[rowIndex];
+                //Reference the GridView Row.
+                GridViewRow row = gvOrder.Rows[rowIndex];
 
-            //    //Fetch value of Name.
-            //    string id = row.Cells[0].Text;
+                string time = DateTime.Today.ToString("d") + " " + rowIndex + ":00:00";
+                DateTime date = Convert.ToDateTime(time);
 
-            //    //Fetch value of Country
-            //    string time = row.Cells[1].Text;
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Ordering...\\nTime: " + date + "');", true);
 
-            //    ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Id: " + id + "\\nTime: " + time + "');", true);
-            //}
+                int showId = int.Parse(Request.QueryString["ShowId"]);
+                int buyerId = int.Parse(Request.QueryString["UserId"]);
+
+                TransactionController.CheckTransactionHeader(buyerId, showId, date, DateTime.Now);
+
+            }
         }
     }
 }
