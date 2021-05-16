@@ -114,7 +114,7 @@ namespace project.View.HomePage
         {
             string RoleId = Request.QueryString["id"];
             string showId = "1";
-            Response.Redirect("../Shows/ShowDetailPage.aspx?id=" + RoleId + "+ShowId=" + showId);
+            Response.Redirect("../Shows/ShowDetailPage.aspx?RoleId=" + RoleId + "+ShowId=" + showId);
         }
     }
 }
