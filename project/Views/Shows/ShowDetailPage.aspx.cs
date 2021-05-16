@@ -51,12 +51,14 @@ namespace project.Views.Shows
 
         protected void btnOrder_Click(object sender, EventArgs e)
         {
-
+            string showId = Request.QueryString["ShowId"];
+            Response.Redirect("../Shows/OrderShowPage.aspx?ShowId=" + showId);
         }
 
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
-
+            string showId = Request.QueryString["ShowId"];
+            Response.Redirect("../Shows/UpdateShowPage.aspx?ShowId=" + showId);
         }
     }
 }
