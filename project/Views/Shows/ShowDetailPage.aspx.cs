@@ -17,8 +17,7 @@ namespace project.Views.Shows
         {
             string RoleId = Request.QueryString["RoleId"];
             showButton(RoleId);
-            string s_ShowId = Request.QueryString["ShowId"];
-            int ShowId = int.Parse(s_ShowId);
+            int ShowId = int.Parse(Request.QueryString["ShowId"]);
 
             Models.Show show = ShowController.GetShowById(ShowId);
 

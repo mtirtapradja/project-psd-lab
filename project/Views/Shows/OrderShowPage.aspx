@@ -44,11 +44,28 @@
                 <asp:TemplateField>
                     <ItemTemplate>
                         <asp:Button ID="btnOrderShow" Text="Order" OnClick="btnOrderShow_Click" runat="server" />
-                        <asp:Button ID="btnUnavailable" Text="Unavailable" OnClick="btnUnavailable_Click" runat="server" />
+                        <asp:Label ID="lblUnavailable" Text="Unavailable" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
+    </div>
+    <div>
+<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" OnRowCommand="GridView1_RowCommand">
+    <Columns>
+        <asp:TemplateField HeaderText="Name" ItemStyle-Width="150">
+            <ItemTemplate>
+                <asp:TextBox ID="txtName" runat="server" Text='<%# Eval("Name") %>' />
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:BoundField DataField="Country" HeaderText="Country" ItemStyle-Width="150px" />
+        <asp:TemplateField>
+            <ItemTemplate>
+                <asp:Button Text="Select" runat="server" CommandName="Select" CommandArgument="<%# Container.DataItemIndex %>" />
+            </ItemTemplate>
+        </asp:TemplateField>
+    </Columns>
+</asp:GridView>
     </div>
 
 
