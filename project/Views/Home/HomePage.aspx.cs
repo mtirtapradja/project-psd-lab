@@ -113,7 +113,6 @@ namespace project.View.HomePage
 
         protected void btnShowDetail_Command(object sender, CommandEventArgs e)
         {
-            string RoleId = Request.QueryString["RoleId"];
             string ShowId = "";
 
             if (e.CommandName == "Redirect")
@@ -125,7 +124,7 @@ namespace project.View.HomePage
                 ShowId = gvShows.Rows[rowIndex].Cells[0].Text;
             }
 
-            Response.Redirect("../Shows/ShowDetailPage.aspx?RoleId=" + RoleId + "&ShowId=" + ShowId);
+            Response.Redirect("../Shows/ShowDetailPage.aspx?ShowId=" + ShowId);
         }
     }
 }
