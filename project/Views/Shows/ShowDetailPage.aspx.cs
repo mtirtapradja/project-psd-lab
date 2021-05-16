@@ -19,22 +19,27 @@ namespace project.Views.Shows
             showButton(RoleId);
             int ShowId = int.Parse(Request.QueryString["ShowId"]);
 
-            Models.Show show = ShowController.GetShowById(ShowId);
+            Models.ShowDetail show = ShowController.GetShowDetailById(ShowId);
 
             if(show != null)
             {
-                lblNameContent.Text = show.Name;
-                lblPriceContent.Text = String.Format(CultureInfo.CreateSpecificCulture("id-id"), "Rp. {0:N}", show.Price);
-                lblSellerContent.Text = (show.SellerId).ToString();
+                lblNameContent.Text = show.Show_Name;
+                lblPriceContent.Text = String.Format(CultureInfo.CreateSpecificCulture("id-id"), "Rp. {0:N}", show.Show_Price);
+                lblSellerContent.Text = show.Seller_Name;
                 lblDescriptionContent.Text = show.Description;
+                lblAverageRatingContent.Text = (show.Average_Rating).ToString();
+
                 FillGrid(ShowId);
             }
         }
 
-        private void FillGrid(int id)
+        private void FillGrid(int Id)
         {
-            gvReview.DataSource = ShowController.GetReviewsById(id);
+            gvReview.DataSource = ShowController.GetShowReviewsById(Id);
             gvReview.DataBind();
+
+            gvReview.Columns[0].Visible = false;
+            gvReview.Columns[1].Visible = false;
         }
 
         private void showButton(string RoleId)
@@ -42,9 +47,23 @@ namespace project.Views.Shows
             this.btnOrder.Visible = true;
             this.btnUpdate.Visible = true;
 
-            //kalau buyer
+            // Kalau Buyer
             if (RoleId.Equals("1"))
             {
+                Button btnAddShowOnNav = this.Master.FindControl("btnAddShowOnNav") as Button;
+                btnAddShowOnNav.Visible = false;
+                btnUpdate.Visible = false;
+            }
+            // Kalau Seller
+            else if (RoleId.Equals("2"))
+            {
+                btnOrder.Visible = false;
+            }
+            else
+            {
+                Button btnAddShowOnNav = this.Master.FindControl("btnAddShowOnNav") as Button;
+                btnAddShowOnNav.Visible = false;
+                btnOrder.Visible = false;
                 btnUpdate.Visible = false;
             }
         }
