@@ -7,6 +7,7 @@ namespace project.Models
 {
     public class JoinedTransactionDetail
     {
+        public int Show_Id { get; set; }
         public string Show_Name { get; set; }
         public int Average_Rating { get; set; }
         public string Description { get; set; }
