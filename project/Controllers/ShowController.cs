@@ -118,5 +118,10 @@ namespace project.Controllers
         {
             return ShowHandler.GetShowByToken(token);
         }
+
+        public static bool CheckShowWithSeller(int showId, int UserId)
+        {
+            return ShowHandler.CheckShowWithSeller(showId, UserId);
+        }
     }
 }

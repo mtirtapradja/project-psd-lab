@@ -57,5 +57,10 @@ namespace project.Handlers
             return ShowsRepository.GetShowByToken(token);
         }
 
+        public static bool CheckShowWithSeller(int showId, int UserId)
+        {
+            return ShowsRepository.CheckShowWithSeller(showId, UserId);
+        }
+
     }
 }

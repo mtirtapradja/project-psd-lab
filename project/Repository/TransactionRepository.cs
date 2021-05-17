@@ -40,43 +40,43 @@ namespace project.Repository
 
         public static List<Transaction> GetAllTransaction()
         {
-            List<Transaction> currentTransaction = (from header in db.TransactionHeaders
-                                                    join show in db.Shows on header.ShowId equals show.Id
-                                                    select new Transaction
-                                                    {
-                                                        TransactionHeader = header.Id,
-                                                        Payment_Date = header.CreatedAt,
-                                                        Show_Name = show.Name,
-                                                        Show_Time = header.ShowTime,
-                                                        Total_Price = show.Price
-                                                    }).ToList();
-            foreach (Transaction curr in currentTransaction)
+            List<Transaction> QueryTransaction = (from header in db.TransactionHeaders
+                                                  join show in db.Shows on header.ShowId equals show.Id
+                                                  select new Transaction
+                                                  {
+                                                      TransactionHeader = header.Id,
+                                                      Payment_Date = header.CreatedAt,
+                                                      Show_Name = show.Name,
+                                                      Show_Time = header.ShowTime,
+                                                      Total_Price = show.Price
+                                                  }).ToList();
+            foreach (Transaction curr in QueryTransaction)
             {
                 curr.Quantity = GetTransactionDetails(curr.TransactionHeader).Count();
                 curr.Total_Price = curr.Total_Price * GetTransactionDetails(curr.TransactionHeader).Count();
             }
-            return currentTransaction;
+            return QueryTransaction;
         }
 
         public static List<JoinedTransactionDetail> GetTransactionDetailById(int trHeaderId)
         {
 
-            List<JoinedTransactionDetail> currentDetail = (from detail in db.TransactionDetails
-                                                           join header in db.TransactionHeaders on detail.TransactionHeaderId equals header.Id
-                                                           join show in db.Shows on header.ShowId equals show.Id
-                                                           where header.Id == trHeaderId
-                                                           select new JoinedTransactionDetail
-                                                           {
-                                                               Show_Id = show.Id,
-                                                               Show_Name = show.Name,
-                                                               Description = show.Description,
-                                                               Token = detail.Token
-                                                           }).ToList();
-            foreach(JoinedTransactionDetail curr in currentDetail)
+            List<JoinedTransactionDetail> QueryDetail = (from detail in db.TransactionDetails
+                                                         join header in db.TransactionHeaders on detail.TransactionHeaderId equals header.Id
+                                                         join show in db.Shows on header.ShowId equals show.Id
+                                                         where header.Id == trHeaderId
+                                                         select new JoinedTransactionDetail
+                                                         {
+                                                             Show_Id = show.Id,
+                                                             Show_Name = show.Name,
+                                                             Description = show.Description,
+                                                             Token = detail.Token
+                                                         }).ToList();
+            foreach (JoinedTransactionDetail curr in QueryDetail)
             {
-                curr.Average_Rating = GetTotalRatingByReview(curr.Show_Id);
+                curr.Average_Rating = Convert.ToInt32(GetTotalRatingByReview(curr.Show_Id));
             }
-            return currentDetail;
+            return QueryDetail;
         }
 
         public static TransactionDetail GetDetailTransactionByToken(string token)
@@ -90,14 +90,31 @@ namespace project.Repository
             return (from detail in db.TransactionDetails where detail.TransactionHeaderId == trHeaderId select detail).ToList();
         }
 
-        private static int GetTotalRatingByReview(int showId)
+        private static double GetTotalRatingByReview(int showId)
         {
-            return Convert.ToInt32((from review in db.Reviews
-                                    join detail in db.TransactionDetails on review.TransactionDetailId equals detail.Id
-                                    join header in db.TransactionHeaders on detail.TransactionHeaderId equals header.Id
-                                    join show in db.Shows on header.ShowId equals show.Id
-                                    where show.Id == showId
-                                    select review.Rating).Average());
+            List<Review> QueryResult = (from review in db.Reviews
+                                        join detail in db.TransactionDetails on review.TransactionDetailId equals detail.Id
+                                        join header in db.TransactionHeaders on detail.TransactionHeaderId equals header.Id
+                                        where header.ShowId == showId
+                                        select review).ToList();
+
+            int totalLength = QueryResult.Count;
+
+            if (totalLength == 0)
+            {
+                return 0.0;
+            }
+            else
+            {
+                double Avg_Rating = 0;
+
+                foreach (Review review in QueryResult)
+                {
+                    Avg_Rating += review.Rating;
+                }
+
+                return (Avg_Rating / totalLength);
+            }
         }
         private static List<Review> GetReviewById(int showId)
         {

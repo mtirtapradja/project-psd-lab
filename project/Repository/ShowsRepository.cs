@@ -61,9 +61,7 @@ namespace project.Repository
         {
             int Avg_Rating = Convert.ToInt32(GetTotalRatingByReview(showId));
 
-            return (from detail in db.TransactionDetails
-                    join header in db.TransactionHeaders on detail.TransactionHeaderId equals header.Id
-                    join show in db.Shows on header.ShowId equals show.Id
+            return (from show in db.Shows
                     join seller in db.Users on show.SellerId equals seller.Id
                     where show.Id == showId
                     select new ShowDetail
@@ -95,7 +93,16 @@ namespace project.Repository
                     select show).FirstOrDefault();
         }
 
+        public static bool CheckShowWithSeller(int showId, int UserId)
+        {
+            Show queryShow = (from show in db.Shows where show.Id == showId && show.SellerId == UserId select show).FirstOrDefault();
 
+            if (queryShow != null)
+            {
+                return true;
+            }
+            return false;
+        }
 
         private static double GetTotalRatingByReview(int showId)
         {

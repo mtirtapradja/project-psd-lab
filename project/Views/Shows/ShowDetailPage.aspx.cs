@@ -21,11 +21,11 @@ namespace project.Views.Shows
             }
 
             string RoleId = Session["RoleId"].ToString();
-            showButton(RoleId);
+            int UserId = int.Parse(Session["UserId"].ToString());
             int ShowId = int.Parse(Request.QueryString["ShowId"]);
-
+            showButton(RoleId,ShowId,UserId);
             Models.ShowDetail show = ShowController.GetShowDetailById(ShowId);
-
+            
             if(show != null)
             {
                 lblNameContent.Text = show.Show_Name;
@@ -44,7 +44,7 @@ namespace project.Views.Shows
             gvReview.DataBind();
         }
 
-        private void showButton(string RoleId)
+        private void showButton(string RoleId, int ShowId,int UserId)
         {
             this.btnOrder.Visible = true;
             this.btnUpdate.Visible = true;
@@ -57,7 +57,7 @@ namespace project.Views.Shows
                 btnUpdate.Visible = false;
             }
             // Kalau Seller
-            else if (RoleId.Equals("2"))
+            else if (RoleId.Equals("2") && ShowController.CheckShowWithSeller(ShowId,UserId))
             {
                 btnOrder.Visible = false;
             }
