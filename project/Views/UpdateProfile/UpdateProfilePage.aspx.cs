@@ -17,8 +17,7 @@ namespace project.Views.UpdateProfile
 
             User currentUser = UserController.GetUserById(userId);
 
-            lblName.Text = currentUser.Name;
-            lblCurrPassword.Text = currentUser.Password;
+            lblCurrNameValue.Text = currentUser.Name;
 
             //Button Visibility
             string RoleID;
@@ -131,11 +130,11 @@ namespace project.Views.UpdateProfile
 
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
-            string name = txtOldPassword.Text;
+            string name = txtName.Text;
             string oldPassword = txtOldPassword.Text;
             string newPassword = txtNewPassword.Text;
             string confirmPassword = txtConfirmPass.Text;
-            int userId = int.Parse(Request.QueryString["UserId"]);
+            int userId = int.Parse(Session["UserId"].ToString());
 
             string reponse = UserController.CheckUpdate(userId, name, oldPassword, newPassword, confirmPassword);
 
