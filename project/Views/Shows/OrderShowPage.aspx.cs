@@ -94,6 +94,8 @@ namespace project.Views.Shows
                         TransactionController.InsertTransactionDetail(headerId, 1, token);
                     }
                 }
+
+                Response.Redirect("../Home/HomePage.aspx");
             }
         }
     }

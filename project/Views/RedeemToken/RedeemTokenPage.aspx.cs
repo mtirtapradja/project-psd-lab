@@ -22,7 +22,7 @@ namespace project.Views.RedeemToken
            
             if (trDetail != null)
             {
-                Response.Redirect("../Views/Review/ReviewPage.aspx?Token=" + token);  
+                Response.Redirect("../Review/ReviewPage.aspx?Token=" + token);  
             }
         }
 

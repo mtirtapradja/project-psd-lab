@@ -13,7 +13,16 @@ namespace project.View.HomePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string RoleID = Request.QueryString["RoleId"];
+            string RoleID;
+            if (Session["RoleId"] != null)
+            {
+                RoleID = Session["RoleId"].ToString();
+            }
+            else
+            {
+                RoleID = "-1";
+            }
+
             ShowAdditionalNavBar(RoleID);
         }
 

@@ -15,12 +15,19 @@ namespace project.Views.Review
         {
             string token = Request.QueryString["Token"];
 
-            Show currentShow = ShowController.GetShowByToken(token);
-            User currentSeller = UserController.GetUserById(currentShow.Id);
+            if (token == null)
+            {
+                Response.Redirect("../RedeemToken/RedeemTokenPage.aspx");
+            }
+            else
+            {
+                Show currentShow = ShowController.GetShowByToken(token);
+                User currentSeller = UserController.GetUserById(currentShow.SellerId);
 
-            lblShowName.Text = currentShow.Name;
-            lblShowSellerName.Text = currentSeller.Name;
-            lblShowDescription.Text = currentShow.Description;
+                lblShowName.Text = currentShow.Name;
+                lblShowSellerName.Text = currentSeller.Name;
+                lblShowDescription.Text = currentShow.Description;
+            }
         }
 
         protected void btnRate_Click(object sender, EventArgs e)
