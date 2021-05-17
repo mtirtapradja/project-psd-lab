@@ -87,6 +87,17 @@ namespace project.Repository
                     select review).ToList();
         }
 
+        public static Show GetShowByToken(string token)
+        {
+            return (from detail in db.TransactionDetails
+                    join header in db.TransactionHeaders on detail.TransactionHeaderId equals header.Id
+                    join show in db.Shows on header.ShowId equals show.Id
+                    where detail.Token.Equals(token)
+                    select show).FirstOrDefault();
+        }
+
+
+
         private static int GetTotalRatingByReview(int showId)
         {
             return Convert.ToInt32((from review in db.Reviews

@@ -52,5 +52,10 @@ namespace project.Handlers
             return ShowsRepository.GetShowReviewById(showId);
         }
 
+        public static Show GetShowByToken(string token)
+        {
+            return ShowsRepository.GetShowByToken(token);
+        }
+
     }
 }

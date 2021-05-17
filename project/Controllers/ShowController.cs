@@ -113,5 +113,10 @@ namespace project.Controllers
         {
             return ShowHandler.GetShowDetailById(showId);
         }
+
+        public static Show GetShowByToken(string token)
+        {
+            return ShowHandler.GetShowByToken(token);
+        }
     }
 }
