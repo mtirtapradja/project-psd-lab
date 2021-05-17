@@ -16,8 +16,7 @@ namespace project.View
 
         protected void btnHomeOnNav_Click(object sender, EventArgs e)
         {
-            string RoleId = Request.QueryString["RoleId"];
-            Response.Redirect("../Home/HomePage.aspx?RoleId=" + RoleId);
+            Response.Redirect("../Home/HomePage.aspx");
         }
 
         protected void btnAddShowOnNav_Click(object sender, EventArgs e)
