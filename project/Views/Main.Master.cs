@@ -47,12 +47,12 @@ namespace project.View
         
         protected void btnAccountOnNav_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("../UpdateProfile/UpdateProfilePage.aspx");
         }
 
         protected void btnRedeemOnNav_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("../RedeemToken/RedeemTokenPage.aspx");
         }
 
         protected void btnLogoutOnNav_Click(object sender, EventArgs e)

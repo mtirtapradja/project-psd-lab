@@ -13,6 +13,8 @@ namespace project.Views.RedeemToken
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Button button = this.Master.FindControl("btnAddShowOnNav") as Button;
+            button.Visible = false;
         }
 
         protected void btnRedeemToken_Click(object sender, EventArgs e)
