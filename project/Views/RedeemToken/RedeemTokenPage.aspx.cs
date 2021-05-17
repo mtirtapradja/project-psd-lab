@@ -13,7 +13,6 @@ namespace project.Views.RedeemToken
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            hideAllField();
         }
 
         protected void btnRedeemToken_Click(object sender, EventArgs e)
@@ -23,12 +22,7 @@ namespace project.Views.RedeemToken
            
             if (trDetail != null)
             {
-                Show currentShow = ShowController.GetShowByToken(token);
-                User currentUser = UserController.GetUserById(currentShow.SellerId);
-                ShowAllField();
-                txtShowName.Text = currentShow.Name;
-                txtSellerName.Text = currentUser.Name;
-                txtDescription.Text = currentShow.Description;
+                Response.Redirect("../Views/Review/ReviewPage.aspx?Token=" + token);  
             }
         }
 
@@ -46,40 +40,5 @@ namespace project.Views.RedeemToken
         {
 
         }
-
-        private void hideAllField()
-        {
-            lblShowName.Visible = false;
-            txtShowName.Visible = false;
-            lblSellerName.Visible = false;
-            txtSellerName.Visible = false;
-            lblDescription.Visible = false;
-            txtDescription.Visible = false;
-            lblRating.Visible = false;
-            TxtRating.Visible = false;
-            lblReviewDescription.Visible = false;
-            txtReviewDescription.Visible = false;
-            btnRate.Visible = false;
-            btnDelete.Visible = false;
-            btnUpdate.Visible = false;
-        }
-
-        private void ShowAllField()
-        {
-            lblShowName.Visible = true;
-            txtShowName.Visible = true;
-            lblSellerName.Visible = true;
-            txtSellerName.Visible = true;
-            lblDescription.Visible = true;
-            txtDescription.Visible = true;
-            lblRating.Visible = true;
-            TxtRating.Visible = true;
-            lblReviewDescription.Visible = true;
-            txtReviewDescription.Visible = true;
-            btnRate.Visible = true;
-            btnDelete.Visible = true;
-            btnUpdate.Visible = true;
-        }
-
     }
 }
