@@ -65,7 +65,7 @@ namespace project.View.HomePage
                 button.Visible = false;
 
                 button = this.Master.FindControl("btnRegisterOnNav") as Button;
-                button.Visible = true;
+                button.Visible = false;
 
                 button = this.Master.FindControl("btnTransactionOnNav") as Button;
                 button.Visible = false;
