@@ -110,7 +110,7 @@ namespace project.Controllers
             {
                 response = "New password must be filled";
             }
-            else if (newPassword.Length<0 || newPassword.Length > 6)
+            else if (newPassword.Length<6)
             {
                 response = "New password must at least 6 characters";
             }
