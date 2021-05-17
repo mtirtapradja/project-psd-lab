@@ -60,6 +60,9 @@ namespace project.View
             {
                 Response.Cookies["remember"].Expires = DateTime.Now.AddDays(-1);
             }
+
+            Session.RemoveAll();
+
             Response.Redirect("../Login/LoginPage.aspx");
         }
     }

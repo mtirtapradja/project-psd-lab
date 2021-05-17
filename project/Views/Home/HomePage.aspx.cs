@@ -21,7 +21,14 @@ namespace project.View.HomePage
             }
             else
             {
-                RoleID = "-1";
+                if (Request.Cookies["remember"] != null)
+                {
+                    RoleID = Request.Cookies["remember"].Value;
+                }
+                else
+                {
+                    RoleID = "-1";
+                }
             }
 
             ShowAdditionalNavBar(RoleID);

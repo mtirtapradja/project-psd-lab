@@ -2,9 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <asp:GridView runat="server" AutoGenerateColumns="False" DataSourceID="ObjectDataSource1">
+    <asp:GridView ID="gvTransactions" runat="server" AutoGenerateColumns="False" DataSourceID="ObjectDataSource1">
         <Columns>
-            <asp:BoundField DataField="Transaction_Id" HeaderText="Transaction_Id" SortExpression="Transaction_Id" />
+            <asp:BoundField DataField="TransactionHeader" HeaderText="Transaction_Id" SortExpression="TransactionHeader" />
             <asp:BoundField DataField="Payment_Date" HeaderText="Payment_Date" SortExpression="Payment_Date" />
             <asp:BoundField DataField="Show_Name" HeaderText="Show_Name" SortExpression="Show_Name" />
             <asp:BoundField DataField="Show_Time" HeaderText="Show_Time" SortExpression="Show_Time" />

@@ -99,6 +99,8 @@
     <Content Include="Views\Shows\OrderShowPage.aspx" />
     <Content Include="Views\Review\ReviewPage.aspx" />
     <Content Include="Views\Shows\ShowDetailPage.aspx" />
+    <Content Include="Views\Transaction\TransactionDetailPage.aspx" />
+    <Content Include="Views\Transaction\TransactionPage.aspx" />
     <Content Include="Views\UpdateProfile\UpdateProfilePage.aspx" />
     <Content Include="Views\Shows\UpdateShowPage.aspx" />
     <Content Include="Web.config" />
@@ -219,6 +221,20 @@
     <Compile Include="Views\Shows\ShowDetailPage.aspx.designer.cs">
       <DependentUpon>ShowDetailPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Transaction\TransactionDetailPage.aspx.cs">
+      <DependentUpon>TransactionDetailPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Transaction\TransactionDetailPage.aspx.designer.cs">
+      <DependentUpon>TransactionDetailPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Transaction\TransactionPage.aspx.cs">
+      <DependentUpon>TransactionPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Transaction\TransactionPage.aspx.designer.cs">
+      <DependentUpon>TransactionPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\UpdateProfile\UpdateProfilePage.aspx.cs">
       <DependentUpon>UpdateProfilePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -256,7 +272,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Report\" />
-    <Folder Include="Views\Transaction\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

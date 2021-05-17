@@ -62,7 +62,6 @@ namespace project.Repository
         {
 
             List<JoinedTransactionDetail> currentDetail = (from detail in db.TransactionDetails
-                                                           join review in db.Reviews on detail.Id equals review.TransactionDetailId
                                                            join header in db.TransactionHeaders on detail.TransactionHeaderId equals header.Id
                                                            join show in db.Shows on header.ShowId equals show.Id
                                                            where header.Id == trHeaderId

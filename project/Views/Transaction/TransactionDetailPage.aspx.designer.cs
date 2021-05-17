@@ -11,17 +11,8 @@ namespace project.Views.Transaction
 {
 
 
-    public partial class TransactionPage
+    public partial class TransactionDetailPage
     {
-
-        /// <summary>
-        /// gvTransactions control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvTransactions;
 
         /// <summary>
         /// ObjectDataSource1 control.

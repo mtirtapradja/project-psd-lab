@@ -59,10 +59,9 @@ namespace project.Repository
 
         public static ShowDetail GetShowDetailById(int showId)
         {
-            int Avg_Rating = GetTotalRatingByReview(showId);
+            int Avg_Rating = Convert.ToInt32(GetTotalRatingByReview(showId));
 
             return (from detail in db.TransactionDetails
-                    join review in db.Reviews on detail.Id equals review.TransactionDetailId
                     join header in db.TransactionHeaders on detail.TransactionHeaderId equals header.Id
                     join show in db.Shows on header.ShowId equals show.Id
                     join seller in db.Users on show.SellerId equals seller.Id
@@ -98,14 +97,31 @@ namespace project.Repository
 
 
 
-        private static int GetTotalRatingByReview(int showId)
+        private static double GetTotalRatingByReview(int showId)
         {
-            return Convert.ToInt32((from review in db.Reviews
-                                    join detail in db.TransactionDetails on review.TransactionDetailId equals detail.Id
-                                    join header in db.TransactionHeaders on detail.TransactionHeaderId equals header.Id
-                                    join show in db.Shows on header.ShowId equals show.Id
-                                    where show.Id == showId
-                                    select review.Rating).Average());
+            List<Review> QueryResult = (from review in db.Reviews
+                                        join detail in db.TransactionDetails on review.TransactionDetailId equals detail.Id
+                                        join header in db.TransactionHeaders on detail.TransactionHeaderId equals header.Id
+                                        where header.ShowId == showId
+                                        select review).ToList();
+
+            int totalLength = QueryResult.Count;
+
+            if (totalLength == 0)
+            {
+                return 0.0;
+            }
+            else
+            {
+                double Avg_Rating = 0;
+
+                foreach (Review review in QueryResult)
+                {
+                    Avg_Rating += review.Rating;
+                }
+
+                return (Avg_Rating / totalLength);
+            }
         }
     }
 }
