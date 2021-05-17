@@ -22,7 +22,7 @@ namespace project.View
 
         protected void btnAddShowOnNav_Click(object sender, EventArgs e)
         {
-            Response.Redirect("../Show/AddShowPage.aspx");
+            Response.Redirect("../Shows/AddShowPage.aspx");
         }
 
         protected void btnReportsOnNav_Click(object sender, EventArgs e)
