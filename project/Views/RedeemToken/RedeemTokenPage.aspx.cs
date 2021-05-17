@@ -13,8 +13,112 @@ namespace project.Views.RedeemToken
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Button button = this.Master.FindControl("btnAddShowOnNav") as Button;
-            button.Visible = false;
+
+            string RoleID;
+            if (Session["RoleId"] != null)
+            {
+                RoleID = Session["RoleId"].ToString();
+            }
+            else
+            {
+                RoleID = "-1";
+            }
+
+            ShowAdditionalNavBar(RoleID);
+        }
+
+        private void ShowAdditionalNavBar(string RoleID)
+        {
+            // Kalo Buyer
+            if (RoleID == "1")
+            {
+                Button button = this.Master.FindControl("btnHomeOnNav") as Button;
+                button.Visible = true;
+
+                button = this.Master.FindControl("btnAddShowOnNav") as Button;
+                button.Visible = false;
+
+                button = this.Master.FindControl("btnReportsOnNav") as Button;
+                button.Visible = false;
+
+                button = this.Master.FindControl("btnLoginOnNav") as Button;
+                button.Visible = false;
+
+                button = this.Master.FindControl("btnRegisterOnNav") as Button;
+                button.Visible = false;
+
+                button = this.Master.FindControl("btnTransactionOnNav") as Button;
+                button.Visible = true;
+
+                button = this.Master.FindControl("btnAccountOnNav") as Button;
+                button.Visible = true;
+
+                button = this.Master.FindControl("btnRedeemOnNav") as Button;
+                button.Visible = true;
+
+                button = this.Master.FindControl("btnLogoutOnNav") as Button;
+                button.Visible = true;
+            }
+            // Kalo Seller
+            else if (RoleID == "2")
+            {
+                Button button = this.Master.FindControl("btnHomeOnNav") as Button;
+                button.Visible = true;
+
+                button = this.Master.FindControl("btnAddShowOnNav") as Button;
+                button.Visible = true;
+
+                button = this.Master.FindControl("btnReportsOnNav") as Button;
+                button.Visible = true;
+
+                button = this.Master.FindControl("btnLoginOnNav") as Button;
+                button.Visible = false;
+
+                button = this.Master.FindControl("btnRegisterOnNav") as Button;
+                button.Visible = false;
+
+                button = this.Master.FindControl("btnTransactionOnNav") as Button;
+                button.Visible = false;
+
+                button = this.Master.FindControl("btnAccountOnNav") as Button;
+                button.Visible = true;
+
+                button = this.Master.FindControl("btnRedeemOnNav") as Button;
+                button.Visible = true;
+
+                button = this.Master.FindControl("btnLogoutOnNav") as Button;
+                button.Visible = true;
+            }
+            // Kalo Guest
+            else
+            {
+                Button button = this.Master.FindControl("btnHomeOnNav") as Button;
+                button.Visible = true;
+
+                button = this.Master.FindControl("btnAddShowOnNav") as Button;
+                button.Visible = false;
+
+                button = this.Master.FindControl("btnReportsOnNav") as Button;
+                button.Visible = false;
+
+                button = this.Master.FindControl("btnLoginOnNav") as Button;
+                button.Visible = true;
+
+                button = this.Master.FindControl("btnRegisterOnNav") as Button;
+                button.Visible = true;
+
+                button = this.Master.FindControl("btnTransactionOnNav") as Button;
+                button.Visible = false;
+
+                button = this.Master.FindControl("btnAccountOnNav") as Button;
+                button.Visible = false;
+
+                button = this.Master.FindControl("btnRedeemOnNav") as Button;
+                button.Visible = true;
+
+                button = this.Master.FindControl("btnLogoutOnNav") as Button;
+                button.Visible = false;
+            }
         }
 
         protected void btnRedeemToken_Click(object sender, EventArgs e)

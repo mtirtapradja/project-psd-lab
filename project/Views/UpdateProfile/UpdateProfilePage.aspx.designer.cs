@@ -24,13 +24,13 @@ namespace project.Views.UpdateProfile
         protected global::System.Web.UI.WebControls.Label lblCurrName;
 
         /// <summary>
-        /// lblCurrPassword control.
+        /// lblCurrNameValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCurrPassword;
+        protected global::System.Web.UI.WebControls.Label lblCurrNameValue;
 
         /// <summary>
         /// lblName control.

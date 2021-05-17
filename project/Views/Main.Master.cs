@@ -16,13 +16,12 @@ namespace project.View
 
         protected void btnHomeOnNav_Click(object sender, EventArgs e)
         {
-            string RoleId = Request.QueryString["RoleId"];
-            Response.Redirect("../Home/HomePage.aspx?RoleId=" + RoleId);
+            Response.Redirect("../Home/HomePage.aspx");
         }
 
         protected void btnAddShowOnNav_Click(object sender, EventArgs e)
         {
-            Response.Redirect("../Show/AddShowPage.aspx");
+            Response.Redirect("../Shows/AddShowPage.aspx");
         }
 
         protected void btnReportsOnNav_Click(object sender, EventArgs e)
