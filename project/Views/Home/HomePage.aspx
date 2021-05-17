@@ -4,12 +4,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <h2>HOME PAGE</h2>
     <div>
-        <asp:GridView ID="gvShows" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlDataSource1">
+        <asp:GridView ID="gvShows" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
             <Columns>
-                <asp:BoundField HeaderText="Id" DataField="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id"  />
-                <asp:BoundField HeaderText="SellerId" DataField="SellerId" SortExpression="SellerId" />
-                <asp:BoundField HeaderText="Name" DataField="Name" SortExpression="Name" />
+                <asp:BoundField HeaderText="Id" DataField="Id" SortExpression="Id"  />
+                <asp:BoundField HeaderText="Title" DataField="Title" SortExpression="Title"  />
                 <asp:BoundField HeaderText="Price" DataField="Price" SortExpression="Price" />
+                <asp:BoundField HeaderText="Seller Name" DataField="Seller Name" SortExpression="Seller Name" />
                 <asp:BoundField HeaderText="Description" DataField="Description" SortExpression="Description" />
                 <asp:TemplateField>
                     <ItemTemplate>
@@ -18,6 +18,7 @@
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Shows]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT S.Id AS [Id], S.Name AS [Title], S.Price, U.Name AS [Seller Name], S.Description
+FROM [Users] AS [U] JOIN [Shows] AS [S] ON S.SellerId= U.Id"></asp:SqlDataSource>
     </div>
 </asp:Content>

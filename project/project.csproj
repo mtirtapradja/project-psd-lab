@@ -256,6 +256,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Report\" />
+    <Folder Include="Views\Transaction\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

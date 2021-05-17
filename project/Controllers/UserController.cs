@@ -148,6 +148,5 @@ namespace project.Controllers
         {
             return UserHandler.UpdateCurrentUser(userId, name, password);
         }
-
     }
 }

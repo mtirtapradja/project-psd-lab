@@ -68,7 +68,7 @@ namespace project.View
                     Session["UserId"] = currentUser.Id;
                     Session["RoleId"] = currentUser.RoleId;
 
-                    Response.Redirect("../Home/HomePage.aspx?RoleId=" + currentUser.RoleId);
+                    Response.Redirect("../Home/HomePage.aspx");
                 }
                 else
                 {

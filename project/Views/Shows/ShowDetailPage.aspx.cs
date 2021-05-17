@@ -15,6 +15,11 @@ namespace project.Views.Shows
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["RoleId"] == null)
+            {
+                Response.Redirect("../Home/HomePage.aspx");
+            }
+
             string RoleId = Session["RoleId"].ToString();
             showButton(RoleId);
             int ShowId = int.Parse(Request.QueryString["ShowId"]);

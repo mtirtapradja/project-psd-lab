@@ -14,6 +14,7 @@ namespace project.View.HomePage
         protected void Page_Load(object sender, EventArgs e)
         {
             string RoleID;
+
             if (Session["RoleId"] != null)
             {
                 RoleID = Session["RoleId"].ToString();
