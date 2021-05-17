@@ -11,6 +11,5 @@ namespace project.Models
         public int Average_Rating { get; set; }
         public string Description { get; set; }
         public string Token { get; set; }
-
     }
 }
