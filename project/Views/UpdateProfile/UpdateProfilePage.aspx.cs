@@ -13,7 +13,7 @@ namespace project.Views.UpdateProfile
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            int userId = int.Parse(Request.QueryString["UserId"]);
+            int userId = int.Parse(Session["UserId"].ToString());
 
             User currentUser = UserController.GetUserById(userId);
 
