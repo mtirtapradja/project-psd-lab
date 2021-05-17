@@ -42,7 +42,7 @@ namespace project.View.Shows
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-            int SellerId = int.Parse(Request.Cookies["remember"].Value);
+            int SellerId = int.Parse(Session["UserId"].ToString());
             string name = txtName.Text;
             string URL = txtURL.Text;
             string description = txtDesc.Text;
