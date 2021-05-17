@@ -47,10 +47,6 @@ namespace project.Handlers
             return ShowsRepository.GetShowDetailById(showId);
         }
 
-        public static List<Review> GetShowReviewById(int showId)
-        {
-            return ShowsRepository.GetShowReviewById(showId);
-        }
 
         public static Show GetShowByToken(string token)
         {

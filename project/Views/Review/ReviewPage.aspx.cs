@@ -23,10 +23,26 @@ namespace project.Views.Review
             {
                 Show currentShow = ShowController.GetShowByToken(token);
                 User currentSeller = UserController.GetUserById(currentShow.SellerId);
+                Models.Review currentReview = ReviewController.GetReviewByToken(token);
+
+                showButton(currentReview);
 
                 lblShowName.Text = currentShow.Name;
                 lblShowSellerName.Text = currentSeller.Name;
                 lblShowDescription.Text = currentShow.Description;
+            }
+        }
+
+        private void showButton(Models.Review currentReview)
+        {
+            if (currentReview == null)
+            {
+                btnUpdate.Visible = false;
+                btnDelete.Visible = false;
+            }
+            else
+            {
+                btnRate.Visible = false;
             }
         }
 

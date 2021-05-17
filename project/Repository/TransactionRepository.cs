@@ -74,7 +74,7 @@ namespace project.Repository
                                                          }).ToList();
             foreach (JoinedTransactionDetail curr in QueryDetail)
             {
-                curr.Average_Rating = Convert.ToInt32(GetTotalRatingByReview(curr.Show_Id));
+                curr.Average_Rating = Convert.ToInt32(ReviewRepository.GetTotalRatingByReview(curr.Show_Id));
             }
             return QueryDetail;
         }
@@ -84,44 +84,9 @@ namespace project.Repository
             return (from x in db.TransactionDetails where x.Token.Equals(token) select x).FirstOrDefault();
         }
 
-
         private static List<TransactionDetail> GetTransactionDetails(int trHeaderId)
         {
             return (from detail in db.TransactionDetails where detail.TransactionHeaderId == trHeaderId select detail).ToList();
         }
-
-        private static double GetTotalRatingByReview(int showId)
-        {
-            List<Review> QueryResult = (from review in db.Reviews
-                                        join detail in db.TransactionDetails on review.TransactionDetailId equals detail.Id
-                                        join header in db.TransactionHeaders on detail.TransactionHeaderId equals header.Id
-                                        where header.ShowId == showId
-                                        select review).ToList();
-
-            int totalLength = QueryResult.Count;
-
-            if (totalLength == 0)
-            {
-                return 0.0;
-            }
-            else
-            {
-                double Avg_Rating = 0;
-
-                foreach (Review review in QueryResult)
-                {
-                    Avg_Rating += review.Rating;
-                }
-
-                return (Avg_Rating / totalLength);
-            }
-        }
-        private static List<Review> GetReviewById(int showId)
-        {
-            return (from review in db.Reviews where review.TransactionDetailId == showId select review).ToList();
-        }
-
-
-
     }
 }

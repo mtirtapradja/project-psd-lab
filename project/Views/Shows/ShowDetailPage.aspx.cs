@@ -38,9 +38,9 @@ namespace project.Views.Shows
             }
         }
 
-        private void FillGrid(int Id)
+        private void FillGrid(int showId)
         {
-            gvReview.DataSource = ShowController.GetShowReviewsById(Id);
+            gvReview.DataSource = ReviewController.GetReviewByShowId(showId);
             gvReview.DataBind();
         }
 
