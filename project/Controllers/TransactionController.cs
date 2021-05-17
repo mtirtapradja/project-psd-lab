@@ -9,12 +9,12 @@ namespace project.Controllers
 {
     public class TransactionController
     {
-        public static int CheckTransactionHeader(int buyerId, int showId, DateTime showTime, DateTime createAt)
+        public static int InsertTransactionHeader(int buyerId, int showId, DateTime showTime, DateTime createAt)
         {
             return TransactionHandler.InsertTransactionHeader(buyerId, showId, showTime, createAt);
         }
 
-        public static bool CheckTransactionDetail(int trHeaderId, int status, string token)
+        public static bool InsertTransactionDetail(int trHeaderId, int status, string token)
         {
             return TransactionHandler.InsertTransactionDetail(trHeaderId, status, token);
         }
@@ -28,5 +28,18 @@ namespace project.Controllers
         {
             return TransactionHandler.GetTransactionDetailById(trHeaderId);
         }
+
+        public static TransactionDetail GetDetailTransactionByToken(string token)
+        {
+            return TransactionHandler.GetDetailTransactionByToken(token);
+        }
+
+        public static string GetRandomToken(int length)
+        {
+            Random random = new Random();
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            return new string(Enumerable.Repeat(chars, length).Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
     }
 }

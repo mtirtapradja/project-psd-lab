@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using project.Controllers;
+using project.Models;
 
 namespace project.Views.Shows
 {
@@ -73,11 +74,25 @@ namespace project.Views.Shows
 
 
                 // Dari sini kebawah masih kacau balau, besok check lagi karena banyak smell
-                int headerId = TransactionController.CheckTransactionHeader(buyerId, showId, date, DateTime.Now);
+                int headerId = TransactionController.InsertTransactionHeader(buyerId, showId, date, DateTime.Now);
 
-                for (int i  = 0; i < Convert.ToInt32(txtQuantity.Text); i++)
+                if (headerId != -1)
                 {
-                    TransactionController.CheckTransactionDetail(headerId, 1, )
+                    for (int i = 0; i < Convert.ToInt32(txtQuantity.Text); i++)
+                    {
+                        string token;
+                        do
+                        {
+                            token = TransactionController.GetRandomToken(6);
+                            TransactionDetail trDetail = TransactionController.GetDetailTransactionByToken(token);
+                            if (trDetail == null)
+                            {
+                                break;
+                            }
+                        } while (true);
+
+                        TransactionController.InsertTransactionDetail(headerId, 1, token);
+                    }
                 }
             }
         }

@@ -68,6 +68,12 @@ namespace project.Repository
                     }).ToList();
         }
 
+        public static TransactionDetail GetDetailTransactionByToken(string token)
+        {
+            return (from x in db.TransactionDetails where x.Token.Equals(token) select x).FirstOrDefault();
+        }
+
+
         private static List<TransactionDetail> GetTransactionDetails(int trHeaderId)
         {
             return (from detail in db.TransactionDetails where detail.TransactionHeaderId == trHeaderId select detail).ToList();

@@ -20,7 +20,7 @@ namespace project.Handlers
             }
             else
             {
-                return false;
+                return -1;
             }
         }
 
@@ -47,6 +47,20 @@ namespace project.Handlers
         public static List<JoinedTransactionDetail> GetTransactionDetailById(int trHeaderId)
         {
             return TransactionRepository.GetTransactionDetailById(trHeaderId);
+        }
+
+        public static TransactionDetail GetDetailTransactionByToken(string token)
+        {
+            TransactionDetail trDetail = TransactionRepository.GetDetailTransactionByToken(token);
+
+            if (trDetail != null)
+            {
+                return trDetail;
+            }
+            else
+            {
+                return null;
+            }
         }
 
     }
