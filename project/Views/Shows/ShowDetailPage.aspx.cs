@@ -15,7 +15,7 @@ namespace project.Views.Shows
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string RoleId = Request.QueryString["RoleId"];
+            string RoleId = Session["RoleId"].ToString();
             showButton(RoleId);
             int ShowId = int.Parse(Request.QueryString["ShowId"]);
 
@@ -37,9 +37,6 @@ namespace project.Views.Shows
         {
             gvReview.DataSource = ShowController.GetShowReviewsById(Id);
             gvReview.DataBind();
-
-            gvReview.Columns[0].Visible = false;
-            gvReview.Columns[1].Visible = false;
         }
 
         private void showButton(string RoleId)
