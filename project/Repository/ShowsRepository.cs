@@ -74,8 +74,6 @@ namespace project.Repository
                     }).FirstOrDefault();
         }
 
-
-
         public static Show GetShowByToken(string token)
         {
             return (from detail in db.TransactionDetails

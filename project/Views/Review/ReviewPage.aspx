@@ -30,6 +30,17 @@
         <asp:TextBox ID="txtDescription" runat="server" />
     </div>
 
+    <%--untuk Label Error--%>
+    <div>
+        <asp:Label ID="lblError" Text="" runat="server" />
+    </div>
+
+    <%--untuk Nampilin Rating dan Description--%>
+    <div>
+        <asp:Label ID="lblRatingContain" Text="Rating: " runat="server" /> <br />
+        <asp:Label ID="lblDescriptionContain" Text="Description: " runat="server" />
+    </div>
+
     <%-- tombol untuk Rate, Update, Delete --%>
     <div>
         <asp:Button ID="btnRate" Text="Rate" OnClick="btnRate_Click" runat="server" />

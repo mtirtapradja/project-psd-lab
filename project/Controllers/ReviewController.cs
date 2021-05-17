@@ -9,6 +9,29 @@ namespace project.Controllers
 {
     public class ReviewController
     {
+        public static string CheckReview(string s_rating, string description)
+        {
+            string response = "";
+
+            if (s_rating == "")
+            {
+                response = "Rating must be filled";
+            }
+            else
+            {
+                int rating = int.Parse(s_rating);
+                if(rating<1 || rating > 5)
+                {
+                    response = "Rating must be between 1 and 5";
+                }
+                else if (description == "")
+                {
+                    response = "Desciption must be filled";
+                }
+            }
+            return response;
+        }
+
         public static bool InsertNewReview(int trDetailId, int rating, string desciption)
         {
             return ReviewHandler.InsertNewReview(trDetailId, rating, desciption);

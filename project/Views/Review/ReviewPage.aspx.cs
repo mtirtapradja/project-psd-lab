@@ -26,6 +26,7 @@ namespace project.Views.Review
                 Models.Review currentReview = ReviewController.GetReviewByToken(token);
 
                 showButton(currentReview);
+                showRating(currentReview);
 
                 lblShowName.Text = currentShow.Name;
                 lblShowSellerName.Text = currentSeller.Name;
@@ -46,19 +47,79 @@ namespace project.Views.Review
             }
         }
 
+        private void showRating(Models.Review currentReview)
+        {
+            if (currentReview != null)
+            {
+                string s_rating = currentReview.Rating.ToString();
+                string description = currentReview.Description;
+                lblRatingContain.Text = string.Concat(lblRatingContain.Text,s_rating);
+                lblDescriptionContain.Text = string.Concat(lblDescriptionContain.Text, description); 
+            }
+            else
+            {
+                lblRatingContain.Visible = false;
+                lblDescriptionContain.Visible = false;
+            }
+        }
+
         protected void btnRate_Click(object sender, EventArgs e)
         {
+            string s_rating = txtRating.Text;
+            string description = txtDescription.Text;
+            string token = Request.QueryString["Token"];
 
+            string response = ReviewController.CheckReview(s_rating, description);
+
+            if(response != "")
+            {
+                lblError.Text = response;
+            }
+            else
+            {
+                int rating = int.Parse(s_rating);
+                TransactionDetail trDetail = TransactionController.GetDetailTransactionByToken(token);
+                ReviewController.InsertNewReview(trDetail.Id,rating, description);
+                lblError.Text = "";
+                Response.Redirect("ReviewPage.aspx?Token="+token);
+            }
         }
+
+        
+
 
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
+            string s_rating = txtRating.Text;
+            string description = txtDescription.Text;
+            string token = Request.QueryString["Token"];
 
+            string response = ReviewController.CheckReview(s_rating, description);
+
+            if (response != "")
+            {
+                lblError.Text = response;
+            }
+            else
+            {
+                int rating = int.Parse(s_rating);
+                Models.Review review = ReviewController.GetReviewByToken(token);
+                ReviewController.UpdateReview(review.Id, rating, description);
+                lblError.Text = "";
+                Response.Redirect("ReviewPage.aspx?Token=" + token);
+            }
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
-
+            string token = Request.QueryString["Token"];
+            Models.Review review = ReviewController.GetReviewByToken(token);
+            if (review != null)
+            {
+                ReviewController.DeleteReview(review.Id);
+                lblError.Text = "";
+                Response.Redirect("ReviewPage.aspx?Token=" + token);
+            }
         }
     }
 }
