@@ -41,7 +41,7 @@ namespace project.View
 
         protected void btnTransactionOnNav_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("../Transaction/TransactionPage.aspx");
         }
         
         protected void btnAccountOnNav_Click(object sender, EventArgs e)

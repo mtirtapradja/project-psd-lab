@@ -7,6 +7,7 @@ namespace project.Models
 {
     public class Transaction
     {
+        public int TransactionHeader { get; set; }
         public DateTime Payment_Date { get; set; }
         public string Show_Name { get; set; }
         public DateTime Show_Time { get; set; }

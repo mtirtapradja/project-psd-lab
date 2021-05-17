@@ -40,32 +40,44 @@ namespace project.Repository
 
         public static List<Transaction> GetAllTransaction()
         {
-            return (from header in db.TransactionHeaders
-                    join show in db.Shows on header.ShowId equals show.Id
-                    select new Transaction
-                    {
-                        Payment_Date = header.CreatedAt,
-                        Show_Name = show.Name,
-                        Show_Time = header.ShowTime,
-                        Quantity = GetTransactionDetails(header.Id).Count(),
-                        Total_Price = show.Price * (GetTransactionDetails(header.Id).Count())
-                    }).ToList();
+            List<Transaction> currentTransaction = (from header in db.TransactionHeaders
+                                                    join show in db.Shows on header.ShowId equals show.Id
+                                                    select new Transaction
+                                                    {
+                                                        TransactionHeader = header.Id,
+                                                        Payment_Date = header.CreatedAt,
+                                                        Show_Name = show.Name,
+                                                        Show_Time = header.ShowTime,
+                                                        Total_Price = show.Price
+                                                    }).ToList();
+            foreach (Transaction curr in currentTransaction)
+            {
+                curr.Quantity = GetTransactionDetails(curr.TransactionHeader).Count();
+                curr.Total_Price = curr.Total_Price * GetTransactionDetails(curr.TransactionHeader).Count();
+            }
+            return currentTransaction;
         }
 
         public static List<JoinedTransactionDetail> GetTransactionDetailById(int trHeaderId)
         {
-            return (from detail in db.TransactionDetails
-                    join review in db.Reviews on detail.Id equals review.TransactionDetailId
-                    join header in db.TransactionHeaders on detail.TransactionHeaderId equals header.Id
-                    join show in db.Shows on header.ShowId equals show.Id
-                    where header.Id == trHeaderId
-                    select new JoinedTransactionDetail
-                    {
-                        Show_Name = show.Name,
-                        Average_Rating = GetTotalRatingByReview(show.Id),
-                        Description = show.Description,
-                        Token = detail.Token
-                    }).ToList();
+
+            List<JoinedTransactionDetail> currentDetail = (from detail in db.TransactionDetails
+                                                           join review in db.Reviews on detail.Id equals review.TransactionDetailId
+                                                           join header in db.TransactionHeaders on detail.TransactionHeaderId equals header.Id
+                                                           join show in db.Shows on header.ShowId equals show.Id
+                                                           where header.Id == trHeaderId
+                                                           select new JoinedTransactionDetail
+                                                           {
+                                                               Show_Id = show.Id,
+                                                               Show_Name = show.Name,
+                                                               Description = show.Description,
+                                                               Token = detail.Token
+                                                           }).ToList();
+            foreach(JoinedTransactionDetail curr in currentDetail)
+            {
+                curr.Average_Rating = GetTotalRatingByReview(curr.Show_Id);
+            }
+            return currentDetail;
         }
 
         public static TransactionDetail GetDetailTransactionByToken(string token)
