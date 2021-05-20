@@ -6,10 +6,11 @@
     <div>
         <asp:Label ID="lblName" Text="Name:" runat="server" /> <asp:Label ID="lblNameContent" Text="" runat="server" /><br />
         <asp:Label ID="lblPrice" Text="Price:" runat="server" /> <asp:Label ID="lblPriceContent" Text="" runat="server" /><br />
-        <asp:Label ID="lblSeller" Text="Seller Name" runat="server" /> <asp:Label ID="lblSellerContent" Text="" runat="server" /> <br />
-        <asp:Label ID="lblDescription" Text="Description" runat="server" /> <asp:Label ID="lblDescriptionContent" Text="" runat="server" /> <br />
-        <asp:Label ID="lblAverageRating" Text="Average Rating" runat="server" /> <asp:Label ID="lblAverageRatingContent" Text="" runat="server" /> <br />
+        <asp:Label ID="lblSeller" Text="Seller Name:" runat="server" /> <asp:Label ID="lblSellerContent" Text="" runat="server" /> <br />
+        <asp:Label ID="lblDescription" Text="Description:" runat="server" /> <asp:Label ID="lblDescriptionContent" Text="" runat="server" /> <br />
+        <asp:Label ID="lblAverageRating" Text="Average Rating:" runat="server" /> <asp:Label ID="lblAverageRatingContent" Text="" runat="server" /> <br />
         <asp:GridView ID="gvReview" runat="server"></asp:GridView>
+        <br />
     </div>
     <div>
         <asp:Button ID="btnOrder" Text="Order" OnClick="btnOrder_Click" runat="server" /> 

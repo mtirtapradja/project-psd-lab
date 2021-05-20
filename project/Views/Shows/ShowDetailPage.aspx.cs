@@ -15,6 +15,8 @@ namespace project.Views.Shows
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            hideNavButton();
+
             if (Session["RoleId"] == null)
             {
                 Response.Redirect("../Home/HomePage.aspx");
@@ -40,8 +42,17 @@ namespace project.Views.Shows
 
         private void FillGrid(int showId)
         {
-            gvReview.DataSource = ReviewController.GetReviewByShowId(showId);
+            gvReview.DataSource = ReviewController.GetShowReviewByShowId(showId);
             gvReview.DataBind();
+        }
+
+        private void hideNavButton()
+        {
+            Button button = this.Master.FindControl("btnLoginOnNav") as Button;
+            button.Visible = false;
+
+            button = this.Master.FindControl("btnRegisterOnNav") as Button;
+            button.Visible = false;
         }
 
         private void showButton(string RoleId, int ShowId,int UserId)
