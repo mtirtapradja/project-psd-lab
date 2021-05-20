@@ -13,7 +13,6 @@ namespace project.Views.RedeemToken
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
             string RoleID;
             if (Session["RoleId"] != null)
             {
@@ -54,7 +53,7 @@ namespace project.Views.RedeemToken
                 button.Visible = true;
 
                 button = this.Master.FindControl("btnRedeemOnNav") as Button;
-                button.Visible = true;
+                button.Visible = false;
 
                 button = this.Master.FindControl("btnLogoutOnNav") as Button;
                 button.Visible = true;
@@ -84,7 +83,7 @@ namespace project.Views.RedeemToken
                 button.Visible = true;
 
                 button = this.Master.FindControl("btnRedeemOnNav") as Button;
-                button.Visible = true;
+                button.Visible = false;
 
                 button = this.Master.FindControl("btnLogoutOnNav") as Button;
                 button.Visible = true;
@@ -114,7 +113,7 @@ namespace project.Views.RedeemToken
                 button.Visible = false;
 
                 button = this.Master.FindControl("btnRedeemOnNav") as Button;
-                button.Visible = true;
+                button.Visible = false;
 
                 button = this.Master.FindControl("btnLogoutOnNav") as Button;
                 button.Visible = false;
