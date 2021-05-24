@@ -34,10 +34,16 @@
         <asp:Label ID="lblRatingValue" Text="" runat="server" />
     </div>
 
+    <%-- Untuk DATE PICKER --%>
+    <div>
+        <asp:Label Text="Date " runat="server" />
+        <asp:TextBox ID="txtOrderDate" TextMode="Date" runat="server" />
+    </div>
+    
     <%-- Untuk QUANTITY ORDER --%>
     <div>
         <asp:Label Text="Quantity " runat="server" />
-        <asp:TextBox ID="txtQuantity" runat="server" />
+        <asp:TextBox ID="txtQuantity" TextMode="Number" runat="server" />
     </div>
 
     <%-- Untik GridView ORDER --%>

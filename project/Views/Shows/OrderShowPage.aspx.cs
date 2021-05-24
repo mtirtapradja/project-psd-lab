@@ -17,7 +17,7 @@ namespace project.Views.Shows
             if (!this.IsPostBack)
             {
                 DataTable dt = new DataTable();
-                dt.Columns.AddRange(new DataColumn[2] { new DataColumn("Id"), new DataColumn("Time")});
+                dt.Columns.AddRange(new DataColumn[2] { new DataColumn("Id"), new DataColumn("Time") });
                 dt.Rows.Add(1, "00:00 - 00:59");
                 dt.Rows.Add(2, "01:00 - 01:59");
                 dt.Rows.Add(3, "02:00 - 02:59");
@@ -65,7 +65,9 @@ namespace project.Views.Shows
             {
                 int rowIndex = Convert.ToInt32(e.CommandArgument);
 
-                string time = DateTime.Today.ToString("d") + " " + rowIndex + ":00:00";
+                string orderDate = txtOrderDate.Text;
+
+                string time = orderDate + " " + rowIndex + ":00:00";
                 DateTime date = Convert.ToDateTime(time);
 
 
