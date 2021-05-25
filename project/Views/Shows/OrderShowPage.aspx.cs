@@ -12,6 +12,8 @@ namespace project.Views.Shows
 {
     public partial class OrderShowPage : System.Web.UI.Page
     {
+        private DateTime currentTime = DateTime.Now;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             Button button = this.Master.FindControl("btnLoginOnNav") as Button;
@@ -20,9 +22,16 @@ namespace project.Views.Shows
             button = this.Master.FindControl("btnRegisterOnNav") as Button;
             button.Visible = false;
 
+            string orderDate = txtOrderDate.Text;
 
-            if (!this.IsPostBack)
+            if (orderDate == null)
             {
+                orderDate = DateTime.Now.ToString();
+                orderDate = "" + orderDate[8] + orderDate[9];
+            }
+
+            //if (!this.IsPostBack)
+            //{
                 DataTable dt = new DataTable();
                 dt.Columns.AddRange(new DataColumn[2] { new DataColumn("Id"), new DataColumn("Time") });
                 dt.Rows.Add(1, "00:00 - 00:59");
@@ -53,17 +62,27 @@ namespace project.Views.Shows
                 gvOrder.DataSource = dt;
                 gvOrder.DataBind();
 
-                int n = int.Parse(DateTime.Now.ToString("HH")) % 23;
-                
-                for(int i = 0; i <= n; i++)
-                {
-                    button = this.gvOrder.Rows[i].FindControl("btnOrderShow") as Button;
-                    button.Visible = false;
+                //int n = int.Parse(DateTime.Now.ToString("HH")) % 23;
 
-                    Label label = this.gvOrder.Rows[i].FindControl("lblUnavailable") as Label;
-                    label.Text = "Unavailable";
+                lblDescription.Text = orderDate;
+                for(int i = 0; i < 24; i++)
+                {
+                    string rowtime = orderDate + " " + i + ":00:00";
+                    DateTime targetTime = Convert.ToDateTime(rowtime);
+                    TimeSpan timeDiff = currentTime - targetTime;
+                    bool canOrder = timeDiff.TotalSeconds > 0;
+                    if (canOrder)
+                    {
+                        button = this.gvOrder.Rows[i].FindControl("btnOrderShow") as Button;
+                        button.Visible = false;
+                    }
+                    else if(!canOrder)
+                    {
+                        Label label = this.gvOrder.Rows[i].FindControl("lblUnavailable") as Label;
+                        label.Text = "Unavailable";
+                    }
                 }
-            }
+            //}
         }
 
         protected void gvOrder_RowCommand(object sender, GridViewCommandEventArgs e)
