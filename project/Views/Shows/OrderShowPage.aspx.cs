@@ -14,6 +14,13 @@ namespace project.Views.Shows
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Button button = this.Master.FindControl("btnLoginOnNav") as Button;
+            button.Visible = false;
+            
+            button = this.Master.FindControl("btnRegisterOnNav") as Button;
+            button.Visible = false;
+
+
             if (!this.IsPostBack)
             {
                 DataTable dt = new DataTable();
@@ -50,7 +57,7 @@ namespace project.Views.Shows
                 
                 for(int i = 0; i <= n; i++)
                 {
-                    Button button = this.gvOrder.Rows[i].FindControl("btnOrderShow") as Button;
+                    button = this.gvOrder.Rows[i].FindControl("btnOrderShow") as Button;
                     button.Visible = false;
 
                     Label label = this.gvOrder.Rows[i].FindControl("lblUnavailable") as Label;

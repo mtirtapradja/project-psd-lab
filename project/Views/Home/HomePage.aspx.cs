@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using project.Models;
 
 namespace project.View.HomePage
 {
@@ -14,6 +15,7 @@ namespace project.View.HomePage
         protected void Page_Load(object sender, EventArgs e)
         {
             string RoleID;
+            int UserId = int.Parse(Session["UserId"].ToString());
 
             if (Session["RoleId"] != null)
             {
@@ -32,6 +34,14 @@ namespace project.View.HomePage
             }
 
             ShowAdditionalNavBar(RoleID);
+
+            if (UserId != null)
+            {
+                User currentUser = UserController.GetUserById(UserId);
+                txtUserName.Text = currentUser.Name;
+
+            }
+
         }
 
         private void ShowAdditionalNavBar(string RoleID)
