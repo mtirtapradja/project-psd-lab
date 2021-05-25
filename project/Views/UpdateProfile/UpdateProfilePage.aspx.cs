@@ -148,6 +148,7 @@ namespace project.Views.UpdateProfile
                     txtConfirmPass.Text = "";
                     lblError.Text = "";
                 }
+                Response.Redirect("../Home/HomePage.aspx");
             }
             else
             {

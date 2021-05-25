@@ -53,7 +53,7 @@ namespace project.Views.RedeemToken
                 button.Visible = true;
 
                 button = this.Master.FindControl("btnRedeemOnNav") as Button;
-                button.Visible = false;
+                button.Visible = true;
 
                 button = this.Master.FindControl("btnLogoutOnNav") as Button;
                 button.Visible = true;
@@ -83,7 +83,7 @@ namespace project.Views.RedeemToken
                 button.Visible = true;
 
                 button = this.Master.FindControl("btnRedeemOnNav") as Button;
-                button.Visible = false;
+                button.Visible = true;
 
                 button = this.Master.FindControl("btnLogoutOnNav") as Button;
                 button.Visible = true;
@@ -113,7 +113,7 @@ namespace project.Views.RedeemToken
                 button.Visible = false;
 
                 button = this.Master.FindControl("btnRedeemOnNav") as Button;
-                button.Visible = false;
+                button.Visible = true;
 
                 button = this.Master.FindControl("btnLogoutOnNav") as Button;
                 button.Visible = false;

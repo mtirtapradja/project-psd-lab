@@ -78,15 +78,6 @@ namespace project.Views.Review
         protected global::System.Web.UI.WebControls.TextBox txtDescription;
 
         /// <summary>
-        /// lblError control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblError;
-
-        /// <summary>
         /// lblRatingContain control.
         /// </summary>
         /// <remarks>
@@ -103,6 +94,15 @@ namespace project.Views.Review
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDescriptionContain;
+
+        /// <summary>
+        /// lblError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblError;
 
         /// <summary>
         /// btnRate control.

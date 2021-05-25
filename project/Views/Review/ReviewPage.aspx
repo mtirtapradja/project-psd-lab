@@ -5,16 +5,19 @@
 
     <%--untuk Nama Show--%>
     <div>
+        <asp:Label Text="Show Name: " runat="server" />
         <asp:Label ID="lblShowName" Text="" runat="server" />
     </div>
 
     <%--untuk Nama Seller dari Show--%>
     <div>
+        <asp:Label Text="Seller Name: " runat="server" />
         <asp:Label ID="lblShowSellerName" Text="" runat="server" />
     </div>
 
     <%--untuk Deskripsi Show--%>
     <div>
+        <asp:Label Text="Show Description: " runat="server" />
         <asp:Label ID="lblShowDescription" Text="" runat="server" />
     </div>
 
@@ -30,15 +33,17 @@
         <asp:TextBox ID="txtDescription" runat="server" />
     </div>
 
-    <%--untuk Label Error--%>
-    <div>
-        <asp:Label ID="lblError" Text="" runat="server" />
-    </div>
+    <br />
 
     <%--untuk Nampilin Rating dan Description--%>
     <div>
-        <asp:Label ID="lblRatingContain" Text="Rating: " runat="server" /> <br />
-        <asp:Label ID="lblDescriptionContain" Text="Description: " runat="server" />
+        <asp:Label ID="lblRatingContain" Text="Show Rating: " runat="server" /> <br />
+        <asp:Label ID="lblDescriptionContain" Text="Rating Description: " runat="server" />
+    </div>
+
+    <%--untuk Label Error--%>
+    <div>
+        <asp:Label ID="lblError" Text="" runat="server" />
     </div>
 
     <%-- tombol untuk Rate, Update, Delete --%>

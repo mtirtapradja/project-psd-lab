@@ -13,6 +13,25 @@ namespace project.Views.Review
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string RoleID;
+
+            if (Session["RoleId"] != null)
+            {
+                RoleID = Session["RoleId"].ToString();
+            }
+            else
+            {
+                if (Request.Cookies["remember"] != null)
+                {
+                    RoleID = Request.Cookies["remember"].Value;
+                }
+                else
+                {
+                    RoleID = "-1";
+                }
+            }
+            ShowAdditionalNavBar(RoleID);
+
             string token = Request.QueryString["Token"];
 
             if (token == null)
@@ -31,6 +50,100 @@ namespace project.Views.Review
                 lblShowName.Text = currentShow.Name;
                 lblShowSellerName.Text = currentSeller.Name;
                 lblShowDescription.Text = currentShow.Description;
+            }
+        }
+
+        private void ShowAdditionalNavBar(string RoleID)
+        {
+            // Kalo Buyer
+            if (RoleID == "1")
+            {
+                Button button = this.Master.FindControl("btnHomeOnNav") as Button;
+                button.Visible = true;
+
+                button = this.Master.FindControl("btnAddShowOnNav") as Button;
+                button.Visible = false;
+
+                button = this.Master.FindControl("btnReportsOnNav") as Button;
+                button.Visible = false;
+
+                button = this.Master.FindControl("btnLoginOnNav") as Button;
+                button.Visible = false;
+
+                button = this.Master.FindControl("btnRegisterOnNav") as Button;
+                button.Visible = false;
+
+                button = this.Master.FindControl("btnTransactionOnNav") as Button;
+                button.Visible = true;
+
+                button = this.Master.FindControl("btnAccountOnNav") as Button;
+                button.Visible = true;
+
+                button = this.Master.FindControl("btnRedeemOnNav") as Button;
+                button.Visible = true;
+
+                button = this.Master.FindControl("btnLogoutOnNav") as Button;
+                button.Visible = true;
+            }
+            // Kalo Seller
+            else if (RoleID == "2")
+            {
+                Button button = this.Master.FindControl("btnHomeOnNav") as Button;
+                button.Visible = true;
+
+                button = this.Master.FindControl("btnAddShowOnNav") as Button;
+                button.Visible = true;
+
+                button = this.Master.FindControl("btnReportsOnNav") as Button;
+                button.Visible = true;
+
+                button = this.Master.FindControl("btnLoginOnNav") as Button;
+                button.Visible = false;
+
+                button = this.Master.FindControl("btnRegisterOnNav") as Button;
+                button.Visible = false;
+
+                button = this.Master.FindControl("btnTransactionOnNav") as Button;
+                button.Visible = false;
+
+                button = this.Master.FindControl("btnAccountOnNav") as Button;
+                button.Visible = true;
+
+                button = this.Master.FindControl("btnRedeemOnNav") as Button;
+                button.Visible = true;
+
+                button = this.Master.FindControl("btnLogoutOnNav") as Button;
+                button.Visible = true;
+            }
+            // Kalo Guest
+            else
+            {
+                Button button = this.Master.FindControl("btnHomeOnNav") as Button;
+                button.Visible = true;
+
+                button = this.Master.FindControl("btnAddShowOnNav") as Button;
+                button.Visible = false;
+
+                button = this.Master.FindControl("btnReportsOnNav") as Button;
+                button.Visible = false;
+
+                button = this.Master.FindControl("btnLoginOnNav") as Button;
+                button.Visible = true;
+
+                button = this.Master.FindControl("btnRegisterOnNav") as Button;
+                button.Visible = true;
+
+                button = this.Master.FindControl("btnTransactionOnNav") as Button;
+                button.Visible = false;
+
+                button = this.Master.FindControl("btnAccountOnNav") as Button;
+                button.Visible = false;
+
+                button = this.Master.FindControl("btnRedeemOnNav") as Button;
+                button.Visible = true;
+
+                button = this.Master.FindControl("btnLogoutOnNav") as Button;
+                button.Visible = false;
             }
         }
 
