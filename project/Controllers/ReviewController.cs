@@ -52,12 +52,6 @@ namespace project.Controllers
             return ReviewHandler.GetReviewByToken(token);
         }
 
-        // Method ini gatau buat apa, kayaknya ga kepake
-        public static List<Review> GetReviewByShowId(int showId)
-        {
-            return ReviewHandler.GetReviewByDetailId(showId);
-        }
-
         public static List<Review> GetShowReviewByShowId(int showId)
         {
             return ReviewHandler.GetShowReviewByShowId(showId);

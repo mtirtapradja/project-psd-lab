@@ -148,5 +148,10 @@ namespace project.Controllers
         {
             return UserHandler.UpdateCurrentUser(userId, name, password);
         }
+
+        public static User CheckUserName(int userId)
+        {
+            return UserHandler.GetUserById(userId);
+        }
     }
 }

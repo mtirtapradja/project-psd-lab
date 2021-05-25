@@ -83,11 +83,6 @@ namespace project.Repository
             }
         }
 
-        public static List<Review> GetReviewByDetailId(int showId)
-        {
-            return (from review in db.Reviews where review.TransactionDetailId == showId select review).ToList();
-        }
-
         public static List<Review> GetShowReviewByShowId(int showId)
         {
             return (from review in db.Reviews

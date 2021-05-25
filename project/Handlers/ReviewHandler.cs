@@ -50,11 +50,6 @@ namespace project.Handlers
             return ReviewRepository.GetReviewByToken(token);
         }
 
-        public static List<Review> GetReviewByDetailId(int showId)
-        {
-            return ReviewRepository.GetReviewByDetailId(showId);
-        }
-
         public static List<Review> GetShowReviewByShowId(int showId)
         {
             return ReviewRepository.GetShowReviewByShowId(showId);
