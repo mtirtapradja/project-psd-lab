@@ -15,7 +15,7 @@ namespace project.View.HomePage
         protected void Page_Load(object sender, EventArgs e)
         {
             string RoleID;
-            int UserId = int.Parse(Session["UserId"].ToString());
+            int UserId;
 
             if (Session["RoleId"] != null)
             {
@@ -31,17 +31,35 @@ namespace project.View.HomePage
                 {
                     RoleID = "-1";
                 }
+            } 
+            
+            if (Session["UserId"] != null)
+            {
+                UserId = int.Parse(Session["UserId"].ToString());
+            }
+            else
+            {
+                if (Request.Cookies["remember"] != null)
+                {
+                    UserId = int.Parse(Request.Cookies["remember"].Value);
+                }
+                else
+                {
+                    UserId = -1;
+                }
             }
 
             ShowAdditionalNavBar(RoleID);
 
-            if (UserId != null)
+            if (UserId != -1)
             {
                 User currentUser = UserController.GetUserById(UserId);
                 txtUserName.Text = currentUser.Name;
-
             }
-
+            else
+            {
+                txtUserName.Text = "Guest";
+            }
         }
 
         private void ShowAdditionalNavBar(string RoleID)

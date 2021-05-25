@@ -3,7 +3,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <h2>HOME PAGE</h2>
-    <asp:Label ID="txtUserName" Text="" runat="server" />
+    <asp:Label Text="Welcome, " runat="server" />
+    <asp:Label ID="txtUserName" Text="" Font-Size="25px" Font-Names="Segoe UI" runat="server" />
+    <br />
     <div>
         <asp:GridView ID="gvShows" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
             <Columns>
