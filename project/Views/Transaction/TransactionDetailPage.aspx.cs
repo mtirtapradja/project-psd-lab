@@ -1,4 +1,5 @@
-﻿using project.Handlers;
+﻿using project.Controllers;
+using project.Handlers;
 using project.Models;
 using project.Repository;
 using System;
@@ -50,13 +51,26 @@ namespace project.Views.Transaction
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             int transactionHeaderId = int.Parse(Request.QueryString["TransactionId"]);
-            // Delete semua detail, delete header
-            
-            if (TransactionHandler.DeleteDetailTransactionById(transactionHeaderId))
+
+            DateTime currentTime = DateTime.Now;
+
+            DateTime showTime = TransactionController.GetHeaderTransactionById(transactionHeaderId).ShowTime;
+
+            TimeSpan diff = currentTime - showTime;
+
+            if (diff.Seconds < 0 )
             {
-                TransactionHandler.Delete
+                if (TransactionController.DeleteDetailTransactionById(transactionHeaderId))
+                {
+                    if (TransactionController.DeleteHeaderTransactionById(transactionHeaderId))
+                    {
+                        Response.Redirect("../Home/HomePage.aspx");
+                    }
+                
+                }
             }
 
+            return;
         }
     }
 }

@@ -24,15 +24,11 @@ namespace project.Controllers
             return TransactionHandler.GetAllTransaction();
         }
 
-        public static List<JoinedTransactionDetail> GetTransactionDetailById(int trHeaderId)
-        {
-            return TransactionHandler.GetTransactionDetailById(trHeaderId);
-        }
-
         public static TransactionDetail GetDetailTransactionByToken(string token)
         {
             return TransactionHandler.GetDetailTransactionByToken(token);
         }
+
         public static TransactionHeader GetHeaderTransactionById(int trHeaderId)
         {
             return TransactionHandler.GetHeaderTransactionById(trHeaderId);
@@ -45,6 +41,11 @@ namespace project.Controllers
             return new string(Enumerable.Repeat(chars, length).Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
+        public static List<TransactionDetail> GetAllTransactionDetailById(int trHeaderId)
+        {
+            return TransactionHandler.GetAllTransactionDetailById(trHeaderId);
+        }
+
         public static bool DeleteDetailTransactionById(int trHeaderId)
         {
             return TransactionHandler.DeleteDetailTransactionById(trHeaderId); ;
@@ -52,6 +53,12 @@ namespace project.Controllers
         public static bool DeleteHeaderTransactionById(int trHeaderId)
         {
             return TransactionHandler.DeleteHeaderTransactionById(trHeaderId); ;
+        }
+
+        // Ga kepake
+        public static bool TokenIsUsed(TransactionDetail trDetail)
+        {
+            return TransactionHandler.TokenIsUsed(trDetail);
         }
 
     }
