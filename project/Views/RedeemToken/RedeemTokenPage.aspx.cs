@@ -132,11 +132,13 @@ namespace project.Views.RedeemToken
                 DateTime currentTime = DateTime.Now;
                 TimeSpan timeDiff = currentTime - trHeader.CreatedAt;
 
-                int second = Convert.ToInt32(timeDiff.TotalSeconds);
-
-                if (second > 0)
+                if (timeDiff.Seconds < 0)
                 {
                     Response.Redirect("../Review/ReviewPage.aspx?Token=" + token);
+                }
+                else
+                {
+                    lblError.Text = "Token can't be redeem";
                 }
             }
         }
