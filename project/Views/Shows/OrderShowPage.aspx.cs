@@ -19,6 +19,19 @@ namespace project.Views.Shows
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            int ShowId = int.Parse(Request.QueryString["ShowId"]);
+            ShowDetail show = ShowController.GetShowDetailById(ShowId);
+
+            if (show != null)
+            {
+                lblDescriptionValue.Text = show.Description;
+                lblRatingValue.Text = show.Average_Rating.ToString();
+                lblPriceValue.Text = show.Show_Price.ToString();
+                lblShowNameValue.Text = show.Show_Name;
+                lblSellerNameValue.Text = show.Seller_Name;
+            }
+
+
             if (!Page.IsPostBack)
             {
 
@@ -106,29 +119,40 @@ namespace project.Views.Shows
                 int buyerId = int.Parse(Session["UserId"].ToString());
 
 
-                // Dari sini kebawah masih kacau balau, besok check lagi karena banyak smell
-                int headerId = TransactionController.InsertTransactionHeader(buyerId, showId, date, DateTime.Now);
-
-                if (headerId != -1)
+                if(txtOrderDate.Text == "")
                 {
-                    for (int i = 0; i < Convert.ToInt32(txtQuantity.Text); i++)
-                    {
-                        string token;
-                        do
-                        {
-                            token = TransactionController.GetRandomToken(6);
-                            TransactionDetail trDetail = TransactionController.GetDetailTransactionByToken(token);
-                            if (trDetail == null)
-                            {
-                                break;
-                            }
-                        } while (true);
+                    lblError.Text = "Please Choose Order Date";
+                }
+                else if (txtQuantity.Text == "")
+                {
+                    lblError.Text = "Please Insert Quantity";
+                }
+                else
+                {
+                    int headerId = TransactionController.InsertTransactionHeader(buyerId, showId, date, DateTime.Now);
 
-                        TransactionController.InsertTransactionDetail(headerId, 1, token);
+                    if (headerId != -1)
+                    {
+                        for (int i = 0; i < Convert.ToInt32(txtQuantity.Text); i++)
+                        {
+                            string token;
+                            do
+                            {
+                                token = TransactionController.GetRandomToken(6);
+                                TransactionDetail trDetail = TransactionController.GetDetailTransactionByToken(token);
+                                if (trDetail == null)
+                                {
+                                    break;
+                                }
+                            } while (true);
+
+                            TransactionController.InsertTransactionDetail(headerId, 1, token);
+                        }
                     }
+                    Response.Redirect("../Home/HomePage.aspx");
                 }
 
-                Response.Redirect("../Home/HomePage.aspx");
+                
             }
         }
     }

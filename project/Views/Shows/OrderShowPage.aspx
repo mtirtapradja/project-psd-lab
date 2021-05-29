@@ -62,5 +62,8 @@
         </asp:GridView>
     </div>
 
+    <div>
+        <asp:Label ID="lblError" Text="" runat="server" />
+    </div>
 
 </asp:Content>
