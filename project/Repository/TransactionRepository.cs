@@ -79,9 +79,9 @@ namespace project.Repository
             return QueryDetail;
         }
 
-        public static TransactionDetail GetDetailTransactionByToken(string token)
+        public static TransactionHeader GetTransactionHeaderById(int trHeaderId)
         {
-            return (from x in db.TransactionDetails where x.Token.Equals(token) select x).FirstOrDefault();
+            return (from x in db.TransactionHeaders where x.Id == trHeaderId select x).FirstOrDefault();
         }
         
         public static TransactionDetail GetDetailTransactionByToken(string token)
@@ -94,6 +94,18 @@ namespace project.Repository
             return (from detail in db.TransactionDetails where detail.TransactionHeaderId == trHeaderId select detail).ToList();
         }
 
+        public static bool DeleteHeader(TransactionHeader trHeader)
+        {
+            if (trHeader != null)
+            {
+                db.TransactionHeaders.Remove(trHeader);
+                db.SaveChanges();
+                return true;
+            }
+
+            return false;
+        }
+        
         public static bool DeleteDetails(TransactionDetail trDetail)
         {
             if (trDetail != null)
