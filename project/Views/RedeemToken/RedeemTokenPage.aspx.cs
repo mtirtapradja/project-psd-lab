@@ -124,10 +124,20 @@ namespace project.Views.RedeemToken
         {
             string token = txtToken.Text;
             TransactionDetail trDetail = TransactionController.GetDetailTransactionByToken(token);
-           
+            
             if (trDetail != null)
             {
-                Response.Redirect("../Review/ReviewPage.aspx?Token=" + token);  
+                TransactionHeader trHeader = TransactionController.GetHeaderTransactionById(trDetail.TransactionHeaderId);
+
+                DateTime currentTime = DateTime.Now;
+                TimeSpan timeDiff = currentTime - trHeader.CreatedAt;
+
+                int second = Convert.ToInt32(timeDiff.TotalSeconds);
+
+                if (second > 0)
+                {
+                    Response.Redirect("../Review/ReviewPage.aspx?Token=" + token);
+                }
             }
         }
 
