@@ -44,7 +44,7 @@ namespace project.Handlers
             return TransactionRepository.GetAllTransaction();
         }
 
-        public static TransactionHeader GetTransactionDetailById(int trHeaderId)
+        public static TransactionHeader GetTransactionHeaderById(int trHeaderId)
         {
             return TransactionRepository.GetTransactionHeaderById(trHeaderId);
         }
@@ -76,10 +76,15 @@ namespace project.Handlers
                 return null;
             }
         }
-        
+
+        public static List<TransactionDetail> GetAllTransactionDetailById(int trHeaderId)
+        {
+            return TransactionRepository.GetTransactionDetails(trHeaderId);
+        }
+
         public static bool DeleteDetailTransactionById(int trHeaderId)
         {
-            List<TransactionDetail> transactionDetails = TransactionRepository.GetTransactionDetails(trHeaderId);
+            List<TransactionDetail> transactionDetails = GetAllTransactionDetailById(trHeaderId);
 
             foreach(TransactionDetail detail in transactionDetails)
             {
@@ -88,10 +93,17 @@ namespace project.Handlers
 
             return true;
         }
+
         public static bool DeleteHeaderTransactionById(int trHeaderId)
         {
             TransactionHeader transactionHeader = TransactionRepository.GetTransactionHeaderById(trHeaderId);
             return TransactionRepository.DeleteHeader(transactionHeader);
+        }
+
+        // Ga kepake
+        public static bool TokenIsUsed(TransactionDetail trDetail)
+        {
+            return TransactionRepository.TokenIsUsed(trDetail);
         }
     }
 }

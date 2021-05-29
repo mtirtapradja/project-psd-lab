@@ -117,5 +117,18 @@ namespace project.Repository
 
             return false;
         }
+
+        // Ga kepake
+        public static bool TokenIsUsed(TransactionDetail trDetail)
+        {
+            Review query = (from detail in db.Reviews where detail.TransactionDetailId == trDetail.Id select detail).FirstOrDefault();
+
+            if (query != null)
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }
