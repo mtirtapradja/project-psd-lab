@@ -6,4 +6,6 @@
     <asp:Label Text="Token" runat="server" />
     <asp:TextBox ID="txtToken" runat="server" />
     <asp:Button ID="btnRedeemToken" Text="Redeem" OnClick="btnRedeemToken_Click" runat="server" />
+    <br />
+    <asp:Label ID="lblError" Text="" runat="server" />
 </asp:Content>
