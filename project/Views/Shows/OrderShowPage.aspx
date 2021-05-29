@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Main.Master" AutoEventWireup="true" CodeBehind="OrderShowPage.aspx.cs" Inherits="project.Views.Shows.OrderShowPage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Main.Master" AutoEventWireup="true" CodeBehind="OrderShowPage.aspx.cs" Inherits="project.Views.Shows.OrderShowPage" EnableEventValidation="true" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
@@ -37,7 +37,7 @@
     <%-- Untuk DATE PICKER --%>
     <div>
         <asp:Label Text="Date " runat="server" />
-        <asp:TextBox ID="txtOrderDate" AutoPostBack="true" TextMode="Date" runat="server" />
+        <asp:TextBox ID="txtOrderDate" TextMode="Date" runat="server" />
     </div>
     
     <%-- Untuk QUANTITY ORDER --%>
@@ -60,7 +60,6 @@
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
-
     </div>
 
 
