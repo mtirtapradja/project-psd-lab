@@ -44,9 +44,9 @@ namespace project.Handlers
             return TransactionRepository.GetAllTransaction();
         }
 
-        public static List<JoinedTransactionDetail> GetTransactionDetailById(int trHeaderId)
+        public static TransactionHeader GetTransactionDetailById(int trHeaderId)
         {
-            return TransactionRepository.GetTransactionDetailById(trHeaderId);
+            return TransactionRepository.GetTransactionHeaderById(trHeaderId);
         }
 
         public static TransactionDetail GetDetailTransactionByToken(string token)
@@ -56,6 +56,20 @@ namespace project.Handlers
             if (trDetail != null)
             {
                 return trDetail;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        
+        public static TransactionHeader GetHeaderTransactionById(int trHeaderId)
+        {
+            TransactionHeader trHeader = TransactionRepository.GetTransactionHeaderById(trHeaderId);
+
+            if (trHeader != null)
+            {
+                return trHeader;
             }
             else
             {
@@ -76,12 +90,8 @@ namespace project.Handlers
         }
         public static bool DeleteHeaderTransactionById(int trHeaderId)
         {
-            List<TransactionDetail> transactionDetails = TransactionRepository.GetTransactionDetails(trHeaderId);
-
-            return true;
+            TransactionHeader transactionHeader = TransactionRepository.GetTransactionHeaderById(trHeaderId);
+            return TransactionRepository.DeleteHeader(transactionHeader);
         }
-
-
-
     }
 }
