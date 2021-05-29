@@ -81,11 +81,15 @@ namespace project.Controllers
             {
                 response = "Password must be filled";
             }
-            // Masih error
-            //else
-            //{
-            //    response = "Username or Password is Wrong";
-            //}
+            else
+            {
+                User user = GetUserByUsernameAndPassword(username, password);
+
+                if (user == null)
+                {
+                    response = "User not found, Please input username and passsword correctly";
+                }
+            }
 
             return response;
         }
@@ -148,6 +152,11 @@ namespace project.Controllers
                 return null;
             }
 
+        }
+
+        private static User GetUserByUsernameAndPassword(string username, string password)
+        {
+            return UserHandler.GetUserByUsernameAndPassword(username, password);
         }
 
         public static bool UpdateCurrentUser(int userId, string name, string password)

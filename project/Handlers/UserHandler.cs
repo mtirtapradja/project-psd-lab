@@ -29,6 +29,11 @@ namespace project.Handlers
             return false;
         }
 
+        public static User GetUserByUsernameAndPassword(string username,string password)
+        {
+            return UserRepository.GetUserByUsernameAndPassword(username, password);
+        }
+
         public static User GetUserById(int userId)
         {
             return UserRepository.GetUserById(userId);

@@ -54,5 +54,10 @@ namespace project.Repository
                 return null;
             }
         }
+
+        public static User GetUserByUsernameAndPassword(string username, string password)
+        {
+            return (from user in db.Users where user.Username == username && user.Password == password select user).FirstOrDefault();
+        }
     }
 }
