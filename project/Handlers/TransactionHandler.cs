@@ -62,6 +62,26 @@ namespace project.Handlers
                 return null;
             }
         }
+        
+        public static bool DeleteDetailTransactionById(int trHeaderId)
+        {
+            List<TransactionDetail> transactionDetails = TransactionRepository.GetTransactionDetails(trHeaderId);
+
+            foreach(TransactionDetail detail in transactionDetails)
+            {
+                TransactionRepository.DeleteDetails(detail);
+            }
+
+            return true;
+        }
+        public static bool DeleteHeaderTransactionById(int trHeaderId)
+        {
+            List<TransactionDetail> transactionDetails = TransactionRepository.GetTransactionDetails(trHeaderId);
+
+            return true;
+        }
+
+
 
     }
 }

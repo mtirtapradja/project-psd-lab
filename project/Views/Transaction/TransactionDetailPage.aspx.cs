@@ -1,4 +1,7 @@
-﻿using System;
+﻿using project.Handlers;
+using project.Models;
+using project.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -42,6 +45,18 @@ namespace project.Views.Transaction
 
             button = this.Master.FindControl("btnLogoutOnNav") as Button;
             button.Visible = true;
+        }
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            int transactionHeaderId = int.Parse(Request.QueryString["TransactionId"]);
+            // Delete semua detail, delete header
+            
+            if (TransactionHandler.DeleteDetailTransactionById(transactionHeaderId))
+            {
+                TransactionHandler.Delete
+            }
+
         }
     }
 }

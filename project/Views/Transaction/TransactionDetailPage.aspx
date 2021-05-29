@@ -16,4 +16,6 @@
             <asp:QueryStringParameter Name="trHeaderId" QueryStringField="TransactionId" Type="Int32" />
         </SelectParameters>
     </asp:ObjectDataSource>
+    <br />
+    <asp:Button ID="btnCancel" Text="Cancel Order" OnClick="btnCancel_Click" runat="server" />
 </asp:Content>

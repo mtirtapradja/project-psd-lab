@@ -83,10 +83,27 @@ namespace project.Repository
         {
             return (from x in db.TransactionDetails where x.Token.Equals(token) select x).FirstOrDefault();
         }
+        
+        public static TransactionDetail GetDetailTransactionByToken(string token)
+        {
+            return (from x in db.TransactionDetails where x.Token.Equals(token) select x).FirstOrDefault();
+        }
 
-        private static List<TransactionDetail> GetTransactionDetails(int trHeaderId)
+        public static List<TransactionDetail> GetTransactionDetails(int trHeaderId)
         {
             return (from detail in db.TransactionDetails where detail.TransactionHeaderId == trHeaderId select detail).ToList();
+        }
+
+        public static bool DeleteDetails(TransactionDetail trDetail)
+        {
+            if (trDetail != null)
+            {
+                db.TransactionDetails.Remove(trDetail);
+                db.SaveChanges();
+                return true;
+            }
+
+            return false;
         }
     }
 }
