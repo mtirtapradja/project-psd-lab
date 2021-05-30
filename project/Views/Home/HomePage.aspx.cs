@@ -14,24 +14,24 @@ namespace project.View.HomePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string RoleID;
+            string RoleID = "";
             int UserId;
 
-            if (Session["RoleId"] != null)
-            {
-                RoleID = Session["RoleId"].ToString();
-            }
-            else
-            {
-                if (Request.Cookies["remember"] != null)
-                {
-                    RoleID = Request.Cookies["remember"].Value;
-                }
-                else
-                {
-                    RoleID = "-1";
-                }
-            } 
+            //if (Session["RoleId"] != null)
+            //{
+            //    RoleID = Session["RoleId"].ToString();
+            //}
+            //else
+            //{
+            //    if (Request.Cookies["remember"] != null)
+            //    {
+            //        RoleID = Request.Cookies["remember"].Value;
+            //    }
+            //    else
+            //    {
+            //        RoleID = "-1";
+            //    }
+            //} 
             
             if (Session["UserId"] != null)
             {
@@ -42,10 +42,15 @@ namespace project.View.HomePage
                 if (Request.Cookies["remember"] != null)
                 {
                     UserId = int.Parse(Request.Cookies["remember"].Value);
+                    User currentUser = UserController.GetUserById(UserId);
+                    RoleID = currentUser.RoleId.ToString();
+                    Session["UserId"] = UserId;
+                    Session["RoleId"] = currentUser.RoleId;
                 }
                 else
                 {
                     UserId = -1;
+                    RoleID = "-1";
                 }
             }
 

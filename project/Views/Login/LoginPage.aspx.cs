@@ -58,7 +58,7 @@ namespace project.View
                     if (cbRemember.Checked)
                     {
                         HttpCookie cookie = new HttpCookie("remember");
-                        cookie.Value = currentUser.RoleId.ToString();
+                        cookie.Value = currentUser.Id.ToString();
                         cookie.Expires = DateTime.Now.AddHours(1);
                         Response.Cookies.Add(cookie);
                     }
