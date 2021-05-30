@@ -11,7 +11,6 @@ namespace project.View
 {
     public partial class LoginPage : System.Web.UI.Page
     {
-        private static Project_DatabaseEntities2 db = new Project_DatabaseEntities2();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -32,9 +31,8 @@ namespace project.View
             {
                 int currentUserID = int.Parse(Request.Cookies["remember"].Value);
 
-                User currentUser = (from x in db.Users where x.Id.Equals(currentUserID) select x)
-                                .FirstOrDefault();
-
+                User currentUser = UserController.GetUserById(currentUserID);
+                
                 Response.Redirect("../Home/HomePage.aspx?id=" + currentUser.RoleId);
             }
         }
@@ -60,7 +58,7 @@ namespace project.View
                     if (cbRemember.Checked)
                     {
                         HttpCookie cookie = new HttpCookie("remember");
-                        cookie.Value = currentUser.RoleId.ToString();
+                        cookie.Value = currentUser.Id.ToString();
                         cookie.Expires = DateTime.Now.AddHours(1);
                         Response.Cookies.Add(cookie);
                     }
