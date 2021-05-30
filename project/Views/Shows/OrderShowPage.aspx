@@ -37,7 +37,7 @@
     <%-- Untuk DATE PICKER --%>
     <div>
         <asp:Label Text="Date " runat="server" />
-        <asp:TextBox ID="txtOrderDate" TextMode="Date" runat="server" />
+        <asp:TextBox ID="txtOrderDate" TextMode="Date" AutoPostBack="true" runat="server" />
     </div>
     
     <%-- Untuk QUANTITY ORDER --%>
