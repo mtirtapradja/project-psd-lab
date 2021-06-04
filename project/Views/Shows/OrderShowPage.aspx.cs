@@ -94,10 +94,8 @@ namespace project.Views.Shows
                 button = this.gvOrder.Rows[i].FindControl("btnOrderShow") as Button;
                 button.Visible = false;
 
-                if (Page.IsPostBack)
-                {
-                    ScriptManager.GetCurrent(this).RegisterAsyncPostBackControl(button);
-                }
+             
+                
 
                 Label label = this.gvOrder.Rows[i].FindControl("lblUnavailable") as Label;
                 label.Text = "Unavailable";
@@ -153,6 +151,15 @@ namespace project.Views.Shows
                     }
                     Response.Redirect("../Home/HomePage.aspx");
                 }
+            }
+        }
+
+        protected void gvOrder_DataBinding(object sender, GridViewRowEventArgs e)
+        {
+            if (Page.IsPostBack)
+            {
+                Button button = e.Row.FindControl("btnOrderShow") as Button;
+                ScriptManager.GetCurrent(this).RegisterAsyncPostBackControl(button);
             }
         }
     }

@@ -48,7 +48,7 @@
 
     <%-- Untik GridView ORDER --%>
     <div>
-        <asp:GridView ID="gvOrder" AutoGenerateColumns="False" runat="server" OnRowCommand="gvOrder_RowCommand">
+        <asp:GridView ID="gvOrder" AutoGenerateColumns="False" runat="server" OnRowCommand="gvOrder_RowCommand" OnDataBinding="gvOrder_DataBinding" >
             <Columns>
                 <asp:BoundField HeaderText="Id" DataField="Id" Visible="false" />
                 <asp:BoundField HeaderText="Time" DataField="Time"/>

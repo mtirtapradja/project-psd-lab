@@ -36,6 +36,7 @@ namespace project.View.HomePage
             if (Session["UserId"] != null)
             {
                 UserId = int.Parse(Session["UserId"].ToString());
+                RoleID = Session["RoleId"].ToString();
             }
             else
             {

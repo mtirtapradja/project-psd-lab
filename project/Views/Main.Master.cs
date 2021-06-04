@@ -26,7 +26,7 @@ namespace project.View
 
         protected void btnReportsOnNav_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("../Report/ReportPage.aspx");
         }
 
         protected void btnLoginOnNav_Click(object sender, EventArgs e)

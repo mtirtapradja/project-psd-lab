@@ -17,8 +17,8 @@ namespace project.Views.Report
         protected void Page_Load(object sender, EventArgs e)
         {
             TransactionReport transactionReport = new TransactionReport();
-            crvTransactionDetail.ReportSource = transactionReport;
             transactionReport.SetDataSource(GetDataItem());
+            crvTransactionDetail.ReportSource = transactionReport;
         }
 
         protected DataSet GetData()
