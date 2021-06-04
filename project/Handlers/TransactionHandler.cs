@@ -77,6 +77,11 @@ namespace project.Handlers
             }
         }
 
+        public static List<TransactionHeader> GetAllTransactionHeaderByShowId(int showId)
+        {
+            return TransactionRepository.GetAllTransactionHeaderByShowId(showId);
+        }
+        
         public static List<TransactionDetail> GetAllTransactionDetailById(int trHeaderId)
         {
             return TransactionRepository.GetTransactionDetails(trHeaderId);

@@ -41,6 +41,11 @@ namespace project.Controllers
             return new string(Enumerable.Repeat(chars, length).Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
+        public static List<TransactionHeader> GetAllTransactionHeaderByShowId(int showId)
+        {
+            return TransactionHandler.GetAllTransactionHeaderByShowId(showId);
+        }
+
         public static List<TransactionDetail> GetAllTransactionDetailById(int trHeaderId)
         {
             return TransactionHandler.GetAllTransactionDetailById(trHeaderId);

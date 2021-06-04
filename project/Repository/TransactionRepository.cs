@@ -89,6 +89,13 @@ namespace project.Repository
             return (from x in db.TransactionDetails where x.Token.Equals(token) select x).FirstOrDefault();
         }
 
+        
+
+        public static List<TransactionHeader> GetAllTransactionHeaderByShowId(int showId)
+        {
+            return (from header in db.TransactionHeaders where header.ShowId == showId select header).ToList();
+        }
+        
         public static List<TransactionDetail> GetTransactionDetails(int trHeaderId)
         {
             return (from detail in db.TransactionDetails where detail.TransactionHeaderId == trHeaderId select detail).ToList();
