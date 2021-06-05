@@ -1231,8 +1231,8 @@
     <Content Include="Views\Register\style.css" />
     <Content Include="Views\Report\ReportPage.aspx" />
     <Content Include="Views\Shows\AddShowPage.aspx" />
-    <Content Include="Views\Shows\OrderShowPage.aspx" />
     <Content Include="Views\Review\ReviewPage.aspx" />
+    <Content Include="Views\Shows\OrderShowPage.aspx" />
     <Content Include="Views\Shows\ShowDetailPage.aspx" />
     <Content Include="Views\Transaction\TransactionDetailPage.aspx" />
     <Content Include="Views\Transaction\TransactionPage.aspx" />
@@ -1297,6 +1297,12 @@
     <Compile Include="Models\User.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Report\TransactionReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TransactionReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Repository\ReviewRepository.cs" />
     <Compile Include="Repository\ShowsRepository.cs" />
     <Compile Include="Repository\TransactionRepository.cs" />
@@ -1344,12 +1350,6 @@
     <Compile Include="Views\Report\ReportPage.aspx.designer.cs">
       <DependentUpon>ReportPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Report\TransactionReport.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TransactionReport.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Views\Shows\AddShowPage.aspx.cs">
       <DependentUpon>AddShowPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1357,19 +1357,19 @@
     <Compile Include="Views\Shows\AddShowPage.aspx.designer.cs">
       <DependentUpon>AddShowPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Shows\OrderShowPage.aspx.cs">
-      <DependentUpon>OrderShowPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Shows\OrderShowPage.aspx.designer.cs">
-      <DependentUpon>OrderShowPage.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Views\Review\ReviewPage.aspx.cs">
       <DependentUpon>ReviewPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\Review\ReviewPage.aspx.designer.cs">
       <DependentUpon>ReviewPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shows\OrderShowPage.aspx.cs">
+      <DependentUpon>OrderShowPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Shows\OrderShowPage.aspx.designer.cs">
+      <DependentUpon>OrderShowPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Shows\ShowDetailPage.aspx.cs">
       <DependentUpon>ShowDetailPage.aspx</DependentUpon>
