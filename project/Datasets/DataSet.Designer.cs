@@ -34,9 +34,9 @@ namespace project.Datasets {
         
         private global::System.Data.DataRelation relationTransactionHeader_TransactionDetail;
         
-        private global::System.Data.DataRelation relationShow_TransactionHeader;
-        
         private global::System.Data.DataRelation relationTransactionHeader_User;
+        
+        private global::System.Data.DataRelation relationShow_TransactionHeader;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -273,8 +273,8 @@ namespace project.Datasets {
                 }
             }
             this.relationTransactionHeader_TransactionDetail = this.Relations["TransactionHeader_TransactionDetail"];
-            this.relationShow_TransactionHeader = this.Relations["Show_TransactionHeader"];
             this.relationTransactionHeader_User = this.Relations["TransactionHeader_User"];
+            this.relationShow_TransactionHeader = this.Relations["Show_TransactionHeader"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -297,14 +297,14 @@ namespace project.Datasets {
                         this.tableTransactionHeader.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableTransactionDetail.TransactionHeaderIdColumn}, false);
             this.Relations.Add(this.relationTransactionHeader_TransactionDetail);
-            this.relationShow_TransactionHeader = new global::System.Data.DataRelation("Show_TransactionHeader", new global::System.Data.DataColumn[] {
-                        this.tableShow.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableTransactionHeader.ShowIdColumn}, false);
-            this.Relations.Add(this.relationShow_TransactionHeader);
             this.relationTransactionHeader_User = new global::System.Data.DataRelation("TransactionHeader_User", new global::System.Data.DataColumn[] {
                         this.tableTransactionHeader.BuyerIdColumn}, new global::System.Data.DataColumn[] {
                         this.tableUser.IdColumn}, false);
             this.Relations.Add(this.relationTransactionHeader_User);
+            this.relationShow_TransactionHeader = new global::System.Data.DataRelation("Show_TransactionHeader", new global::System.Data.DataColumn[] {
+                        this.tableShow.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableTransactionHeader.ShowIdColumn}, false);
+            this.Relations.Add(this.relationShow_TransactionHeader);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

@@ -24,19 +24,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:Show_TransactionHeader" ZOrder="2" LineWidth="11">
-      <RoutePoints>
-        <Point>
-          <X>882</X>
-          <Y>515</Y>
-        </Point>
-        <Point>
-          <X>882</X>
-          <Y>579</Y>
-        </Point>
-      </RoutePoints>
-    </Connector>
-    <Connector ID="DesignRelation:TransactionHeader_User" ZOrder="1" LineWidth="11">
+    <Connector ID="DesignRelation:TransactionHeader_User" ZOrder="2" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>810</X>
@@ -45,6 +33,18 @@
         <Point>
           <X>714</X>
           <Y>641</Y>
+        </Point>
+      </RoutePoints>
+    </Connector>
+    <Connector ID="DesignRelation:Show_TransactionHeader" ZOrder="1" LineWidth="11">
+      <RoutePoints>
+        <Point>
+          <X>893</X>
+          <Y>515</Y>
+        </Point>
+        <Point>
+          <X>893</X>
+          <Y>579</Y>
         </Point>
       </RoutePoints>
     </Connector>

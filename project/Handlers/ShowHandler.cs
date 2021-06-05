@@ -31,6 +31,12 @@ namespace project.Handlers
 
             return false;
         }
+        
+
+        public static List<Show> GetShowBySellerId(int sellerId)
+        {
+            return ShowsRepository.GetShowBySellerId(sellerId);
+        }
 
         public static List<Show> GetAllShow()
         {

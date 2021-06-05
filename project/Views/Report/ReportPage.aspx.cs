@@ -16,37 +16,40 @@ namespace project.Views.Report
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            int sellerId = Convert.ToInt32(Session["UserId"].ToString());
             TransactionReport transactionReport = new TransactionReport();
+            transactionReport.SetDataSource(GetData(sellerId));
             crvTransactionDetail.ReportSource = transactionReport;
-            transactionReport.SetDataSource(GetDataItem());
         }
 
-        protected DataSet GetData()
+        protected DataSet GetData(int sellerId)
         {
-            List<Show> shows = ShowController.GetAllShow();
+            // Harusnya munculin cuma show yang dijual sama si seller
+            List<Show> shows = ShowController.GetShowBySellerId(sellerId);
             DataSet dataset = new DataSet();
 
             var dataset_shows = dataset.Show;
-            var dataset_transaction_header = dataset.TransactionHeader;
-            var dataset_transaction_detail = dataset.TransactionDetail;
-            var dataset_user = dataset.User;
+            var dataset_transaction_headers = dataset.TransactionHeader;
+            var dataset_transaction_details = dataset.TransactionDetail;
+            var dataset_users = dataset.User;
 
             foreach(var show in shows)
             { 
                 var newShowRow = dataset_shows.NewRow();
                 newShowRow["Id"] = show.Id;
                 newShowRow["Name"] = show.Name;
-                newShowRow["TotalPrice"] = show.Price;
+                //newShowRow["TotalPrice"] = show.Price;
                 dataset_shows.Rows.Add(newShowRow);
 
                 List<TransactionHeader> headers = TransactionController.GetAllTransactionHeaderByShowId(show.Id); 
 
                 foreach(var header in headers)
                 {
-                    var newHeaderRow = dataset_transaction_header.NewRow();
+                    var newHeaderRow = dataset_transaction_headers.NewRow();
+                    newHeaderRow["ShowId"] = header.ShowId;
                     newHeaderRow["BuyerId"] = header.BuyerId;
                     newHeaderRow["CreatedAt"] = header.CreatedAt;
-                    dataset_transaction_header.Rows.Add(newHeaderRow);
+                    dataset_transaction_headers.Rows.Add(newHeaderRow);
                 }
             }
 

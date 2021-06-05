@@ -94,6 +94,10 @@ namespace project.Controllers
             return response;
         }
 
+        public static List<Show> GetShowBySellerId(int sellerId)
+        {
+            return ShowHandler.GetShowBySellerId(sellerId);
+        }
         public static List<Show> GetAllShow()
         {
             return ShowHandler.GetAllShow();

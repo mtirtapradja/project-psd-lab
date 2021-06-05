@@ -47,6 +47,11 @@ namespace project.Repository
             return false;
         }
 
+        public static List<Show> GetShowBySellerId(int sellerId)
+        {
+            return (from x in db.Shows where x.SellerId == sellerId select x).ToList();
+        }
+
         public static List<Show> GetShow()
         {
             return (from x in db.Shows select x).ToList();
