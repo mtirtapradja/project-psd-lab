@@ -1,15 +1,12 @@
-﻿using System;
-using System.Data;
+﻿using project.Controllers;
+using project.Models;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using project.Controllers;
-using project.Models;
-using System.Collections.Specialized;
-using System.Text;
-using System.IO;
 
 namespace project.Views.Shows
 {
@@ -18,6 +15,23 @@ namespace project.Views.Shows
         private DateTime currentTime = DateTime.Now;
 
         protected void Page_Load(object sender, EventArgs e)
+        {
+            if (IsPostBack)
+            {
+                ClientScriptManager cs = Page.ClientScript;
+                String cbReference = cs.GetCallbackEventReference("'" +
+                    Page.UniqueID + "'", "arg", "ReceiveServerData", "", "ProcessCallBackError", false);
+                String callbackScript = "function CallTheServer(arg, context) {" + cbReference + "; }";
+                cs.RegisterClientScriptBlock(this.GetType(), "CallTheServer", callbackScript, true);
+
+            }
+            else
+            {
+                BindData();
+            }
+        }
+
+        protected void BindData()
         {
             int ShowId = int.Parse(Request.QueryString["ShowId"]);
             ShowDetail show = ShowController.GetShowDetailById(ShowId);
@@ -31,10 +45,10 @@ namespace project.Views.Shows
                 lblSellerNameValue.Text = show.Seller_Name;
             }
 
-          
+
             Button button = this.Master.FindControl("btnLoginOnNav") as Button;
             button.Visible = false;
-            
+
             button = this.Master.FindControl("btnRegisterOnNav") as Button;
             button.Visible = false;
 
@@ -44,6 +58,8 @@ namespace project.Views.Shows
             {
                 orderDate = DateTime.Now.Date.ToString();
             }
+
+            //smUpdatePanel.RegisterAsyncPostBackControl(btnRefreshOrder);
 
             DataTable dt = new DataTable();
             dt.Columns.AddRange(new DataColumn[2] { new DataColumn("Id"), new DataColumn("Time") });
@@ -74,14 +90,15 @@ namespace project.Views.Shows
 
             gvOrder.DataSource = dt;
             gvOrder.DataBind();
-           
+
 
             DateTime targetTime = Convert.ToDateTime(orderDate);
             TimeSpan timeDiff = currentTime - targetTime;
 
             int n = Convert.ToInt32(timeDiff.TotalHours);
 
-            if (n < 0) {
+            if (n < 0)
+            {
                 n = -1;
             }
             else if (n > 23)
@@ -94,13 +111,9 @@ namespace project.Views.Shows
                 button = this.gvOrder.Rows[i].FindControl("btnOrderShow") as Button;
                 button.Visible = false;
 
-             
-                
-
                 Label label = this.gvOrder.Rows[i].FindControl("lblUnavailable") as Label;
                 label.Text = "Unavailable";
             }
-            
         }
 
         protected void gvOrder_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -119,7 +132,7 @@ namespace project.Views.Shows
                 int buyerId = int.Parse(Session["UserId"].ToString());
 
 
-                if(txtOrderDate.Text == "")
+                if (txtOrderDate.Text == "")
                 {
                     lblError.Text = "Please Choose Order Date";
                 }
@@ -154,13 +167,14 @@ namespace project.Views.Shows
             }
         }
 
-        protected void gvOrder_DataBinding(object sender, GridViewRowEventArgs e)
+        //protected void btnRefreshOrder_Click(object sender, EventArgs e)
+        //{
+        //    BindData();
+        //}
+
+        protected void txtOrderDate_Load(object sender, EventArgs e)
         {
-            if (Page.IsPostBack)
-            {
-                Button button = e.Row.FindControl("btnOrderShow") as Button;
-                ScriptManager.GetCurrent(this).RegisterAsyncPostBackControl(button);
-            }
+            BindData();
         }
     }
 }

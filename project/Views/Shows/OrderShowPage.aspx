@@ -2,8 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-
-    <%-- Untuk SHOW NAME --%>
+     <%-- Untuk SHOW NAME --%>
     <div>
         <asp:Label ID="lblShowName" Text="Show Name: " runat="server" />
         <asp:Label ID="lblShowNameValue" Text="" runat="server" />
@@ -37,7 +36,8 @@
     <%-- Untuk DATE PICKER --%>
     <div>
         <asp:Label Text="Date " runat="server" />
-        <asp:TextBox ID="txtOrderDate" TextMode="Date" AutoPostBack="true" runat="server" />
+        <asp:TextBox ID="txtOrderDate" TextMode="Date" AutoPostBack="true" OnTextChanged="txtOrderDate_Load" runat="server" />
+        <%--<asp:Button ID="btnRefreshOrder" Text="Refresh table" OnClick="btnRefreshOrder_Click" runat="server" />--%>
     </div>
     
     <%-- Untuk QUANTITY ORDER --%>
@@ -46,24 +46,32 @@
         <asp:TextBox ID="txtQuantity" TextMode="Number" runat="server" />
     </div>
 
-    <%-- Untik GridView ORDER --%>
+     <%-- Untik GridView ORDER --%>
     <div>
-        <asp:GridView ID="gvOrder" AutoGenerateColumns="False" runat="server" OnRowCommand="gvOrder_RowCommand" OnDataBinding="gvOrder_DataBinding" >
-            <Columns>
-                <asp:BoundField HeaderText="Id" DataField="Id" Visible="false" />
-                <asp:BoundField HeaderText="Time" DataField="Time"/>
-                <asp:TemplateField>
-                    <ItemTemplate>
-                        <asp:Button ID="btnOrderShow" Text="Order" CommandName="Order" CommandArgument="<%# Container.DataItemIndex %>" runat="server" />
-                        <asp:Label ID="lblUnavailable" Text="" runat="server" />
-                    </ItemTemplate>
-                </asp:TemplateField>
-            </Columns>
-        </asp:GridView>
+        <asp:ScriptManager ID="smUpdatePanel" runat="server" />
+        <asp:UpdatePanel ID="updatePanel" runat="server">
+            <ContentTemplate>
+                <asp:GridView ID="gvOrder" AutoGenerateColumns="False" runat="server" OnRowCommand="gvOrder_RowCommand">
+                    <Columns>
+                        <asp:BoundField HeaderText="Id" DataField="Id" Visible="false" />
+                        <asp:BoundField HeaderText="Time" DataField="Time"/>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:Button ID="btnOrderShow" Text="Order" CommandName="Order" CommandArgument="<%# Container.DataItemIndex %>"  runat="server" />
+                                <asp:Label ID="lblUnavailable" Text="" runat="server" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
+            </ContentTemplate>
+            <Triggers>
+                <%--<asp:PostBackTrigger ControlID="btnRefreshOrder" />--%>
+                <asp:PostBackTrigger ControlID="txtOrderDate" />
+            </Triggers>
+        </asp:UpdatePanel>
     </div>
 
     <div>
         <asp:Label ID="lblError" Text="" runat="server" />
     </div>
-
 </asp:Content>
