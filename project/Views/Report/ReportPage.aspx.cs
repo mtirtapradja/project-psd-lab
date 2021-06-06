@@ -20,6 +20,38 @@ namespace project.Views.Report
             TransactionReport transactionReport = new TransactionReport();
             transactionReport.SetDataSource(GetData(sellerId));
             crvTransactionDetail.ReportSource = transactionReport;
+
+            ShowNav();
+        }
+
+        private void ShowNav()
+        {
+            Button button = this.Master.FindControl("btnHomeOnNav") as Button;
+            button.Visible = true;
+
+            button = this.Master.FindControl("btnAddShowOnNav") as Button;
+            button.Visible = true;
+
+            button = this.Master.FindControl("btnReportsOnNav") as Button;
+            button.Visible = false;
+
+            button = this.Master.FindControl("btnLoginOnNav") as Button;
+            button.Visible = false;
+
+            button = this.Master.FindControl("btnRegisterOnNav") as Button;
+            button.Visible = false;
+
+            button = this.Master.FindControl("btnTransactionOnNav") as Button;
+            button.Visible = false;
+
+            button = this.Master.FindControl("btnAccountOnNav") as Button;
+            button.Visible = true;
+
+            button = this.Master.FindControl("btnRedeemOnNav") as Button;
+            button.Visible = true;
+
+            button = this.Master.FindControl("btnLogoutOnNav") as Button;
+            button.Visible = true;
         }
 
         protected DataSet GetData(int sellerId)
@@ -38,9 +70,8 @@ namespace project.Views.Report
                 var newShowRow = dataset_shows.NewRow();
                 newShowRow["Id"] = show.Id;
                 newShowRow["Name"] = show.Name;
-                //newShowRow["TotalPrice"] = show.Price;
                 dataset_shows.Rows.Add(newShowRow);
-
+                
                 List<TransactionHeader> headers = TransactionController.GetAllTransactionHeaderByShowId(show.Id); 
 
                 foreach(var header in headers)
@@ -49,6 +80,16 @@ namespace project.Views.Report
                     newHeaderRow["ShowId"] = header.ShowId;
                     newHeaderRow["BuyerId"] = header.BuyerId;
                     newHeaderRow["CreatedAt"] = header.CreatedAt;
+
+                    List<TransactionDetail> details = TransactionController.GetAllTransactionDetailById(header.Id);
+
+                    newHeaderRow["Quantity"] = details.Count;
+                    newShowRow["Price"] = show.Price * details.Count;
+
+                    User user = UserController.GetUserById(header.BuyerId);
+
+                    newHeaderRow["BuyerName"] = user.Name;
+
                     dataset_transaction_headers.Rows.Add(newHeaderRow);
                 }
             }
