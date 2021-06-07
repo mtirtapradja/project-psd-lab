@@ -114,6 +114,17 @@ namespace project.Views.Shows
                 Label label = this.gvOrder.Rows[i].FindControl("lblUnavailable") as Label;
                 label.Text = "Unavailable";
             }
+
+            int alreadyOrderedAt = isAlreadyOrder(orderDate);
+
+            if (alreadyOrderedAt > 0)
+            {
+                button = this.gvOrder.Rows[alreadyOrderedAt].FindControl("btnOrderShow") as Button;
+                button.Visible = false;
+
+                Label label = this.gvOrder.Rows[alreadyOrderedAt].FindControl("lblUnavailable") as Label;
+                label.Text = "Unavailable";
+            }
         }
 
         protected void gvOrder_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -165,6 +176,31 @@ namespace project.Views.Shows
                     Response.Redirect("../Home/HomePage.aspx");
                 }
             }
+        }
+
+        private int isAlreadyOrder(string orderDate)
+        {
+            int ShowId = int.Parse(Request.QueryString["ShowId"]);
+            List <TransactionHeader> transactionHeaders = TransactionController.GetAllTransactionHeaderByShowId(ShowId);
+
+            if (transactionHeaders != null)
+            {
+                foreach (var header in transactionHeaders)
+                {
+                    DateTime bookedAt = header.ShowTime;
+                    string str_bookedAt = String.Format("{0:MM/dd/yyyy}", bookedAt);
+                    DateTime order = Convert.ToDateTime(orderDate);
+                    string str_orderDate = String.Format("{0:MM/dd/yyyy}", order);
+
+                    if (str_orderDate == str_bookedAt)
+                    {
+                        int hour =  header.ShowTime.Hour;
+                        return hour;
+                    }
+                }
+            }
+
+            return -1;
         }
 
         //protected void btnRefreshOrder_Click(object sender, EventArgs e)

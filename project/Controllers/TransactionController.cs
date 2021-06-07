@@ -19,6 +19,7 @@ namespace project.Controllers
             return TransactionHandler.InsertTransactionDetail(trHeaderId, status, token);
         }
 
+        // Kepake buat dapet semua transaksi di TransactionPage
         public static List<Transaction> GetAllTransaction()
         {
             return TransactionHandler.GetAllTransaction();
@@ -55,6 +56,7 @@ namespace project.Controllers
         {
             return TransactionHandler.DeleteDetailTransactionById(trHeaderId); ;
         }
+
         public static bool DeleteHeaderTransactionById(int trHeaderId)
         {
             return TransactionHandler.DeleteHeaderTransactionById(trHeaderId); ;
