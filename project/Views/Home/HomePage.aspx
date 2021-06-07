@@ -7,21 +7,33 @@
     <asp:Label ID="txtUserName" Text="" Font-Size="25px" Font-Names="Segoe UI" runat="server" />
     <br />
     <div>
-        <asp:GridView ID="gvShows" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
-            <Columns>
-                <asp:BoundField HeaderText="Id" DataField="Id" SortExpression="Id"  />
-                <asp:BoundField HeaderText="Title" DataField="Title" SortExpression="Title"  />
-                <asp:BoundField HeaderText="Price" DataField="Price" SortExpression="Price" />
-                <asp:BoundField HeaderText="Seller Name" DataField="Seller Name" SortExpression="Seller Name" />
-                <asp:BoundField HeaderText="Description" DataField="Description" SortExpression="Description" />
-                <asp:TemplateField>
-                    <ItemTemplate>
-                        <asp:Button ID="btnShowDetail" Text="Show Detail" OnCommand="btnShowDetail_Command" CommandName="Redirect" CommandArgument="<%# Container.DataItemIndex %>" runat="server" />
-                    </ItemTemplate>
-                </asp:TemplateField>
-            </Columns>
-        </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT S.Id AS [Id], S.Name AS [Title], S.Price, U.Name AS [Seller Name], S.Description
-FROM [Users] AS [U] JOIN [Shows] AS [S] ON S.SellerId= U.Id"></asp:SqlDataSource>
+        <asp:TextBox ID="txtQuerySearch" Text="" runat="server" />
+        <asp:Button ID="btnSearch" Text="Search" OnClick="btnSearch_Click" runat="server" />
+    </div>
+    <br />
+    <div>
+        <asp:ScriptManager runat="server" />
+        <asp:UpdatePanel runat="server">
+            <ContentTemplate>
+                <asp:GridView ID="gvShows" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+                    <Columns>
+                        <asp:BoundField HeaderText="Id" DataField="Id" SortExpression="Id"  />
+                        <asp:BoundField HeaderText="Title" DataField="Title" SortExpression="Title"  />
+                        <asp:BoundField HeaderText="Price" DataField="Price" SortExpression="Price" />
+                        <asp:BoundField HeaderText="Seller Name" DataField="Seller Name" SortExpression="Seller Name" />
+                        <asp:BoundField HeaderText="Description" DataField="Description" SortExpression="Description" />
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:Button ID="btnShowDetail" Text="Show Detail" OnCommand="btnShowDetail_Command" CommandName="Redirect" CommandArgument="<%# Container.DataItemIndex %>" runat="server" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT S.Id AS[Id], S.Name AS[Title], S.Price, U.Name AS[Seller Name], S.Description FROM[Users] AS[U] JOIN[Shows] AS[S] ON S.SellerId = U.Id" />
+            </ContentTemplate>
+            <Triggers>
+                <asp:PostBackTrigger ControlID="btnSearch" />
+            </Triggers>
+        </asp:UpdatePanel>
     </div>
 </asp:Content>

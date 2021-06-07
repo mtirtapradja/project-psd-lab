@@ -177,5 +177,17 @@ namespace project.View.HomePage
 
             Response.Redirect("../Shows/ShowDetailPage.aspx?ShowId=" + ShowId);
         }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            string query = txtQuerySearch.Text;
+
+            if (query == "")
+            {
+                query = "%";
+            }
+
+            SqlDataSource1.SelectCommand = $"SELECT S.Id AS [Id], S.Name AS [Title], S.Price, U.Name AS [Seller Name], S.Description FROM [Users] AS [U] JOIN [Shows] AS[S] ON S.SellerId = U.Id WHERE S.Name LIKE '%{query}%'";
+        }
     }
 }
