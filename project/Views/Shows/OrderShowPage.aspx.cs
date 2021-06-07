@@ -106,7 +106,7 @@ namespace project.Views.Shows
                 n = 23;
             }
 
-            for (int i = 0; i <= n; i++)
+            for (int i = 0; i < n; i++)
             {
                 button = this.gvOrder.Rows[i].FindControl("btnOrderShow") as Button;
                 button.Visible = false;
@@ -115,14 +115,14 @@ namespace project.Views.Shows
                 label.Text = "Unavailable";
             }
 
-            int alreadyOrderedAt = isAlreadyOrder(orderDate);
+            List<int> alreadyOrderedAt = isAlreadyOrder(orderDate);
 
-            if (alreadyOrderedAt > 0)
+            foreach (int index in alreadyOrderedAt)
             {
-                button = this.gvOrder.Rows[alreadyOrderedAt].FindControl("btnOrderShow") as Button;
+                button = this.gvOrder.Rows[index].FindControl("btnOrderShow") as Button;
                 button.Visible = false;
 
-                Label label = this.gvOrder.Rows[alreadyOrderedAt].FindControl("lblUnavailable") as Label;
+                Label label = this.gvOrder.Rows[index].FindControl("lblUnavailable") as Label;
                 label.Text = "Unavailable";
             }
         }
@@ -178,8 +178,10 @@ namespace project.Views.Shows
             }
         }
 
-        private int isAlreadyOrder(string orderDate)
+        private List<int> isAlreadyOrder(string orderDate)
         {
+            List<int> indexRes = new List<int>();
+
             int ShowId = int.Parse(Request.QueryString["ShowId"]);
             List <TransactionHeader> transactionHeaders = TransactionController.GetAllTransactionHeaderByShowId(ShowId);
 
@@ -195,12 +197,12 @@ namespace project.Views.Shows
                     if (str_orderDate == str_bookedAt)
                     {
                         int hour =  header.ShowTime.Hour;
-                        return hour;
+                        indexRes.Add(hour);
                     }
                 }
             }
 
-            return -1;
+            return indexRes;
         }
 
         //protected void btnRefreshOrder_Click(object sender, EventArgs e)
