@@ -16,6 +16,32 @@ namespace project.Views.Report
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Kalo udah ada cookie, berarti langsung redirect ke HomePage
+            if (Request.Cookies["remember"] != null)
+            {
+                int currentUserID = int.Parse(Request.Cookies["remember"].Value);
+
+                User currentUser = UserController.GetUserById(currentUserID);
+
+                if (currentUser.RoleId == 1)
+                {
+                    Response.Redirect("../Home/HomePage.aspx?id=" + currentUser.RoleId);
+                }
+            }
+
+            // Kalo udah ada session, berarti langsung redirect ke HomePage
+            if (Session["UserId"] != null)
+            {
+                int currentUserID = int.Parse(Session["UserId"].ToString());
+
+                User currentUser = UserController.GetUserById(currentUserID);
+
+                if (currentUser.RoleId == 1)
+                {
+                    Response.Redirect("../Home/HomePage.aspx?id=" + currentUser.RoleId);
+                }
+            }
+
             int sellerId = Convert.ToInt32(Session["UserId"].ToString());
             TransactionReport transactionReport = new TransactionReport();
             transactionReport.SetDataSource(GetData(sellerId));

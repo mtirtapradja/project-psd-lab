@@ -20,13 +20,13 @@ namespace project.Controllers
             else
             {
                 int rating = int.Parse(s_rating);
-                if(rating<1 || rating > 5)
+                if(rating < 1 || rating > 5)
                 {
                     response = "Rating must be between 1 and 5";
                 }
                 else if (description == "")
                 {
-                    response = "Desciption must be filled";
+                    response = "Description must be filled";
                 }
             }
             return response;
