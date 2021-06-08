@@ -43,7 +43,7 @@
 
     <%--untuk Label Error--%>
     <div>
-        <asp:Label ID="lblError" Text="" runat="server" />
+        <asp:Label ID="lblError" ForeColor="Red" Text="" runat="server" />
     </div>
 
     <%-- tombol untuk Rate, Update, Delete --%>
