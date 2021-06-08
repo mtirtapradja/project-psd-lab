@@ -1,4 +1,5 @@
 ﻿using project.Controllers;
+using project.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,6 +50,17 @@ namespace project.View.Shows
             string price = txtPrice.Text;
 
             string response = ShowController.CheckAddShow(SellerId, name, URL, description, price);
+
+            List<Show> Shows = ShowController.GetAllShow();
+
+            foreach (var show in Shows)
+            {
+                if (name.Equals(show.Name))
+                {
+                    response = "Show Name Must be Unique!";
+                    break;
+                }
+            }
 
             if (response == "")
             {
