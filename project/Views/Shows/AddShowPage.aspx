@@ -25,7 +25,7 @@
         <asp:TextBox ID="txtPrice" TextMode="Number" runat="server" />
     </div>
     <div>
-        <asp:Label ID="lblError" Text="" runat="server" />
+        <asp:Label ID="lblError" Text="" ForeColor="Red" runat="server" />
         <br />
         <asp:Button ID="btnAdd" Text="Add" runat="server" OnClick="btnAdd_Click"/>
     </div>

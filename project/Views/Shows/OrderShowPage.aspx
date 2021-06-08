@@ -46,7 +46,7 @@
     </div>
 
     <div>
-        <asp:Label ID="lblError" Text="" runat="server" />
+        <asp:Label ID="lblError" Text="" ForeColor="Red"  runat="server" />
     </div>
 
      <%-- Untik GridView ORDER --%>

@@ -35,7 +35,7 @@
 
     <%-- tombol untuk UPDATE --%>
                 <div>
-                    <asp:Label ID="lblError" Text="" runat="server" />
+                    <asp:Label ID="lblError" Text="" ForeColor="Red"  runat="server" />
                     <asp:Button ID="btnUpdate" Text="Update" OnClick="btnUpdate_Click" runat="server" />
                 </div>
 </asp:Content>
