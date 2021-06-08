@@ -37,13 +37,16 @@
     <div>
         <asp:Label Text="Date " runat="server" />
         <asp:TextBox ID="txtOrderDate" TextMode="Date" AutoPostBack="true" OnTextChanged="txtOrderDate_Load" runat="server" />
-        <%--<asp:Button ID="btnRefreshOrder" Text="Refresh table" OnClick="btnRefreshOrder_Click" runat="server" />--%>
     </div>
     
     <%-- Untuk QUANTITY ORDER --%>
     <div>
         <asp:Label Text="Quantity " runat="server" />
         <asp:TextBox ID="txtQuantity" TextMode="Number" runat="server" />
+    </div>
+
+    <div>
+        <asp:Label ID="lblError" Text="" runat="server" />
     </div>
 
      <%-- Untik GridView ORDER --%>
@@ -69,9 +72,5 @@
                 <asp:PostBackTrigger ControlID="txtOrderDate" />
             </Triggers>
         </asp:UpdatePanel>
-    </div>
-
-    <div>
-        <asp:Label ID="lblError" Text="" runat="server" />
     </div>
 </asp:Content>

@@ -7,7 +7,7 @@
     <asp:Label ID="txtUserName" Text="" Font-Size="25px" Font-Names="Segoe UI" runat="server" />
     <br />
     <div>
-        <asp:TextBox ID="txtQuerySearch" Text="" runat="server" />
+        <asp:TextBox ID="txtQuerySearch" Text="" OnTextChanged="btnSearch_Click" AutoPostBack="true" runat="server" />
         <asp:Button ID="btnSearch" Text="Search" OnClick="btnSearch_Click" runat="server" />
     </div>
     <br />
@@ -33,6 +33,7 @@
             </ContentTemplate>
             <Triggers>
                 <asp:PostBackTrigger ControlID="btnSearch" />
+                <asp:PostBackTrigger ControlID="txtQuerySearch" />
             </Triggers>
         </asp:UpdatePanel>
     </div>
