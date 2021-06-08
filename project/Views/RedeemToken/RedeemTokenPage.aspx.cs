@@ -130,9 +130,16 @@ namespace project.Views.RedeemToken
                 TransactionHeader trHeader = TransactionController.GetHeaderTransactionById(trDetail.TransactionHeaderId);
 
                 DateTime currentTime = DateTime.Now;
-                TimeSpan timeDiff = currentTime - trHeader.CreatedAt;
+                TimeSpan timeDiff = currentTime - trHeader.ShowTime;
 
-                if (timeDiff.Seconds < 0)
+                int minutedDiff = timeDiff.Minutes;
+                string pageurl = "../Shows/ShowDetailPage.aspx?ShowId=" + trHeader.ShowId;
+
+                if (minutedDiff >= 0  &&  minutedDiff <= 60)
+                {
+                    Response.Write(String.Format("window.open('{0}','_blank')", ResolveUrl(pageurl)));
+                }
+                if (timeDiff.Seconds > 0)
                 {
                     Response.Redirect("../Review/ReviewPage.aspx?Token=" + token);
                 }
@@ -141,21 +148,6 @@ namespace project.Views.RedeemToken
                     lblError.Text = "Token can't be redeem";
                 }
             }
-        }
-
-        protected void btnRate_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void btnUpdate_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void btnDelete_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

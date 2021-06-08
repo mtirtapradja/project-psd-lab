@@ -16,22 +16,6 @@ namespace project.View.HomePage
         {
             string RoleID = "";
             int UserId;
-
-            //if (Session["RoleId"] != null)
-            //{
-            //    RoleID = Session["RoleId"].ToString();
-            //}
-            //else
-            //{
-            //    if (Request.Cookies["remember"] != null)
-            //    {
-            //        RoleID = Request.Cookies["remember"].Value;
-            //    }
-            //    else
-            //    {
-            //        RoleID = "-1";
-            //    }
-            //} 
             
             if (Session["UserId"] != null)
             {
