@@ -194,7 +194,7 @@ namespace project.Views.Review
                 TransactionDetail trDetail = TransactionController.GetDetailTransactionByToken(token);
                 ReviewController.InsertNewReview(trDetail.Id,rating, description);
                 lblError.Text = "";
-                Response.Redirect("ReviewPage.aspx?Token="+token);
+                Response.Redirect("ReviewPage.aspx?Token=" + token);
             }
         }
 
