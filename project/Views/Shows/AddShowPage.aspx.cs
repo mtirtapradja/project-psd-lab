@@ -76,17 +76,27 @@ namespace project.View.Shows
             string description = txtDesc.Text;
             string price = txtPrice.Text;
 
-            string response = ShowController.CheckAddShow(SellerId, name, URL, description, price);
-
             List<Show> Shows = ShowController.GetAllShow();
+
+            bool ShowNameUnique = true;
 
             foreach (var show in Shows)
             {
                 if (name.Equals(show.Name))
                 {
-                    response = "Show Name Must be Unique!";
-                    break;
+                    ShowNameUnique = false;
                 }
+            }
+
+            string response = "";
+
+            if (ShowNameUnique)
+            {
+                response = ShowController.CheckAddShow(SellerId, name, URL, description, price);
+            }
+            else
+            {
+                response = "Show Name Must be Unique!";
             }
 
             if (response == "")
