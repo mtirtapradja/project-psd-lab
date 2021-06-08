@@ -1,4 +1,5 @@
 ﻿using project.Controllers;
+using project.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,32 @@ namespace project.View.Shows
         protected void Page_Load(object sender, EventArgs e)
         {
             hideNavButton();
+
+            // Kalo udah ada cookie, berarti langsung redirect ke HomePage
+            if (Request.Cookies["remember"] != null)
+            {
+                int currentUserID = int.Parse(Request.Cookies["remember"].Value);
+
+                User currentUser = UserController.GetUserById(currentUserID);
+
+                if (currentUser.RoleId == 2)
+                {
+                    Response.Redirect("../Home/HomePage.aspx?id=" + currentUser.RoleId);
+                }
+            }
+
+            // Kalo udah ada session, berarti langsung redirect ke HomePage
+            if (Session["UserId"] != null)
+            {
+                int currentUserID = int.Parse(Session["UserId"].ToString());
+
+                User currentUser = UserController.GetUserById(currentUserID);
+
+                if (currentUser.RoleId == 2)
+                {
+                    Response.Redirect("../Home/HomePage.aspx?id=" + currentUser.RoleId);
+                }
+            }
         }
 
         private void hideNavButton()

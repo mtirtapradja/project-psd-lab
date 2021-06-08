@@ -31,6 +31,7 @@
     <div>
         <asp:Button ID="btnOrder" Text="Order" OnClick="btnOrder_Click" runat="server" /> 
         <asp:Button ID="btnUpdate" Text="Update" OnClick="btnUpdate_Click" runat="server" />
+        <asp:Button ID="btnDelete" Text="Delete" OnClick="btnDelete_Click" runat="server" />
     </div>
 
 </asp:Content>

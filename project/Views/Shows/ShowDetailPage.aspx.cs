@@ -76,9 +76,8 @@ namespace project.Views.Shows
             // Kalau Buyer
             if (RoleId.Equals("1"))
             {
-                Button btnAddShowOnNav = this.Master.FindControl("btnAddShowOnNav") as Button;
-                btnAddShowOnNav.Visible = false;
                 btnUpdate.Visible = false;
+                btnDelete.Visible = false;
 
                 Button button = this.Master.FindControl("btnHomeOnNav") as Button;
                 button.Visible = true;
@@ -141,10 +140,9 @@ namespace project.Views.Shows
             }
             else
             {
-                Button btnAddShowOnNav = this.Master.FindControl("btnAddShowOnNav") as Button;
-                btnAddShowOnNav.Visible = false;
                 btnOrder.Visible = false;
                 btnUpdate.Visible = false;
+                btnDelete.Visible = false;
 
                 Button button = this.Master.FindControl("btnHomeOnNav") as Button;
                 button.Visible = true;
@@ -185,6 +183,17 @@ namespace project.Views.Shows
         {
             string showId = Request.QueryString["ShowId"];
             Response.Redirect("../Shows/UpdateShowPage.aspx?ShowId=" + showId);
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            int showId = Convert.ToInt32(Request.QueryString["ShowId"]);
+
+            if (ShowController.DeleteShow(showId))
+            {
+                Response.Redirect("../Home/HomePage.aspx");
+            }
+
         }
     }
 }

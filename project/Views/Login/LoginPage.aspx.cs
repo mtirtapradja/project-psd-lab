@@ -35,6 +35,18 @@ namespace project.View
                 
                 Response.Redirect("../Home/HomePage.aspx?id=" + currentUser.RoleId);
             }
+            
+            // Kalo udah ada session, berarti langsung redirect ke HomePage
+            if (Session["UserId"] != null)
+            {
+                int currentUserID = int.Parse(Session["UserId"].ToString());
+
+                User currentUser = UserController.GetUserById(currentUserID);
+                
+                Response.Redirect("../Home/HomePage.aspx?id=" + currentUser.RoleId);
+            }
+
+
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)

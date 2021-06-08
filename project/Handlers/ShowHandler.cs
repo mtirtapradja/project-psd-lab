@@ -64,5 +64,10 @@ namespace project.Handlers
             return ShowsRepository.CheckShowWithSeller(showId, UserId);
         }
 
+        public static bool DeleteShow(int id)
+        {
+            return ShowsRepository.DeleteShow(id);
+        }
+
     }
 }

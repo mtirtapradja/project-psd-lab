@@ -18,7 +18,9 @@ namespace project.Controllers
         public static string CheckRegister(string name, string username, string password, string confirmPassword)
         {
             string response = "";
-            Regex expression = new Regex("^[a-zA-Z0-9]*$");
+            Regex expressionName = new Regex("^[a-zA-Z\\s]*$");
+            Regex expressionUserName = new Regex("^[a-zA-Z0-9_\\s]*$");
+            Regex expressionPassword = new Regex("^[a-zA-Z0-9]*$");
 
             if (name == "")
             {
@@ -28,13 +30,21 @@ namespace project.Controllers
             {
                 response = "Name must not exceed 30 characters";
             }
+            else if (!expressionName.IsMatch(name))
+            {
+                response = "Name must contain space";
+            }
             else if (username == "")
             {
                 response = "Username must be filled";
             }
-            else if (username.Length < 6 || username.Length > 30)
+            else if (username.Length < 6 || username.Length > 20)
             {
-                response = "Username must be between 6 and 30 characters";
+                response = "Username must be between 6 and 20 characters";
+            }
+            else if (!expressionUserName.IsMatch(username))
+            {
+                response = "Username must contain space or underscore"; 
             }
             else if (password == "")
             {
@@ -44,7 +54,7 @@ namespace project.Controllers
             {
                 response = "Password must be more than 6 characters";
             }
-            else if (!expression.IsMatch(password))
+            else if (!expressionPassword.IsMatch(password))
             {
                 response = "Password format invalid";
             }

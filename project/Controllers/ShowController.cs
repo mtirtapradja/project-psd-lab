@@ -122,5 +122,10 @@ namespace project.Controllers
         {
             return ShowHandler.CheckShowWithSeller(showId, UserId);
         }
+
+        public static bool DeleteShow(int id)
+        {
+            return ShowHandler.DeleteShow(id);
+        }
     }
 }
