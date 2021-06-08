@@ -78,6 +78,17 @@ namespace project.View.Shows
 
             string response = ShowController.CheckAddShow(SellerId, name, URL, description, price);
 
+            List<Show> Shows = ShowController.GetAllShow();
+
+            foreach (var show in Shows)
+            {
+                if (name.Equals(show.Name))
+                {
+                    response = "Show Name Must be Unique!";
+                    break;
+                }
+            }
+
             if (response == "")
             {
                 Response.Redirect("../Home/HomePage.aspx");
