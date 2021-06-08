@@ -133,15 +133,21 @@ namespace project.Views.RedeemToken
                 TimeSpan timeDiff = currentTime - trHeader.ShowTime;
 
                 int minutedDiff = timeDiff.Minutes;
-                string pageurl = "../Shows/ShowDetailPage.aspx?ShowId=" + trHeader.ShowId;
+                string showDetailPageUrl = "../Shows/ShowDetailPage.aspx?ShowId=" + trHeader.ShowId;
+                    
 
                 if (minutedDiff >= 0  &&  minutedDiff <= 60)
                 {
-                    Response.Write(String.Format("window.open('{0}','_blank')", ResolveUrl(pageurl)));
+                    Response.Write("<script>");
+                    Response.Write($"window.open('{showDetailPageUrl}','_blank')");
+                    Response.Write("</script>");
                 }
                 if (timeDiff.Seconds > 0)
                 {
-                    Response.Redirect("../Review/ReviewPage.aspx?Token=" + token);
+                    string reviewPageUrl = "../Review/ReviewPage.aspx?Token=" + token;
+                    Response.Write("<script>");
+                    Response.Write($"window.open('{reviewPageUrl}','_self')");
+                    Response.Write("</script>");
                 }
                 else
                 {

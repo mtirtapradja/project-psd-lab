@@ -59,8 +59,6 @@ namespace project.Views.Shows
                 orderDate = DateTime.Now.Date.ToString();
             }
 
-            //smUpdatePanel.RegisterAsyncPostBackControl(btnRefreshOrder);
-
             DataTable dt = new DataTable();
             dt.Columns.AddRange(new DataColumn[2] { new DataColumn("Id"), new DataColumn("Time") });
             dt.Rows.Add(1, "00:00 - 00:59");
@@ -204,11 +202,6 @@ namespace project.Views.Shows
 
             return indexRes;
         }
-
-        //protected void btnRefreshOrder_Click(object sender, EventArgs e)
-        //{
-        //    BindData();
-        //}
 
         protected void txtOrderDate_Load(object sender, EventArgs e)
         {
