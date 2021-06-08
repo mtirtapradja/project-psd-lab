@@ -1225,7 +1225,6 @@
     </Content>
     <Content Include="Views\Home\HomePage.aspx" />
     <Content Include="Views\Login\LoginPage.aspx" />
-    <Content Include="Views\Login\style.css" />
     <Content Include="Views\RedeemToken\RedeemTokenPage.aspx" />
     <Content Include="Views\Register\RegisterPage.aspx" />
     <Content Include="Views\Register\style.css" />

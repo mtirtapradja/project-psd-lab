@@ -68,6 +68,36 @@ namespace project.Views.Shows
             button.Visible = false;
         }
 
+        private void navForSeller()
+        {
+            Button button = this.Master.FindControl("btnHomeOnNav") as Button;
+            button.Visible = true;
+
+            button = this.Master.FindControl("btnAddShowOnNav") as Button;
+            button.Visible = true;
+
+            button = this.Master.FindControl("btnReportsOnNav") as Button;
+            button.Visible = true;
+
+            button = this.Master.FindControl("btnLoginOnNav") as Button;
+            button.Visible = false;
+
+            button = this.Master.FindControl("btnRegisterOnNav") as Button;
+            button.Visible = false;
+
+            button = this.Master.FindControl("btnTransactionOnNav") as Button;
+            button.Visible = false;
+
+            button = this.Master.FindControl("btnAccountOnNav") as Button;
+            button.Visible = true;
+
+            button = this.Master.FindControl("btnRedeemOnNav") as Button;
+            button.Visible = true;
+
+            button = this.Master.FindControl("btnLogoutOnNav") as Button;
+            button.Visible = true;
+        }
+
         private void showButton(string RoleId, int ShowId,int UserId)
         {
             this.btnOrder.Visible = true;
@@ -110,33 +140,7 @@ namespace project.Views.Shows
             else if (RoleId.Equals("2") && ShowController.CheckShowWithSeller(ShowId,UserId))
             {
                 btnOrder.Visible = false;
-
-                Button button = this.Master.FindControl("btnHomeOnNav") as Button;
-                button.Visible = true;
-
-                button = this.Master.FindControl("btnAddShowOnNav") as Button;
-                button.Visible = true;
-
-                button = this.Master.FindControl("btnReportsOnNav") as Button;
-                button.Visible = true;
-
-                button = this.Master.FindControl("btnLoginOnNav") as Button;
-                button.Visible = false;
-
-                button = this.Master.FindControl("btnRegisterOnNav") as Button;
-                button.Visible = false;
-
-                button = this.Master.FindControl("btnTransactionOnNav") as Button;
-                button.Visible = false;
-
-                button = this.Master.FindControl("btnAccountOnNav") as Button;
-                button.Visible = true;
-
-                button = this.Master.FindControl("btnRedeemOnNav") as Button;
-                button.Visible = true;
-
-                button = this.Master.FindControl("btnLogoutOnNav") as Button;
-                button.Visible = true;
+                navForSeller();
             }
             else
             {
@@ -144,32 +148,40 @@ namespace project.Views.Shows
                 btnUpdate.Visible = false;
                 btnDelete.Visible = false;
 
-                Button button = this.Master.FindControl("btnHomeOnNav") as Button;
-                button.Visible = true;
+                if (!RoleId.Equals("2"))
+                {
+                    Button button = this.Master.FindControl("btnHomeOnNav") as Button;
+                    button.Visible = true;
 
-                button = this.Master.FindControl("btnAddShowOnNav") as Button;
-                button.Visible = false;
+                    button = this.Master.FindControl("btnAddShowOnNav") as Button;
+                    button.Visible = false;
 
-                button = this.Master.FindControl("btnReportsOnNav") as Button;
-                button.Visible = false;
+                    button = this.Master.FindControl("btnReportsOnNav") as Button;
+                    button.Visible = false;
 
-                button = this.Master.FindControl("btnLoginOnNav") as Button;
-                button.Visible = true;
+                    button = this.Master.FindControl("btnLoginOnNav") as Button;
+                    button.Visible = true;
 
-                button = this.Master.FindControl("btnRegisterOnNav") as Button;
-                button.Visible = true;
+                    button = this.Master.FindControl("btnRegisterOnNav") as Button;
+                    button.Visible = true;
 
-                button = this.Master.FindControl("btnTransactionOnNav") as Button;
-                button.Visible = false;
+                    button = this.Master.FindControl("btnTransactionOnNav") as Button;
+                    button.Visible = false;
 
-                button = this.Master.FindControl("btnAccountOnNav") as Button;
-                button.Visible = false;
+                    button = this.Master.FindControl("btnAccountOnNav") as Button;
+                    button.Visible = false;
 
-                button = this.Master.FindControl("btnRedeemOnNav") as Button;
-                button.Visible = true;
+                    button = this.Master.FindControl("btnRedeemOnNav") as Button;
+                    button.Visible = true;
 
-                button = this.Master.FindControl("btnLogoutOnNav") as Button;
-                button.Visible = false;
+                    button = this.Master.FindControl("btnLogoutOnNav") as Button;
+                    button.Visible = false;
+                }
+                else
+                {
+                    navForSeller();
+                }
+                
             }
         }
 
@@ -189,11 +201,19 @@ namespace project.Views.Shows
         {
             int showId = Convert.ToInt32(Request.QueryString["ShowId"]);
 
-            if (ShowController.DeleteShow(showId))
-            {
-                Response.Redirect("../Home/HomePage.aspx");
-            }
+            List<Models.Review> reviews = ReviewController.GetShowReviewByShowId(showId);
 
+            if (reviews.Count > 0)
+            {
+                lblError.Text = "Show has been reviewed, can't delete show";
+            }
+            else
+            {
+                if (ShowController.DeleteShow(showId))
+                {
+                    Response.Redirect("../Home/HomePage.aspx");
+                }
+            }
         }
     }
 }
