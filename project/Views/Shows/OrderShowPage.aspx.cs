@@ -166,7 +166,6 @@ namespace project.Views.Shows
                 int showId = int.Parse(Request.QueryString["ShowId"]);
                 int buyerId = int.Parse(Session["UserId"].ToString());
 
-
                 if (txtOrderDate.Text == "")
                 {
                     lblError.Text = "Please Choose Order Date";
@@ -177,27 +176,35 @@ namespace project.Views.Shows
                 }
                 else
                 {
-                    int headerId = TransactionController.InsertTransactionHeader(buyerId, showId, date, DateTime.Now);
-
-                    if (headerId != -1)
+                    int qty = Convert.ToInt32(txtQuantity.Text);
+                    if (qty < 1)
                     {
-                        for (int i = 0; i < Convert.ToInt32(txtQuantity.Text); i++)
-                        {
-                            string token;
-                            do
-                            {
-                                token = TransactionController.GetRandomToken(6);
-                                TransactionDetail trDetail = TransactionController.GetDetailTransactionByToken(token);
-                                if (trDetail == null)
-                                {
-                                    break;
-                                }
-                            } while (true);
-
-                            TransactionController.InsertTransactionDetail(headerId, 1, token);
-                        }
+                        lblError.Text = "Please insert more than 1 quantity";
                     }
-                    Response.Redirect("../Home/HomePage.aspx");
+                    else
+                    {
+                        int headerId = TransactionController.InsertTransactionHeader(buyerId, showId, date, DateTime.Now);
+
+                        if (headerId != -1)
+                        {
+                            for (int i = 0; i < Convert.ToInt32(txtQuantity.Text); i++)
+                            {
+                                string token;
+                                do
+                                {
+                                    token = TransactionController.GetRandomToken(6);
+                                    TransactionDetail trDetail = TransactionController.GetDetailTransactionByToken(token);
+                                    if (trDetail == null)
+                                    {
+                                        break;
+                                    }
+                                } while (true);
+
+                                TransactionController.InsertTransactionDetail(headerId, 1, token);
+                            }
+                        }   
+                        Response.Redirect("../Home/HomePage.aspx");
+                    }
                 }
             }
         }

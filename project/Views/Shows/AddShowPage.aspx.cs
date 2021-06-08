@@ -48,7 +48,7 @@ namespace project.View.Shows
 
                 User currentUser = UserController.GetUserById(currentUserID);
 
-                if (currentUser.RoleId == 2)
+                if (currentUser.RoleId == 1)
                 {
                     Response.Redirect("../Home/HomePage.aspx?id=" + currentUser.RoleId);
                 }
@@ -61,7 +61,7 @@ namespace project.View.Shows
 
                 User currentUser = UserController.GetUserById(currentUserID);
 
-                if (currentUser.RoleId == 2)
+                if (currentUser.RoleId == 1)
                 {
                     Response.Redirect("../Home/HomePage.aspx?id=" + currentUser.RoleId);
                 }
