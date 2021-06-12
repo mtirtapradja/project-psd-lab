@@ -47,10 +47,10 @@ namespace project.Views.Report
             transactionReport.SetDataSource(GetData(sellerId));
             crvTransactionDetail.ReportSource = transactionReport;
 
-            ShowNav();
+            showAdditionalNavbar();
         }
 
-        private void ShowNav()
+        private void showAdditionalNavbar()
         {
             Button button = this.Master.FindControl("btnHomeOnNav") as Button;
             button.Visible = true;
@@ -59,7 +59,7 @@ namespace project.Views.Report
             button.Visible = true;
 
             button = this.Master.FindControl("btnReportsOnNav") as Button;
-            button.Visible = false;
+            button.Visible = true;
 
             button = this.Master.FindControl("btnLoginOnNav") as Button;
             button.Visible = false;
