@@ -7,15 +7,15 @@
     <h2>LOGIN PAGE</h2>
 
     <div>
-        <asp:Label runat="server">Username :
+        <asp:Label runat="server">Username
         </asp:Label>
-        <asp:TextBox ID="txtEmail" runat="server" />
+        <asp:TextBox ID="txtEmail" placeholder="Email" runat="server" />
     </div>
 
     <div>
-        <asp:Label runat="server">Password :
+        <asp:Label runat="server">Password
         </asp:Label>
-        <asp:TextBox ID="txtPassword" TextMode="Password" runat="server" MaxLength="50" />
+        <asp:TextBox ID="txtPassword" placeholder="Password" TextMode="Password" runat="server" MaxLength="50" />
     </div>
 
     <div>
