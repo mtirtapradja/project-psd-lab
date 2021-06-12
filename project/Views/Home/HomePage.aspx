@@ -7,7 +7,7 @@
     <asp:Label ID="txtUserName" Text="" Font-Size="25px" Font-Names="Segoe UI" runat="server" />
     <br />
     <div>
-        <asp:TextBox ID="txtQuerySearch" Text="" OnTextChanged="btnSearch_Click" AutoPostBack="true" runat="server" />
+        <asp:TextBox ID="txtQuerySearch" placeholder="Search" Text="" OnTextChanged="btnSearch_Click" AutoPostBack="true" runat="server" />
         <asp:Button ID="btnSearch" Text="Search" OnClick="btnSearch_Click" runat="server" />
     </div>
     <br />

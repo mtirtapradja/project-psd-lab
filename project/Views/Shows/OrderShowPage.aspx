@@ -42,7 +42,7 @@
     <%-- Untuk QUANTITY ORDER --%>
     <div>
         <asp:Label Text="Quantity " runat="server" />
-        <asp:TextBox ID="txtQuantity" TextMode="Number" runat="server" />
+        <asp:TextBox ID="txtQuantity" placeholder="Quantity" TextMode="Number" runat="server" />
     </div>
 
     <div>

@@ -5,14 +5,14 @@
 
     <%-- Untuk Current PROFILE DATA --%>
                 <div>
-                    <asp:Label ID="lblCurrName" Text="Current Name: " runat="server" />
+                    <asp:Label ID="lblCurrName"  Text="Current Name: " runat="server" />
                     <asp:Label ID="lblCurrNameValue" Text="" runat="server" />
                 </div>
 
     <!-- Untuk NAME -->
                 <div>
                     <asp:Label ID="lblName" Text="Name: " runat="server" />
-                    <asp:TextBox ID="txtName" runat="server" />
+                    <asp:TextBox ID="txtName" placeholder="Name" runat="server" />
                 </div>
 
     <!-- Untuk OLD PASSWORD -->

@@ -24,13 +24,13 @@
     <%--untuk Nilai Rating dari Show--%>
     <div>
         <asp:Label ID="lblRating" Text="Rating" runat="server" />
-        <asp:TextBox ID="txtRating" Text="" TextMode="Number" runat="server" />
+        <asp:TextBox ID="txtRating" Text="" placeholder="Rating" TextMode="Number" runat="server" />
     </div>
 
     <%--untuk Deskripsi Review Show--%>
     <div>
         <asp:Label ID="lblDescription" Text="Description" runat="server" />
-        <asp:TextBox ID="txtDescription" Text="" runat="server" />
+        <asp:TextBox ID="txtDescription" Text="" placeholder="Description" runat="server" />
     </div>
 
     <br />

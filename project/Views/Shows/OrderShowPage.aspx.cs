@@ -78,6 +78,9 @@ namespace project.Views.Shows
             button = this.Master.FindControl("btnRegisterOnNav") as Button;
             button.Visible = false;
 
+            button = this.Master.FindControl("btnAddShowOnNav") as Button;
+            button.Visible = false;
+
             string orderDate = txtOrderDate.Text;
 
             if (orderDate == "")
