@@ -61,6 +61,7 @@ namespace project.Views.Shows
         {
             int ShowId = int.Parse(Request.QueryString["ShowId"]);
             ShowDetail show = ShowController.GetShowDetailById(ShowId);
+            Button button;
 
             if (show != null)
             {
@@ -71,15 +72,7 @@ namespace project.Views.Shows
                 lblSellerNameValue.Text = show.Seller_Name;
             }
 
-
-            Button button = this.Master.FindControl("btnLoginOnNav") as Button;
-            button.Visible = false;
-
-            button = this.Master.FindControl("btnRegisterOnNav") as Button;
-            button.Visible = false;
-
-            button = this.Master.FindControl("btnAddShowOnNav") as Button;
-            button.Visible = false;
+            showAdditionalNavbar();
 
             string orderDate = txtOrderDate.Text;
 
@@ -133,7 +126,7 @@ namespace project.Views.Shows
                 n = 23;
             }
 
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i <= n; i++)
             {
                 button = this.gvOrder.Rows[i].FindControl("btnOrderShow") as Button;
                 button.Visible = false;
@@ -210,6 +203,36 @@ namespace project.Views.Shows
                     }
                 }
             }
+        }
+
+        private void showAdditionalNavbar()
+        {
+            Button button = this.Master.FindControl("btnHomeOnNav") as Button;
+            button.Visible = true;
+
+            button = this.Master.FindControl("btnAddShowOnNav") as Button;
+            button.Visible = false;
+
+            button = this.Master.FindControl("btnReportsOnNav") as Button;
+            button.Visible = false;
+
+            button = this.Master.FindControl("btnLoginOnNav") as Button;
+            button.Visible = false;
+
+            button = this.Master.FindControl("btnRegisterOnNav") as Button;
+            button.Visible = false;
+
+            button = this.Master.FindControl("btnTransactionOnNav") as Button;
+            button.Visible = true;
+
+            button = this.Master.FindControl("btnAccountOnNav") as Button;
+            button.Visible = true;
+
+            button = this.Master.FindControl("btnRedeemOnNav") as Button;
+            button.Visible = true;
+
+            button = this.Master.FindControl("btnLogoutOnNav") as Button;
+            button.Visible = true;
         }
 
         private List<int> isAlreadyOrder(string orderDate)

@@ -10,19 +10,19 @@
 
     <div>
         <asp:Label ID="lblName" Text="Name" runat="server" />
-        <asp:TextBox ID="txtName" runat="server" />
+        <asp:TextBox ID="txtName" placeholder="Name" runat="server" />
     </div>
     <div>
         <asp:Label ID="lblURL" Text="URL" runat="server" />
-        <asp:TextBox ID="txtURL" runat="server" />
+        <asp:TextBox ID="txtURL" placeholder="URL" runat="server" />
     </div>
     <div>
         <asp:Label ID="lblDesc" Text="Description" runat="server" />
-        <asp:TextBox ID="txtDesc" runat="server" />
+        <asp:TextBox ID="txtDesc" placeholder="Description" runat="server" />
     </div>
     <div>
         <asp:Label ID="lblPrice" Text="Price" runat="server" />
-        <asp:TextBox ID="txtPrice" TextMode="Number" runat="server" />
+        <asp:TextBox ID="txtPrice" placeholder="Price" TextMode="Number" runat="server" />
     </div>
     <div>
         <asp:Label ID="lblError" Text="" ForeColor="Red" runat="server" />
