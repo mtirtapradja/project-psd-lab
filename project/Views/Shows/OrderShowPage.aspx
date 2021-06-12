@@ -45,10 +45,6 @@
         <asp:TextBox ID="txtQuantity" placeholder="Quantity" TextMode="Number" runat="server" />
     </div>
 
-    <div>
-        <asp:Label ID="lblError" Text="" ForeColor="Red"  runat="server" />
-    </div>
-
      <%-- Untik GridView ORDER --%>
     <div>
         <asp:ScriptManager ID="smUpdatePanel" runat="server" />

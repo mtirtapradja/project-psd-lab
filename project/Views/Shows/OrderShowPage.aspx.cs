@@ -164,18 +164,18 @@ namespace project.Views.Shows
 
                 if (txtOrderDate.Text == "")
                 {
-                    lblError.Text = "Please Choose Order Date";
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please Choose Order Date')", true);
                 }
                 else if (txtQuantity.Text == "")
                 {
-                    lblError.Text = "Please Insert Quantity";
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please Insert Quantity')", true);
                 }
                 else
                 {
                     int qty = Convert.ToInt32(txtQuantity.Text);
                     if (qty < 1)
                     {
-                        lblError.Text = "Please insert more than 1 quantity";
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please insert more than 1 quantity')", true);
                     }
                     else
                     {
